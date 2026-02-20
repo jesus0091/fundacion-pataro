@@ -1,4 +1,5 @@
 import Section from "@/components/ui/Section";
+import QuienesSomosSection from "@/components/sections/QuienesSomosSection";
 import AboutIntro from "@/components/sections/AboutIntro";
 
 export default function AboutPage() {
@@ -10,13 +11,12 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 
   return (
     <>
-      <Section padding="small" className="bg-neutral-background">
-        <div className="text-center">
-          <h1 className="text-heading-1 mb-4">Sobre Nosotros</h1>
-          <p className="text-body-lg max-w-2xl mx-auto">
-            Conoce más sobre nuestra misión, visión y valores
-          </p>
-        </div>
+      <Section className="bg-neutral-background" padding="none">
+        <QuienesSomosSection
+          originContent={`Nuestra historia nace del compromiso con la excelencia médica y el bienestar de las comunidades. Trabajamos desde la formación, la investigación y la gestión asistencial para generar un impacto real en el sistema de salud.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`}
+        />
       </Section>
       <Section>
         <AboutIntro

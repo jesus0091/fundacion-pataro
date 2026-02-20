@@ -91,7 +91,7 @@ export default function ContactForm() {
         error={errors.message}
         required
       />
-      <Button type="submit" className="w-full md:w-auto">
+      <Button type="submit">
         Enviar Mensaje
       </Button>
     </form>
