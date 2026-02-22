@@ -3,14 +3,15 @@ import { ReactNode } from "react";
 export interface HeadingProps {
   children: ReactNode;
   id?: string;
+  className?: string;
 }
 
 /** H1: título principal (hero). Estilos incluidos. */
-export function H1({ children, id }: HeadingProps) {
+export function H1({ children, id, className }: HeadingProps) {
   return (
     <h1
       id={id}
-      className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tighter md:leading-tight"
+      className={`font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tighter md:leading-tight ${className ?? ""}`.trim()}
     >
       {children}
     </h1>
@@ -33,9 +34,9 @@ export interface H2Props extends HeadingProps {
 }
 
 /** H2: título de sección. variant: default | narrow (centrado) | section | compact. */
-export function H2({ children, id, variant = "default" }: H2Props) {
+export function H2({ children, id, variant = "default", className }: H2Props) {
   return (
-    <h2 id={id} className={H2_VARIANTS[variant]}>
+    <h2 id={id} className={`${H2_VARIANTS[variant]} ${className ?? ""}`.trim()}>
       {children}
     </h2>
   );
@@ -53,20 +54,20 @@ export interface H3Props extends HeadingProps {
 }
 
 /** H3: subtítulo o título de card. variant: default | overlay (texto claro sobre fondo oscuro). */
-export function H3({ children, id, variant = "default" }: H3Props) {
+export function H3({ children, id, variant = "default", className }: H3Props) {
   return (
-    <h3 id={id} className={H3_VARIANTS[variant]}>
+    <h3 id={id} className={`${H3_VARIANTS[variant]} ${className ?? ""}`.trim()}>
       {children}
     </h3>
   );
 }
 
 /** H4: subtítulo nivel 4. */
-export function H4({ children, id }: HeadingProps) {
+export function H4({ children, id, className }: HeadingProps) {
   return (
     <h4
       id={id}
-      className="font-serif text-heading-4 font-semibold text-secondary"
+      className={`font-serif text-heading-4 font-semibold text-secondary ${className ?? ""}`.trim()}
     >
       {children}
     </h4>
@@ -74,11 +75,11 @@ export function H4({ children, id }: HeadingProps) {
 }
 
 /** H5: subtítulo nivel 5. */
-export function H5({ children, id }: HeadingProps) {
+export function H5({ children, id, className }: HeadingProps) {
   return (
     <h5
       id={id}
-      className="font-serif text-xl font-semibold text-secondary"
+      className={`font-serif text-xl font-semibold text-secondary ${className ?? ""}`.trim()}
     >
       {children}
     </h5>
@@ -86,11 +87,11 @@ export function H5({ children, id }: HeadingProps) {
 }
 
 /** H6: subtítulo nivel 6. */
-export function H6({ children, id }: HeadingProps) {
+export function H6({ children, id, className }: HeadingProps) {
   return (
     <h6
       id={id}
-      className="font-serif text-lg font-semibold text-secondary"
+      className={`font-serif text-lg font-semibold text-secondary ${className ?? ""}`.trim()}
     >
       {children}
     </h6>
@@ -154,12 +155,13 @@ export interface PProps {
   children: ReactNode;
   id?: string;
   variant?: keyof typeof P_VARIANTS;
+  className?: string;
 }
 
 /** P: párrafo. variant: intro | body | bodyLg | bodyLgMb4 | bodyLgMb8 | sm | smMb4 | smMb5 | overlay | narrow | narrowMt3 | narrowMt4 | centerNarrowMb10 | introNarrow. */
-export function P({ children, id, variant = "body" }: PProps) {
+export function P({ children, id, variant = "body", className }: PProps) {
   return (
-    <p id={id} className={P_VARIANTS[variant]}>
+    <p id={id} className={`${P_VARIANTS[variant]} ${className ?? ""}`.trim()}>
       {children}
     </p>
   );

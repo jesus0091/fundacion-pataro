@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({

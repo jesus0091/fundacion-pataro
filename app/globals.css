@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-inter: "Inter", system-ui, sans-serif;
+    --font-source-serif: "Source Serif 4", Georgia, serif;
+  }
+
   * {
     @apply border-neutral-light;
   }

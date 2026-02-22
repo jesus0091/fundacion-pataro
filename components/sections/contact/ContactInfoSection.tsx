@@ -28,7 +28,7 @@ export default function ContactInfoSection() {
               <a href={item.href} className="text-neutral-text-light hover:text-primary transition-colors">
                 <P variant="body">{item.content}</P>
               </a>
-            ) : "contentLines" in item ? (
+            ) : "contentLines" in item && item.contentLines ? (
               <div className="text-neutral-text-light text-base leading-relaxed">
                 {item.contentLines.map((line, j) => (
                   <span key={j} className="block">

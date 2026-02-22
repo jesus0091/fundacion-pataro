@@ -1,22 +1,8 @@
 import "./globals.css";
 
-import { Inter, Source_Serif_4 } from "next/font/google";
-
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  variable: "--font-source-serif",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Fundación Pataro",
@@ -29,8 +15,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`scrollbar-hide ${inter.variable} ${sourceSerif.variable}`}>
-      <body className={`overflow-x-hidden scrollbar-hide w-full ${inter.className}`}>
+    <html lang="es" className="scrollbar-hide">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="overflow-x-hidden scrollbar-hide w-full font-sans">
         <a
           href="#main-content"
           className="fixed left-4 top-4 z-[100] rounded bg-primary px-4 py-2 text-sm font-medium text-white shadow-lg transition focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 -translate-y-20 focus:translate-y-0"
