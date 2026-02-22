@@ -82,11 +82,11 @@ export default function WhoWeAccompanySection({
 
   return (
     <section
-      className="bg-white py-16 lg:py-24"
+      className="bg-white py-12 sm:py-16 lg:py-24"
       aria-labelledby="who-we-accompany-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <header className="mb-10 max-w-xl flex flex-col gap-3">
+        <header className="mb-8 sm:mb-10 max-w-xl flex flex-col gap-3">
           <Label variant="primaryTight">{subtitle}</Label>
           <H2 id="who-we-accompany-heading" variant="compact">
             {title}
@@ -94,7 +94,7 @@ export default function WhoWeAccompanySection({
           <P variant="introNarrow">{intro}</P>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-stretch">
           <div
             role="tablist"
             aria-label="A quiénes acompañamos"
@@ -151,7 +151,7 @@ export default function WhoWeAccompanySection({
             role="tabpanel"
             aria-labelledby={`who-tab-${activeStep}`}
             aria-live="polite"
-            className="relative rounded-2xl overflow-hidden shadow-lg min-h-[320px] lg:min-h-[420px] bg-neutral-background"
+            className="relative rounded-2xl overflow-hidden shadow-lg min-h-[280px] sm:min-h-[320px] lg:min-h-[420px] bg-neutral-background"
           >
             {imageSrc ? (
               <Image

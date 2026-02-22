@@ -3,11 +3,11 @@ import { ReactNode } from "react";
 
 const BUTTON_VARIANTS = {
   primary:
-    "inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium transition-colors hover:bg-primary-dark",
+    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base bg-primary text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-colors hover:bg-primary-dark",
   secondary:
-    "inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-3 rounded-full font-medium transition-colors hover:bg-primary-50",
+    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base border-2 border-primary text-primary px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-colors hover:bg-primary-50",
   tertiary:
-    "inline-flex items-center justify-center gap-2 bg-white text-neutral-text px-6 py-3 rounded-full font-medium transition-colors hover:bg-neutral-100",
+    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base bg-white text-neutral-text px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-colors hover:bg-neutral-100",
 } as const;
 
 export interface ButtonProps {

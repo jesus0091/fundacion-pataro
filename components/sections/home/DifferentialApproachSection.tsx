@@ -33,12 +33,12 @@ export default function DifferentialApproachSection({
 }: DifferentialApproachSectionProps) {
     return (
         <section
-            className="relative py-16 lg:py-24 overflow-hidden"
+            className="relative py-12 sm:py-16 lg:py-24 overflow-hidden"
             aria-labelledby="differential-approach-heading"
         >
             <AuroraBackground />
             <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-4 sm:px-6">
-                <header className="text-center mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
+                <header className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
                     <Label variant="primaryTight">
                         Nuestro enfoque diferencial
                     </Label>
@@ -51,13 +51,13 @@ export default function DifferentialApproachSection({
                         combinamos:
                     </P>
                 </header>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 lg:mb-12 max-w-3xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 lg:mb-12 max-w-3xl mx-auto w-full">
                     {cards.map((card, index) => (
                         <article
                             key={index}
                             className="group rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <div className="relative aspect-[4/6] min-h-[280px]">
+                            <div className="relative aspect-[4/6] min-h-[220px] sm:min-h-[260px] md:min-h-[280px]">
                                 {card.imageSrc ? (
                                     <>
                                         <img

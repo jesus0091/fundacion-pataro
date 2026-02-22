@@ -26,11 +26,11 @@ export default function PurposeSection({
 }: PurposeSectionProps) {
     return (
         <section
-            className="py-16 lg:py-40 bg-gradient-to-b from-[#F0F6FE] to-white"
+            className="py-12 sm:py-16 lg:py-40 bg-gradient-to-b from-[#F0F6FE] to-white"
             aria-labelledby="purpose-heading"
         >
-            <div className="max-w-7xl px-6 grid grid-cols-2 items-center gap-16 self-stretch mx-auto">
-                <div className="relative rounded-3xl bg-white flex-shrink-0 overflow-hidden lg:h-[500px]">
+            <div className="max-w-7xl px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16 self-stretch mx-auto">
+                <div className="relative rounded-2xl lg:rounded-3xl bg-white flex-shrink-0 overflow-hidden h-[260px] sm:h-[320px] lg:h-[500px] order-2 lg:order-1">
                     <Image
                         src={imageSrc}
                         alt={imageAlt}
@@ -40,7 +40,7 @@ export default function PurposeSection({
                     />
                 </div>
 
-                <div className="flex flex-col items-start gap-6 flex-1">
+                <div className="flex flex-col items-start gap-4 sm:gap-6 flex-1 order-1 lg:order-2">
                     <div className="flex flex-col gap-3">
                         <Label variant="primaryTight">{subtitle}</Label>
                         <H2 id="purpose-heading">{title}</H2>

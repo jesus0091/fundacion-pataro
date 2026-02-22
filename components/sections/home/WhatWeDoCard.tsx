@@ -19,7 +19,7 @@ export default function WhatWeDoCard({
   return (
     <article
       data-carousel-card
-      className="flex-shrink-0 min-w-[480px] sm:w-[360px] snap-center rounded-2xl bg-white transition-all duration-300"
+      className="flex-shrink-0 w-[min(100vw-2rem,360px)] min-w-[280px] sm:min-w-[320px] snap-center rounded-2xl bg-white transition-all duration-300"
     >
       <div className="relative aspect-[16/7] rounded-2xl overflow-hidden w-full bg-neutral-background">
         {imageSrc ? (

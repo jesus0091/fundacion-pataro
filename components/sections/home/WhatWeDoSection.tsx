@@ -99,9 +99,9 @@ export default function WhatWeDoSection() {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <section className="py-16 lg:py-24 bg-white overflow-visible" aria-labelledby="what-we-do-heading">
+    <section className="py-12 sm:py-16 lg:py-24 bg-white overflow-visible" aria-labelledby="what-we-do-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-visible">
-        <header className="mb-10 max-w-xl flex flex-col gap-3">
+        <header className="mb-8 sm:mb-10 max-w-xl flex flex-col gap-3">
           <Label variant="primaryTight">Qué Hacemos</Label>
           <H2 id="what-we-do-heading" variant="section">
             Impacto real en el sistema de salud.

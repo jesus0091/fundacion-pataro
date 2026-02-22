@@ -12,7 +12,7 @@ const HIGHLIGHTS = [
 export default function Hero() {
     return (
         <section
-            className="relative overflow-hidden min-h-[80vh] pb-40 pt-32 flex items-center"
+            className="relative overflow-hidden min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] pb-24 pt-20 sm:pb-32 sm:pt-24 lg:pb-40 lg:pt-32 flex items-center"
             aria-labelledby="hero-heading"
         >
             <div className="absolute inset-0 z-0">
@@ -26,12 +26,12 @@ export default function Hero() {
                     aria-hidden
                 />
             </div>
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div className="max-w-xl flex flex-col gap-6 text-white">
-                        <div className="flex flex-col gap-4">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:py-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+                    <div className="max-w-xl flex flex-col gap-4 sm:gap-6 text-white">
+                        <div className="flex flex-col gap-2 md:gap-4">
                             <Label variant="primary">
-                                Fundación Patricia Pataro
+                                Fundación Patricio Pataro
                             </Label>
                             <H1 id="hero-heading">
                                 Innovación y cuidado para una vida más saludable
@@ -43,16 +43,14 @@ export default function Hero() {
                                 atención.
                             </P>
                         </div>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-base text-primary">
+                        <div className="hidden md:flex flex-wrap items-center gap-1 md:gap-4 text-xs sm:text-sm md:text-base text-primary">
                             {HIGHLIGHTS.map((item, i) => (
                                 <span
                                     key={i}
                                     className="flex items-center gap-1.5"
                                 >
                                     {i > 0 && (
-                                        <span className="text-primary">
-                                            ·
-                                        </span>
+                                        <span className="text-primary">·</span>
                                     )}
                                     {item}
                                 </span>
@@ -82,15 +80,15 @@ export default function Hero() {
                             </Button>
                         </div>
                     </div>
-                    <div className="relative flex flex-1 h-full lg:h-[550px]">
-                            <Image
-                                src="/images/img-hero.png"
-                                alt="Fundación Pataro - Innovación y cuidado para una vida más saludable"
-                                fill
-                                className="object-contain drop-shadow-md"
-                                sizes="(max-width: 1024px) 100vw, 512px"
-                                priority
-                            />
+                    <div className="relative flex flex-1 w-full h-[300px] sm:h-[320px] lg:h-[550px] order-last lg:order-none">
+                        <Image
+                            src="/images/img-hero.png"
+                            alt="Fundación Pataro - Innovación y cuidado para una vida más saludable"
+                            fill
+                            className="object-contain drop-shadow-md"
+                            sizes="(max-width: 1024px) 100vw, 512px"
+                            priority
+                        />
                     </div>
                 </div>
             </div>

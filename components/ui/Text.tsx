@@ -10,7 +10,7 @@ export function H1({ children, id }: HeadingProps) {
   return (
     <h1
       id={id}
-      className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+      className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tighter md:leading-tight"
     >
       {children}
     </h1>
@@ -19,13 +19,13 @@ export function H1({ children, id }: HeadingProps) {
 
 const H2_VARIANTS = {
   default:
-    "font-serif text-[48px] font-bold text-[#1F2933] leading-[55.2px] tracking-[-0.72px]",
+    "font-serif text-2xl sm:text-3xl lg:text-[48px] font-bold text-[#1F2933] leading-tight lg:leading-[55.2px] tracking-tight lg:tracking-[-0.72px]",
   narrow:
-    "font-serif text-[48px] font-bold text-[#1F2933] leading-[55.2px] tracking-[-0.72px]",
+    "font-serif text-2xl sm:text-3xl lg:text-[48px] font-bold text-[#1F2933] leading-tight lg:leading-[55.2px] tracking-tight lg:tracking-[-0.72px]",
   section:
-    "font-serif text-[48px] font-bold text-[#1F2933] leading-[55.2px] tracking-[-0.72px]",
+    "font-serif text-2xl sm:text-3xl lg:text-[48px] font-bold text-[#1F2933] leading-tight lg:leading-[55.2px] tracking-tight lg:tracking-[-0.72px]",
   compact:
-    "font-serif text-[48px] font-bold text-[#1F2933] leading-[55.2px] tracking-[-0.72px]",
+    "font-serif text-2xl sm:text-3xl lg:text-[48px] font-bold text-[#1F2933] leading-tight lg:leading-[55.2px] tracking-tight lg:tracking-[-0.72px]",
 } as const;
 
 export interface H2Props extends HeadingProps {
@@ -101,18 +101,17 @@ export function H6({ children, id }: HeadingProps) {
 
 const LABEL_VARIANTS = {
   primary:
-    "inline-block font-semibold text-lg tracking-wide capitalize text-primary",
+    "inline-block font-semibold text-sm sm:text-lg tracking-wide capitalize text-primary",
   secondary:
-    "inline-block font-semibold text-lg tracking-wide capitalize text-secondary",
+    "inline-block font-semibold text-sm sm:text-lg tracking-wide capitalize text-secondary",
   primaryTight:
-    "inline-block font-semibold text-lg tracking-wide capitalize text-primary",
+    "inline-block font-semibold text-sm sm:text-lg tracking-wide capitalize text-primary",
 } as const;
 
 export interface LabelProps {
   children: ReactNode;
   variant?: keyof typeof LABEL_VARIANTS;
 }
-
 /** Label: etiqueta de sección (ej. "Fundación Patricia Pataro", "Qué Hacemos"). variant: primary | secondary | primaryTight. */
 export function Label({ children, variant = "secondary" }: LabelProps) {
   return <span className={LABEL_VARIANTS[variant]}>{children}</span>;
@@ -122,33 +121,33 @@ export function Label({ children, variant = "secondary" }: LabelProps) {
 
 const P_VARIANTS = {
   intro:
-    "text-neutral-text-light text-lg leading-relaxed",
+    "text-neutral-text-light text-sm sm:text-lg leading-relaxed",
   body:
-    "text-neutral-text-light text-base leading-relaxed",
+    "text-neutral-text-light text-sm sm:text-sm leading-relaxed",
   bodyLg:
-    "text-neutral-text-light text-base lg:text-lg leading-relaxed",
+    "text-neutral-text-light text-sm sm:text-base lg:text-lg leading-relaxed",
   bodyLgMb4:
-    "text-neutral-text-light text-base lg:text-lg leading-relaxed",
+    "text-neutral-text-light text-sm sm:text-base lg:text-lg leading-relaxed",
   bodyLgMb8:
-    "text-neutral-text-light text-base lg:text-lg leading-relaxed",
+    "text-neutral-text-light text-sm sm:text-base lg:text-lg leading-relaxed",
   sm:
-    "text-neutral-text-light text-sm leading-relaxed",
+    "text-neutral-text-light text-xs sm:text-sm leading-relaxed",
   smMb4:
-    "text-neutral-text-light text-sm leading-relaxed",
+    "text-neutral-text-light text-xs sm:text-sm leading-relaxed",
   smMb5:
-    "text-neutral-text-light text-sm leading-relaxed",
+    "text-neutral-text-light text-xs sm:text-sm leading-relaxed",
   overlay:
-    "text-white text-lg lg:text-xl leading-relaxed",
+    "text-white text-sm sm:text-lg lg:text-xl leading-relaxed",
   narrow:
-    "text-neutral-text-light text-base lg:text-lg leading-relaxed max-w-2xl mx-auto",
+    "text-neutral-text-light text-sm sm:text-sm lg:text-lg leading-relaxed max-w-2xl mx-auto",
   narrowMt3:
-    "text-neutral-text-light text-lg leading-relaxed max-w-2xl",
+    "text-neutral-text-light text-base sm:text-lg leading-relaxed max-w-2xl",
   narrowMt4:
-    "text-neutral-text-light text-base lg:text-lg leading-relaxed max-w-2xl mx-auto",
+    "text-neutral-text-light text-sm sm:text-sm lg:text-lg leading-relaxed max-w-2xl mx-auto",
   centerNarrowMb10:
-    "text-center text-neutral-text-light text-base lg:text-lg leading-relaxed max-w-2xl mx-auto",
+    "text-center text-neutral-text-light text-sm sm:text-sm lg:text-lg leading-relaxed max-w-2xl mx-auto",
   introNarrow:
-    "text-neutral-text text-base lg:text-lg leading-relaxed",
+    "text-neutral-text text-sm lg:text-lg leading-relaxed",
 } as const;
 
 export interface PProps {

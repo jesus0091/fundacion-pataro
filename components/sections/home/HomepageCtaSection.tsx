@@ -16,14 +16,14 @@ export default function HomepageCtaSection({
 }: HomepageCtaSectionProps) {
   return (
     <section
-      className="py-16 lg:py-24 bg-white"
+      className="py-12 sm:py-16 lg:py-24 bg-white"
       aria-labelledby="homepage-cta-heading"
     >
       <h2 id="homepage-cta-heading" className="sr-only">
         Nuestra creencia
       </h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="relative rounded-3xl overflow-hidden min-h-[280px] lg:min-h-[320px] flex items-center">
+        <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden min-h-[240px] sm:min-h-[280px] lg:min-h-[320px] flex items-center">
           {/* Imagen de fondo (handshake) con blur */}
           <div className="absolute inset-0">
             <div
@@ -37,7 +37,7 @@ export default function HomepageCtaSection({
           </div>
 
           {/* Contenido: logo FPP + texto, alineado a la izquierda */}
-          <div className="relative z-10 p-8 lg:p-12 max-w-xl">
+          <div className="relative z-10 p-6 sm:p-8 lg:p-12 max-w-xl">
             <div className="inline-flex items-center justify-center rounded-full bg-secondary px-4 py-2 mb-6">
               <span className="text-white font-bold text-sm uppercase tracking-wide">
                 FPP
