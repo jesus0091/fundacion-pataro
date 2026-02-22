@@ -11,7 +11,10 @@ const HIGHLIGHTS = [
 
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden min-h-[80vh] pb-40 pt-32 flex items-center">
+        <section
+            className="relative overflow-hidden min-h-[80vh] pb-40 pt-32 flex items-center"
+            aria-labelledby="hero-heading"
+        >
             <div className="absolute inset-0 z-0">
                 <Image
                     src="/images/bg-hero.webp"
@@ -20,6 +23,7 @@ export default function Hero() {
                     className="object-cover"
                     sizes="100vw"
                     priority
+                    aria-hidden
                 />
             </div>
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:py-24">
@@ -29,7 +33,7 @@ export default function Hero() {
                             <Label variant="primary">
                                 Fundación Patricia Pataro
                             </Label>
-                            <H1>
+                            <H1 id="hero-heading">
                                 Innovación y cuidado para una vida más saludable
                             </H1>
                             <P variant="intro">
@@ -62,6 +66,7 @@ export default function Hero() {
                                     height="16"
                                     viewBox="0 0 16 16"
                                     fill="none"
+                                    aria-hidden
                                 >
                                     <path
                                         d="M6 3l5 5-5 5"

@@ -105,9 +105,9 @@ export default function WhoWeAccompanySection({
                 key={index}
                 type="button"
                 role="tab"
-                id={`tab-${index}`}
+                id={`who-tab-${index}`}
                 aria-selected={activeStep === index}
-                aria-controls={`tabpanel-${index}`}
+                aria-controls="who-we-accompany-panel"
                 onClick={() => handleTabClick(index)}
                 className={`group relative flex cursor-pointer flex-col gap-1.5 border-l-4 py-4 pl-6 text-left transition-all md:gap-3 ${
                   activeStep === index
@@ -146,7 +146,13 @@ export default function WhoWeAccompanySection({
             ))}
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-lg min-h-[320px] lg:min-h-[420px] bg-neutral-background">
+          <div
+            id="who-we-accompany-panel"
+            role="tabpanel"
+            aria-labelledby={`who-tab-${activeStep}`}
+            aria-live="polite"
+            className="relative rounded-2xl overflow-hidden shadow-lg min-h-[320px] lg:min-h-[420px] bg-neutral-background"
+          >
             {imageSrc ? (
               <Image
                 src={imageSrc}

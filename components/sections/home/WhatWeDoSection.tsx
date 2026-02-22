@@ -134,10 +134,10 @@ export default function WhatWeDoSection() {
             type="button"
             onClick={scrollPrev}
             disabled={!canScrollLeft}
-            aria-label="Anterior"
+            aria-label="Ver programas anteriores"
             className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
@@ -145,10 +145,10 @@ export default function WhatWeDoSection() {
             type="button"
             onClick={scrollNext}
             disabled={!canScrollRight}
-            aria-label="Siguiente"
+            aria-label="Ver más programas"
             className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>

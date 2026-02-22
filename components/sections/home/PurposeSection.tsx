@@ -25,7 +25,10 @@ export default function PurposeSection({
     imageAlt = "Nuestro propósito - Fundación Pataro",
 }: PurposeSectionProps) {
     return (
-        <section className="py-16 lg:py-40 bg-gradient-to-b from-[#F0F6FE] to-white">
+        <section
+            className="py-16 lg:py-40 bg-gradient-to-b from-[#F0F6FE] to-white"
+            aria-labelledby="purpose-heading"
+        >
             <div className="max-w-7xl px-6 grid grid-cols-2 items-center gap-16 self-stretch mx-auto">
                 <div className="relative rounded-3xl bg-white flex-shrink-0 overflow-hidden lg:h-[500px]">
                     <Image
@@ -40,7 +43,7 @@ export default function PurposeSection({
                 <div className="flex flex-col items-start gap-6 flex-1">
                     <div className="flex flex-col gap-3">
                         <Label variant="primaryTight">{subtitle}</Label>
-                        <H2>{title}</H2>
+                        <H2 id="purpose-heading">{title}</H2>
                         <div>
                             <P variant="bodyLgMb4">{paragraph1}</P>
                             <P variant="bodyLgMb8">{paragraph2}</P>
@@ -53,6 +56,7 @@ export default function PurposeSection({
                             height="16"
                             viewBox="0 0 16 16"
                             fill="none"
+                            aria-hidden
                         >
                             <path
                                 d="M6 3l5 5-5 5"

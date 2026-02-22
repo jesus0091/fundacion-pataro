@@ -10,13 +10,16 @@ export interface BenefitItem {
 
 function BenefitCard({ icon, title, description }: BenefitItem) {
     return (
-        <div className="flex flex-col items-center text-center p-6">
-            <div className="flex w-14 h-14 pt-[5.09px] pb-[5.91px] justify-center items-center rounded-xl mb-4 bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD]">
+        <article className="flex flex-col items-center text-center p-6">
+            <div
+                className="flex w-14 h-14 pt-[5.09px] pb-[5.91px] justify-center items-center rounded-xl mb-4 bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD]"
+                aria-hidden
+            >
                 {icon}
             </div>
             <H3>{title}</H3>
             <P variant="intro">{description}</P>
-        </div>
+        </article>
     );
 }
 
@@ -30,6 +33,7 @@ const DEFAULT_BENEFITS: BenefitItem[] = [
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={1.5}
+                aria-hidden
             >
                 <path
                     strokeLinecap="round"
@@ -51,6 +55,7 @@ const DEFAULT_BENEFITS: BenefitItem[] = [
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={1.5}
+                aria-hidden
             >
                 <path
                     strokeLinecap="round"
@@ -72,6 +77,7 @@ const DEFAULT_BENEFITS: BenefitItem[] = [
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={1.5}
+                aria-hidden
             >
                 <path
                     strokeLinecap="round"
@@ -94,7 +100,13 @@ export default function Benefits({
     benefits = DEFAULT_BENEFITS,
 }: BenefitsProps) {
     return (
-        <section className="flex flex-col items-center relative bg-[#F0F6FE] px-6">
+        <section
+            className="flex flex-col items-center relative bg-[#F0F6FE] px-6"
+            aria-labelledby="benefits-heading"
+        >
+            <h2 id="benefits-heading" className="sr-only">
+                Beneficios: formación, innovación y compromiso
+            </h2>
             <div className="grid grid-cols-3 max-w-7xl -mt-40 z-10 mx-auto rounded-[20px] bg-white justify-center items-center flex-1 min-h-80 shadow-[0_4px_20px_0_rgba(0,67,223,0.15)]">
                 {benefits.map((benefit, index) => (
                     <BenefitCard key={index} {...benefit} />

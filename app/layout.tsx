@@ -31,8 +31,14 @@ export default function RootLayout({
   return (
     <html lang="es" className={`scrollbar-hide ${inter.variable} ${sourceSerif.variable}`}>
       <body className={`overflow-x-hidden scrollbar-hide w-full ${inter.className}`}>
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-[100] rounded bg-primary px-4 py-2 text-sm font-medium text-white shadow-lg transition focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 -translate-y-20 focus:translate-y-0"
+        >
+          Saltar al contenido principal
+        </a>
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen" role="main">{children}</main>
         <Footer />
       </body>
     </html>

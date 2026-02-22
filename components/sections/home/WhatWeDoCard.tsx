@@ -27,6 +27,7 @@ export default function WhatWeDoCard({
             src={imageSrc}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-secondary/15 via-neutral-background to-primary/15" />
@@ -42,9 +43,10 @@ export default function WhatWeDoCard({
           <Link
             href={href}
             className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm hover:text-primary-dark transition-colors"
+            aria-label={`Ver más sobre ${title}`}
           >
             Ver más
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
               <path
                 d="M6 3l5 5-5 5"
                 stroke="currentColor"

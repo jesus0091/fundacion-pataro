@@ -15,7 +15,13 @@ export default function HomepageCtaSection({
   backgroundImageSrc = DEFAULT_BG_IMAGE,
 }: HomepageCtaSectionProps) {
   return (
-    <section className="py-16 lg:py-24 bg-white" aria-label="Nuestra creencia">
+    <section
+      className="py-16 lg:py-24 bg-white"
+      aria-labelledby="homepage-cta-heading"
+    >
+      <h2 id="homepage-cta-heading" className="sr-only">
+        Nuestra creencia
+      </h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="relative rounded-3xl overflow-hidden min-h-[280px] lg:min-h-[320px] flex items-center">
           {/* Imagen de fondo (handshake) con blur */}
