@@ -94,7 +94,7 @@ export default function Benefits({
     benefits = DEFAULT_BENEFITS,
 }: BenefitsProps) {
     return (
-        <section className="flex flex-col items-center relative bg-[#F0F6FE]">
+        <section className="flex flex-col items-center relative bg-[#F0F6FE] px-6">
             <div className="grid grid-cols-3 max-w-7xl -mt-40 z-10 mx-auto rounded-[20px] bg-white justify-center items-center flex-1 min-h-80 shadow-[0_4px_20px_0_rgba(0,67,223,0.15)]">
                 {benefits.map((benefit, index) => (
                     <BenefitCard key={index} {...benefit} />

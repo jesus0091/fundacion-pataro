@@ -78,4 +78,22 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+}
+
+/* Aurora glow keyframes (usado por AuroraBackground) */
+@keyframes aurora-float1 {
+  0%   { transform: translate(-20%, -20%) scale(1); }
+  50%  { transform: translate(15%, 10%) scale(1.15); }
+  100% { transform: translate(-20%, -20%) scale(1); }
+}
+@keyframes aurora-float2 {
+  0%   { transform: translate(20%, -10%) scale(1.05); }
+  50%  { transform: translate(-10%, 15%) scale(0.9); }
+  100% { transform: translate(20%, -10%) scale(1.05); }
+}
+@keyframes aurora-float3 {
+  0%   { transform: translate(-5%, 15%) scale(0.95) rotate(0deg); }
+  50%  { transform: translate(10%, -10%) scale(1.1) rotate(10deg); }
+  100% { transform: translate(-5%, 15%) scale(0.95) rotate(0deg); }
 }

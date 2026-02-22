@@ -1,4 +1,9 @@
+"use client";
+
 import { H2, H3, Label, P } from "@/components/ui/Text";
+import { useEffect, useRef, useState } from "react";
+
+import Image from "next/image";
 
 export interface AccompanyItem {
   title: string;
@@ -23,6 +28,9 @@ const DEFAULT_ITEMS: AccompanyItem[] = [
   },
 ];
 
+const AUTOPLAY_TIME_MS = 6000;
+const PROGRESS_STEP_MS = 30;
+
 interface WhoWeAccompanySectionProps {
   subtitle?: string;
   title?: string;
@@ -37,39 +45,115 @@ export default function WhoWeAccompanySection({
   title = "Trabajamos junto a quienes hacen posible una mejor salud.",
   intro = "En la Fundación Patricio Pataro entendemos que mejorar la salud requiere más que acciones aisladas. Por eso combinamos:",
   items = DEFAULT_ITEMS,
-  imageSrc,
-  imageAlt = "Profesionales de la salud",
+  imageSrc = "/images/img-company.webp",
+  imageAlt = "A quiénes acompañamos - Fundación Pataro",
 }: WhoWeAccompanySectionProps) {
+  const [activeStep, setActiveStep] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    setProgress(0);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    const stepAmount = 100 / (AUTOPLAY_TIME_MS / PROGRESS_STEP_MS);
+
+    intervalRef.current = setInterval(() => {
+      setProgress((prev) => {
+        const nextValue = prev + stepAmount;
+        if (nextValue >= 100) {
+          const nextIndex = (activeStep + 1) % items.length;
+          setActiveStep(nextIndex);
+          return 0;
+        }
+        return nextValue;
+      });
+    }, PROGRESS_STEP_MS);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [activeStep]);
+
+  const handleTabClick = (index: number) => {
+    setActiveStep(index);
+    setProgress(0);
+  };
+
   return (
     <section
       className="bg-white py-16 lg:py-24"
       aria-labelledby="who-we-accompany-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <div>
-            <Label variant="primaryTight">{subtitle}</Label>
-            <H2 id="who-we-accompany-heading" variant="compact">
-              {title}
-            </H2>
-            <P variant="introNarrow">{intro}</P>
+        <header className="mb-10 max-w-xl flex flex-col gap-3">
+          <Label variant="primaryTight">{subtitle}</Label>
+          <H2 id="who-we-accompany-heading" variant="compact">
+            {title}
+          </H2>
+          <P variant="introNarrow">{intro}</P>
+        </header>
 
-            <div className="border-l-4 border-primary pl-6 space-y-6">
-              {items.map((item, index) => (
-                <div key={index}>
-                  <H3>{item.title}</H3>
-                  <P variant="body">{item.description}</P>
-                </div>
-              ))}
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+          <div
+            role="tablist"
+            aria-label="A quiénes acompañamos"
+            className="flex flex-col"
+          >
+            {items.map((item, index) => (
+              <button
+                key={index}
+                type="button"
+                role="tab"
+                id={`tab-${index}`}
+                aria-selected={activeStep === index}
+                aria-controls={`tabpanel-${index}`}
+                onClick={() => handleTabClick(index)}
+                className={`group relative flex cursor-pointer flex-col gap-1.5 border-l-4 py-4 pl-6 text-left transition-all md:gap-3 ${
+                  activeStep === index
+                    ? "border-primary"
+                    : "border-neutral-light hover:border-neutral-dark/30"
+                }`}
+              >
+                <h3
+                  className={`text-lg font-bold tracking-tight transition-colors md:text-xl font-serif ${
+                    activeStep === index
+                      ? "text-secondary"
+                      : "text-neutral-text/70 group-hover:text-neutral-text"
+                  }`}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className={`text-sm tracking-tight transition-colors md:text-lg leading-relaxed ${
+                    activeStep === index
+                      ? "text-neutral-text"
+                      : "text-neutral-text-light group-hover:text-neutral-text/90"
+                  }`}
+                >
+                  {item.description}
+                </p>
+                {activeStep === index && (
+                  <div className="absolute top-0 -left-1 h-full w-1 overflow-hidden">
+                    <div className="absolute inset-0 w-full bg-primary/20" />
+                    <div
+                      className="absolute bottom-0 left-0 w-full bg-primary transition-all duration-100 ease-linear"
+                      style={{ height: `${progress}%` }}
+                    />
+                  </div>
+                )}
+              </button>
+            ))}
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[4/5] min-h-[320px] lg:min-h-[420px] bg-neutral-background">
+          <div className="relative rounded-2xl overflow-hidden shadow-lg min-h-[320px] lg:min-h-[420px] bg-neutral-background">
             {imageSrc ? (
-              <img
+              <Image
                 src={imageSrc}
                 alt={imageAlt}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-neutral-background to-primary/10 flex items-center justify-center">

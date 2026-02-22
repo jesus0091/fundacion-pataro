@@ -1,5 +1,6 @@
 import { H2, H3, Label, P } from "@/components/ui/Text";
 
+import AuroraBackground from "@/components/ui/AuroraBackground";
 import { Button } from "@/components/ui/Button";
 
 export interface DifferentialApproachCard {
@@ -8,9 +9,9 @@ export interface DifferentialApproachCard {
 }
 
 const DEFAULT_CARDS: DifferentialApproachCard[] = [
-    { title: "Conocimiento aplicado" },
-    { title: "Visión sistémica" },
-    { title: "Impacto sostenible" },
+    { title: "Conocimiento aplicado", imageSrc: "/images/img-01_1_.webp" },
+    { title: "Visión sistémica", imageSrc: "/images/img-02_1_.webp" },
+    { title: "Impacto sostenible", imageSrc: "/images/img-03_1_.webp" },
 ];
 
 const CARD_GRADIENTS = [
@@ -35,7 +36,8 @@ export default function DifferentialApproachSection({
             className="relative py-16 lg:py-24 overflow-hidden"
             aria-labelledby="differential-approach-heading"
         >
-            <div className="max-w-7xl mx-auto flex flex-col items-center px-4 sm:px-6">
+            <AuroraBackground />
+            <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-4 sm:px-6">
                 <header className="text-center mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
                     <Label variant="primaryTight">
                         Nuestro enfoque diferencial
@@ -49,14 +51,13 @@ export default function DifferentialApproachSection({
                         combinamos:
                     </P>
                 </header>
-
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 lg:mb-12 max-w-3xl mx-auto">
                     {cards.map((card, index) => (
                         <article
                             key={index}
-                            className="group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-neutral-background"
+                            className="group rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <div className="relative aspect-[4/5] min-h-[280px]">
+                            <div className="relative aspect-[4/6] min-h-[280px]">
                                 {card.imageSrc ? (
                                     <>
                                         <img
@@ -79,24 +80,25 @@ export default function DifferentialApproachSection({
                                         />
                                     </div>
                                 )}
-                                <div className="absolute bottom-0 left-0 right-0 p-5">
+                                <div className="absolute bottom-0 max-w-10 left-0 w-full p-5">
                                     <H3 variant="overlay">{card.title}</H3>
                                 </div>
                             </div>
                         </article>
                     ))}
                 </div>
+                <div className="flex flex-col items-center gap-6">
+                    <P variant="centerNarrowMb10">
+                        Nuestro enfoque integra acción inmediata y visión
+                        estratégica, generando impacto hoy y construyendo
+                        soluciones para el futuro.
+                    </P>
 
-                <P variant="centerNarrowMb10">
-                    Nuestro enfoque integra acción inmediata y visión
-                    estratégica, generando impacto hoy y construyendo soluciones
-                    para el futuro.
-                </P>
-
-                <div className="flex justify-center">
-                    <Button href={ctaHref} variant="primary">
-                        {ctaText}
-                    </Button>
+                    <div className="flex justify-center">
+                        <Button href={ctaHref} variant="primary">
+                            {ctaText}
+                        </Button>
+                    </div>
                 </div>
             </div>
         </section>

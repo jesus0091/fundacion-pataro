@@ -1,5 +1,4 @@
-const DEFAULT_BG_IMAGE =
-  "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80";
+const DEFAULT_BG_IMAGE = "/images/banner_1_.webp";
 
 interface HomepageCtaSectionProps {
   /** URL de la imagen de fondo (handshake/colaboración). Opcional. */
@@ -28,14 +27,7 @@ export default function HomepageCtaSection({
                 filter: "blur(4px)",
               }}
             />
-            {/* Overlay: gradiente azul (izq) → verde (der), translúcido */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to right, rgba(30, 58, 95, 0.88) 0%, rgba(30, 58, 95, 0.75) 35%, rgba(22, 163, 74, 0.7) 100%)",
-              }}
-            />
+            
           </div>
 
           {/* Contenido: logo FPP + texto, alineado a la izquierda */}
