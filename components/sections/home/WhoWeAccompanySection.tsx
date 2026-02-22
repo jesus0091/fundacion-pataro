@@ -73,7 +73,7 @@ export default function WhoWeAccompanySection({
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [activeStep]);
+  }, [activeStep, items.length]);
 
   const handleTabClick = (index: number) => {
     setActiveStep(index);
