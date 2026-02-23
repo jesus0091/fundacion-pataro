@@ -101,7 +101,7 @@ export default function Benefits({
 }: BenefitsProps) {
     return (
         <section
-            className="flex flex-col items-center relative bg-[#F0F6FE] px-4 sm:px-6 py-8 sm:py-0"
+            className="flex flex-col items-center relative bg-[#F0F6FE] px-10 sm:px-6 py-8 sm:py-0"
             aria-labelledby="benefits-heading"
         >
             <h2 id="benefits-heading" className="sr-only">
