@@ -1,6 +1,8 @@
 import { H2, P } from "@/components/ui/Text";
-import { Button } from "@/components/ui/Button";
 import { IconBrandInstagram, IconBrandLinkedin } from "@tabler/icons-react";
+
+import { Button } from "@/components/ui/Button";
+import { FirmaLogo } from "@/components/ui/FirmaLogo";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,14 +29,14 @@ export default function Footer({
                 />
             </div>
             <div className="relative py-16 lg:py-20 overflow-hidden">
-                <header className="relative z-10 max-w-xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center gap-6">
+                <header className="relative z-10 max-w-xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center gap-4">
                     <H2 id="footer-cta-heading">{ctaTitle}</H2>
-                    <P>{ctaDescription}</P>
+                    <P variant="narrow">{ctaDescription}</P>
                     <div className="flex flex-wrap justify-center gap-3">
-                      <Button href="/services" variant="tertiary">
+                      <Button href="/services" variant="primary">
                         Ver Programas de Formación
                       </Button>
-                      <Button href="/contact" variant="primary">
+                      <Button href="/contact" variant="tertiary">
                         Donar
                       </Button>
                     </div>
@@ -44,12 +46,11 @@ export default function Footer({
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-8 pt-14">
                     {/* Firma y redes sociales */}
                     <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-white/15">
-                        <Image
-                            src="/images/firma.svg"
-                            alt="Fundación Pataro"
+                        <FirmaLogo
+                            color="white"
+                            className="w-[50%] h-auto object-contain"
                             width={280}
                             height={28}
-                            className="w-[50%] h-auto object-contain"
                         />
                         <div className="flex gap-3">
                             <a

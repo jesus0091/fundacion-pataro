@@ -80,12 +80,12 @@ export default function Hero() {
                             </Button>
                         </div>
                     </div>
-                    <div className="relative flex flex-1 w-full h-[300px] sm:h-[320px] lg:h-[550px] order-last lg:order-none">
+                    <div className=" flex flex-1 w-full  order-last lg:order-none">
                         <Image
                             src="/images/img-hero.png"
                             alt="Fundación Pataro - Innovación y cuidado para una vida más saludable"
                             fill
-                            className="object-contain drop-shadow-md"
+                            className="object-contain drop-shadow-md !static w-full"
                             sizes="(max-width: 1024px) 100vw, 512px"
                             priority
                         />

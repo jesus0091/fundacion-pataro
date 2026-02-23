@@ -37,7 +37,7 @@ export default function DifferentialApproachSection({
             aria-labelledby="differential-approach-heading"
         >
             <AuroraBackground />
-            <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-4 sm:px-6">
+            <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-10 sm:px-6">
                 <header className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
                     <Label variant="primaryTight">
                         Nuestro enfoque diferencial
@@ -57,7 +57,7 @@ export default function DifferentialApproachSection({
                             key={index}
                             className="group rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <div className="relative aspect-[4/6] min-h-[220px] sm:min-h-[260px] md:min-h-[280px]">
+                            <div className="relative aspect-[16/9] sm:aspect-[4/6] min-h-[160px] sm:min-h-[280px]">
                                 {card.imageSrc ? (
                                     <>
                                         <img

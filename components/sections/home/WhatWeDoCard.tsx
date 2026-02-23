@@ -1,4 +1,5 @@
 import { H3, P } from "@/components/ui/Text";
+
 import Link from "next/link";
 
 export interface WhatWeDoCardProps {
@@ -36,7 +37,7 @@ export default function WhatWeDoCard({
           {icon}
         </div>
       </div>
-      <div className="p-5">
+      <div className="p-5 flex flex-col gap-2 sm:gap-3">
         <H3>{title}</H3>
         <P variant="smMb4">{description}</P>
         {href && (

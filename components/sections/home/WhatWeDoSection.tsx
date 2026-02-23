@@ -3,6 +3,7 @@
 import { H2, Label, P } from "@/components/ui/Text";
 import WhatWeDoCard, { WhatWeDoCardProps } from "./WhatWeDoCard";
 import { useCallback, useEffect, useState } from "react";
+
 import useEmblaCarousel from "embla-carousel-react";
 
 const GAP_PX = 24;
@@ -100,8 +101,8 @@ export default function WhatWeDoSection() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-white overflow-visible" aria-labelledby="what-we-do-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-visible">
-        <header className="mb-8 sm:mb-10 max-w-xl flex flex-col gap-3">
+      <div className="max-w-7xl mx-auto px-10 sm:px-6 overflow-visible">
+        <header className="mb-8 sm:mb-10 max-w-xs sm:max-w-xl flex flex-col gap-3">
           <Label variant="primaryTight">Qué Hacemos</Label>
           <H2 id="what-we-do-heading" variant="section">
             Impacto real en el sistema de salud.
@@ -128,8 +129,8 @@ export default function WhatWeDoSection() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center gap-2 mt-6">
+      <div className="max-w-7xl mx-auto px-10 sm:px-6">
+        <div className="flex items-center justify-center sm:justify-start gap-2 mt-6">
           <button
             type="button"
             onClick={scrollPrev}

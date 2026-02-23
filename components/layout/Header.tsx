@@ -3,7 +3,7 @@
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
+import { FirmaLogo } from "@/components/ui/FirmaLogo";
 import Link from "next/link";
 
 const SCROLL_THRESHOLD = 20;
@@ -54,13 +54,7 @@ export default function Header() {
             className="flex items-center py-2 hover:opacity-90 transition-opacity"
             aria-label="Fundación Pataro - Inicio"
           >
-            <Image
-              src="/images/firma.svg"
-              alt="Fundación Pataro"
-              width={180}
-              height={18}
-              className="h-5 w-auto sm:h-6 brightness-0"
-            />
+            <FirmaLogo color="black" className="h-5 w-auto sm:h-6" />
           </Link>
 
           {/* Desktop: links + Donar */}

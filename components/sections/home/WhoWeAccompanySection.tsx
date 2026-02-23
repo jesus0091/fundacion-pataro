@@ -85,7 +85,7 @@ export default function WhoWeAccompanySection({
       className="bg-white py-12 sm:py-16 lg:py-24"
       aria-labelledby="who-we-accompany-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-10 sm:px-6">
         <header className="mb-8 sm:mb-10 max-w-xl flex flex-col gap-3">
           <Label variant="primaryTight">{subtitle}</Label>
           <H2 id="who-we-accompany-heading" variant="compact">
@@ -180,6 +180,8 @@ export default function WhoWeAccompanySection({
                 </div>
               </div>
             )}
+            <div className="absolute inset-0 bg-black opacity-10" />
+
           </div>
         </div>
       </div>
