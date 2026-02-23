@@ -10,9 +10,9 @@ export interface BenefitItem {
 
 function BenefitCard({ icon, title, description }: BenefitItem) {
     return (
-        <article className="flex flex-col items-center text-center p-5 sm:p-6 bg-white rounded-2xl md:rounded-none shadow-sm md:shadow-none">
+        <article className="flex flex-col items-center text-center px-8 py-6 sm:p-6 bg-white rounded-2xl md:rounded-none shadow-sm md:shadow-none">
             <div
-                className="flex w-14 h-14 pt-[5.09px] pb-[5.91px] justify-center items-center rounded-xl mb-4 bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD]"
+                className="flex w-14 h-14 pt-[5.09px] pb-[5.91px] justify-center items-center rounded-xl sm:mb-4 mb-2 bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD]"
                 aria-hidden
             >
                 {icon}
@@ -107,7 +107,7 @@ export default function Benefits({
             <h2 id="benefits-heading" className="sr-only">
                 Beneficios: formación, innovación y compromiso
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl -mt-24 sm:-mt-32 lg:-mt-40 z-10 mx-auto rounded-2xl md:rounded-[20px] md:overflow-hidden justify-center items-stretch flex-1 min-h-0 md:min-h-80 w-full gap-4 md:gap-0 md:bg-white md:shadow-[0_4px_20px_0_rgba(0,67,223,0.15)]">
+            <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl -mt-24 sm:-mt-32 lg:-mt-40 z-10 mx-auto rounded-2xl md:rounded-[20px] md:overflow-hidden justify-center items-stretch flex-1 min-h-0 md:min-h-80 w-full gap-4 md:gap-0 bg-white md:shadow-[0_4px_20px_0_rgba(0,67,223,0.15)]">
                 {benefits.map((benefit, index) => (
                     <BenefitCard key={index} {...benefit} />
                 ))}

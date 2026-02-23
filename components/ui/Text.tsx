@@ -44,7 +44,7 @@ export function H2({ children, id, variant = "default", className }: H2Props) {
 
 const H3_VARIANTS = {
   default:
-    "font-serif text-2xl font-bold text-secondary leading-tight",
+    "font-serif text-base sm:text-2xl font-bold text-secondary leading-tight",
   overlay:
     "font-serif text-xl font-bold text-white drop-shadow-sm",
 } as const;
