@@ -49,7 +49,7 @@ export default function AboutOriginWhySection() {
                     </div>
                     {/* Cita: fondo #E8F5FD, borde izquierdo azul/teal fino, texto azul itálico (Figma) */}
                     <blockquote className="mt-4 py-4 pl-6 pr-5 bg-[#E8F5FD] border-l-[3px] border-[#2196F3] text-[#1976D2] text-base italic font-sans rounded-r-lg">
-                        "{QUOTE}"
+                        &ldquo;{QUOTE}&rdquo;
                     </blockquote>
 
                     {/* Por Qué Existimos */}
