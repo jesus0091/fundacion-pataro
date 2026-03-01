@@ -36,7 +36,7 @@ export default function HomepageCtaSection({
                                 className="w-[90%] sm:w-auto max-w-xs drop-shadow-sm object-contain"
                             />
                         </div>
-                        <P variant="overlay">
+                        <P variant="body" className="text-white">
                             Creemos que una mejor salud se construye cuando el
                             conocimiento médico, la innovación y el compromiso
                             humano trabajan juntos.

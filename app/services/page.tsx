@@ -1,5 +1,6 @@
 import Section from "@/components/ui/Section";
 import ServicesGrid from "@/components/sections/ServicesGrid";
+import ServicesPillarsSection from "@/components/sections/services/ServicesPillarsSection";
 
 export default function ServicesPage() {
   const services = [
@@ -51,6 +52,7 @@ export default function ServicesPage() {
           </p>
         </div>
       </Section>
+      <ServicesPillarsSection />
       <Section>
         <ServicesGrid services={services} />
       </Section>

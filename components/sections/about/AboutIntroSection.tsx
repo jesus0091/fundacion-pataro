@@ -1,18 +1,35 @@
-import { H1, P } from "@/components/ui/Text";
+import { H1, Label, P } from "@/components/ui/Text";
+
+import Image from "next/image";
 
 export default function AboutIntroSection() {
-  return (
-    <section className="py-16 lg:py-24 bg-white" aria-labelledby="about-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="max-w-3xl">
-          <H1 id="about-heading">Quiénes Somos</H1>
-          <div className="mt-4">
-          <P variant="bodyLgMb4">
-            Transformamos conocimiento en acción a través de cinco pilares fundamentales que fortalecen el sistema de salud.
-          </P>
-        </div>
-      </div>
-    </div>
-    </section>
-  );
+    return (
+        <section
+            className="py-16 sm:py-20 relative lg:py-28"
+            aria-labelledby="about-heading"
+        >
+            <div className="absolute inset-0 z-[-1]">
+                <Image
+                    src="/images/bg-hero.webp"
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                    priority
+                    aria-hidden
+                />
+            </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center z-10">
+                <header className="max-w-2xl flex flex-col gap-3 items-center text-center">
+                    <Label variant="secondary">Sobre nosotros</Label>
+                    <H1 id="about-heading">Quiénes Somos</H1>
+                    <P variant="body" className="text-center">
+                        Transformamos conocimiento en acción a través de cinco
+                        pilares fundamentales que fortalecen el sistema de
+                        salud.
+                    </P>
+                </header>
+            </div>
+        </section>
+    );
 }

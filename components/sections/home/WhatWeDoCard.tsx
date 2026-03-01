@@ -20,9 +20,9 @@ export default function WhatWeDoCard({
   return (
     <article
       data-carousel-card
-      className="flex-shrink-0 w-[min(100vw-2rem,360px)] min-w-[280px] sm:min-w-[320px] snap-center rounded-2xl bg-white transition-all duration-300"
+      className="flex-shrink-0 w-[min(100vw-2rem,360px)] min-w-[280px] sm:min-w-[500px] snap-center rounded-2xl bg-[] transition-all duration-300"
     >
-      <div className="relative aspect-[16/7] rounded-2xl overflow-hidden w-full bg-neutral-background">
+      <div className="relative aspect-[16/6] rounded-2xl overflow-hidden w-full bg-neutral-background">
         {imageSrc ? (
           <img
             src={imageSrc}
@@ -39,7 +39,7 @@ export default function WhatWeDoCard({
       </div>
       <div className="p-5 flex flex-col gap-2 sm:gap-3">
         <H3>{title}</H3>
-        <P variant="smMb4">{description}</P>
+        <P variant="small">{description}</P>
         {href && (
           <Link
             href={href}

@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 
 const HIGHLIGHTS = [
-    "Proyectos realizados",
-    "Investigación científica",
-    "Gestión ambiental",
+    "Formación",
+    "Innovación",
+    "Compromiso ",
 ];
 
 export default function Hero() {
@@ -26,24 +26,24 @@ export default function Hero() {
                     aria-hidden
                 />
             </div>
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-10 sm:px-6 py-8 lg:py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-10 sm:px-6 py-12 sm:py-16 lg:py-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     <div className="max-w-xl flex flex-col gap-4 sm:gap-6 text-white">
-                        <div className="flex flex-col gap-2 md:gap-4">
+                        <header className="flex flex-col gap-3">
                             <Label variant="primary">
                                 Fundación Patricio Pataro
                             </Label>
                             <H1 id="hero-heading">
                                 Innovación y cuidado para una vida más saludable
                             </H1>
-                            <P variant="intro">
+                            <P variant="body">
                                 Impulsamos la excelencia médica mediante
                                 educación, investigación e innovación.
                                 Fortalecemos el sistema de salud y mejorando la
                                 atención.
                             </P>
-                        </div>
-                        <div className="hidden md:flex flex-wrap items-center gap-1 md:gap-4 text-xs sm:text-sm md:text-base text-primary">
+                        </header>
+                        <div className="flex flex-wrap font-semibold items-center gap-1 md:gap-4 text-xs sm:text-base md:text-lg text-primary">
                             {HIGHLIGHTS.map((item, i) => (
                                 <span
                                     key={i}
@@ -56,7 +56,7 @@ export default function Hero() {
                                 </span>
                             ))}
                         </div>
-                        <div className="flex flex-wrap items-center gap-4">
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
                             <Button href="/services" variant="primary">
                                 Programas de Becas
                                 <svg

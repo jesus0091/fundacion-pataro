@@ -2,10 +2,10 @@ import Benefits from "@/components/sections/home/Benefits";
 import DifferentialApproachSection from "@/components/sections/home/DifferentialApproachSection";
 import Hero from "@/components/sections/home/Hero";
 import HomepageCtaSection from "@/components/sections/home/HomepageCtaSection";
+import type { Metadata } from "next";
 import PurposeSection from "@/components/sections/home/PurposeSection";
 import WhatWeDoSection from "@/components/sections/home/WhatWeDoSection";
 import WhoWeAccompanySection from "@/components/sections/home/WhoWeAccompanySection";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Inicio | Fundación Pataro – Innovación y cuidado para una vida más saludable",
@@ -24,8 +24,8 @@ export default function Home() {
     <>
       <Hero />
       <Benefits />
-      <PurposeSection />
       <WhatWeDoSection />
+      <PurposeSection />
       <DifferentialApproachSection />
       <WhoWeAccompanySection />
       <HomepageCtaSection />

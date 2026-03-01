@@ -1,4 +1,4 @@
-import { H3, P } from "@/components/ui/Text";
+import { H2, H5, P } from "@/components/ui/Text";
 
 const ORIGIN_PARAGRAPHS = [
   "La Fundación Patricio Pataro nace de una vocación profunda: transformar el sistema de salud a través de la formación continua de profesionales y la gestión de centros asistenciales de excelencia.",
@@ -10,14 +10,12 @@ const QUOTE =
 
 export default function AboutOriginSection() {
   return (
-    <section className="py-16 lg:py-24 bg-neutral-background" aria-labelledby="origin-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="max-w-3xl">
-          <div className="mb-6">
-          <H3 id="origin-heading">
+    <section className="py-12 sm:py-16 lg:py-24" aria-labelledby="origin-heading">
+      <div className="max-w-6xl mx-auto px-8">
+        <div className="max-w-2xl">
+          <H5 id="origin-heading" className="mb-6">
             El Origen
-          </H3>
-          </div>
+          </H5>
           <div className="flex flex-col gap-4">
             {ORIGIN_PARAGRAPHS.map((text, i) => (
               <P key={i} variant="body">
@@ -25,7 +23,7 @@ export default function AboutOriginSection() {
               </P>
             ))}
           </div>
-          <blockquote className="mt-8 pl-6 border-l-4 border-primary text-neutral-text-light text-lg italic">
+          <blockquote className="mt-8 pl-6 border-l-4 border-primary text-[#333333] text-lg italic">
             {QUOTE}
           </blockquote>
         </div>

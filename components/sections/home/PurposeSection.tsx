@@ -45,8 +45,8 @@ export default function PurposeSection({
                         <Label variant="primaryTight">{subtitle}</Label>
                         <H2 id="purpose-heading">{title}</H2>
                         <div>
-                            <P variant="bodyLgMb4">{paragraph1}</P>
-                            <P variant="bodyLgMb8">{paragraph2}</P>
+                            <P variant="body">{paragraph1}</P>
+                            <P variant="body">{paragraph2}</P>
                         </div>
                     </div>
                     <Button href={ctaHref} variant="primary">

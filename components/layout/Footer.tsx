@@ -31,7 +31,7 @@ export default function Footer({
             <div className="relative py-16 lg:py-20 overflow-hidden">
                 <header className="relative z-10 max-w-xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center gap-4">
                     <H2 id="footer-cta-heading">{ctaTitle}</H2>
-                    <P variant="narrow">{ctaDescription}</P>
+                    <P variant="body">{ctaDescription}</P>
                     <div className="flex flex-wrap justify-center gap-3">
                       <Button href="/services" variant="primary">
                         Ver Programas de Formación

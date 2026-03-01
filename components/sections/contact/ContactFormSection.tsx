@@ -5,7 +5,7 @@ import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import Select from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
-import { H2, P } from "@/components/ui/Text";
+import { P } from "@/components/ui/Text";
 
 const MOTIVO_OPTIONS = [
   { value: "", label: "Seleccioná un motivo" },
@@ -65,14 +65,17 @@ export default function ContactFormSection() {
     }
   };
 
+  const disclaimer =
+    "Para consultas sobre programas de becas, alianzas estratégicas o eventos académicos, por favor seleccioná el motivo correspondiente en el formulario. Te responderemos dentro de las 48 horas hábiles.";
+
   return (
-    <div className="flex flex-col gap-6">
-      <div className="mb-2">
-        <H2 variant="compact">Enviar Mensaje</H2>
+    <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-10">
+      <div className="mb-6">
+        <h2 className="font-sans text-xl sm:text-2xl font-bold text-[#333333]">Enviar Mensaje</h2>
+        <P variant="body" className="mt-2">
+          Completá el formulario y nos comunicaremos a la brevedad.
+        </P>
       </div>
-      <P variant="body">
-        Completá el formulario y nos comunicaremos a la brevedad.
-      </P>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <Input
           id="name"
@@ -118,17 +121,20 @@ export default function ContactFormSection() {
             error={errors.message}
             required
           />
-          <p className="mt-1 text-sm text-neutral-text-light">
+          <p className="mt-1 text-sm text-[#333333]">
             Mínimo {MIN_MESSAGE_LENGTH} caracteres. Cuanto más detallado sea tu mensaje, mejor podremos asistirte.
           </p>
         </div>
         <Button type="submit">
           Enviar Mensaje
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
             <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </Button>
       </form>
+      <p className="mt-6 text-sm text-primary leading-relaxed">
+        {disclaimer}
+      </p>
     </div>
   );
 }

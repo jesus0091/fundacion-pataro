@@ -91,7 +91,7 @@ export default function WhoWeAccompanySection({
           <H2 id="who-we-accompany-heading" variant="compact">
             {title}
           </H2>
-          <P variant="introNarrow">{intro}</P>
+          <P variant="body">{intro}</P>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-stretch">

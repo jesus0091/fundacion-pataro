@@ -56,6 +56,10 @@ const config: Config = {
         "section-sm": "3rem",
         container: "1.5rem",
       },
+      backgroundImage: {
+        "gradient-icon":
+          "linear-gradient(to bottom right, #E0F2FE, #BAE6FD)",
+      },
     },
   },
   plugins: [],

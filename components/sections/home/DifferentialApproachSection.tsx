@@ -39,13 +39,13 @@ export default function DifferentialApproachSection({
             <AuroraBackground />
             <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-10 sm:px-6">
                 <header className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
-                    <Label variant="primaryTight">
+                    <Label variant="secondary">
                         Nuestro enfoque diferencial
                     </Label>
                     <H2 id="differential-approach-heading" variant="section">
                         Una visión integral para transformar la salud.
                     </H2>
-                    <P variant="narrowMt4">
+                    <P variant="body">
                         En la Fundación Patricio Pataro entendemos que mejorar
                         la salud requiere más que acciones aisladas. Por eso
                         combinamos:
@@ -89,7 +89,7 @@ export default function DifferentialApproachSection({
                     ))}
                 </div>
                 <div className="flex flex-col items-center gap-6">
-                    <P variant="centerNarrowMb10">
+                    <P variant="body" className="text-center max-w-2xl mx-auto">
                         Nuestro enfoque integra acción inmediata y visión
                         estratégica, generando impacto hoy y construyendo
                         soluciones para el futuro.

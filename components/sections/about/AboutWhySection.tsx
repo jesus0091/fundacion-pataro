@@ -1,4 +1,4 @@
-import { H3, P } from "@/components/ui/Text";
+import { H2, P } from "@/components/ui/Text";
 
 const WHY_PARAGRAPHS = [
   "El sistema de salud enfrenta desafíos constantes: tecnología que avanza rápidamente, necesidad de actualización continua, recursos limitados y demandas crecientes.",
@@ -7,14 +7,12 @@ const WHY_PARAGRAPHS = [
 
 export default function AboutWhySection() {
   return (
-    <section className="py-16 lg:py-24 bg-white" aria-labelledby="why-heading">
+    <section className="py-12 sm:py-16 lg:py-24 bg-white" aria-labelledby="why-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl">
-          <div className="mb-6">
-          <H3 id="why-heading">
+          <H2 id="why-heading" variant="section" className="mb-6">
             Por Qué Existimos
-          </H3>
-          </div>
+          </H2>
           <div className="flex flex-col gap-4">
             {WHY_PARAGRAPHS.map((text, i) => (
               <P key={i} variant="body">

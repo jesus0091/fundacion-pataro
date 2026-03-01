@@ -99,7 +99,7 @@ export default function ProgramsSection({
             {title}
           </h2>
           {subtitle && (
-            <p className="text-neutral-text-light text-lg leading-relaxed">
+            <p className="text-[#333333] text-lg leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -119,7 +119,7 @@ export default function ProgramsSection({
               <h3 className="text-xl font-semibold text-secondary mb-2 font-serif">
                 {program.title}
               </h3>
-              <p className="text-neutral-text-light text-sm lg:text-base leading-relaxed mb-5">
+              <p className="text-[#333333] text-sm lg:text-base leading-relaxed mb-5">
                 {program.description}
               </p>
               {program.href && (

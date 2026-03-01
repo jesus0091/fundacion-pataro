@@ -41,7 +41,7 @@ export default function QuienesSomosSection({
         </p>
 
         {/* Párrafo introductorio */}
-        <p className="text-lg text-neutral-text-light max-w-3xl mb-12 leading-relaxed">
+        <p className="text-lg text-[#333333] max-w-3xl mb-12 leading-relaxed">
           {intro}
         </p>
 
@@ -52,7 +52,7 @@ export default function QuienesSomosSection({
           </h3>
           <div className="space-y-4">
             {content.split("\n\n").map((paragraph, index) => (
-              <p key={index} className="text-neutral-text-light leading-relaxed">
+              <p key={index} className="text-[#333333] leading-relaxed">
                 {paragraph}
               </p>
             ))}
@@ -71,7 +71,7 @@ export default function QuienesSomosSection({
         )}
         {!imageSrc && (
           <div className="mt-12 w-full rounded-2xl overflow-hidden shadow-lg aspect-[21/9] max-h-80 bg-neutral-background flex items-center justify-center">
-            <span className="text-neutral-text-light text-sm">
+            <span className="text-[#333333] text-sm">
               Imagen de la fundación
             </span>
           </div>
