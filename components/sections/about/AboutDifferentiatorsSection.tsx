@@ -28,7 +28,7 @@ const ITEMS = [
 export default function AboutDifferentiatorsSection() {
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-white" aria-labelledby="differentiators-heading">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto px-10 sm:px-6">
         <header className="text-center mb-10 lg:mb-12">
           <H2 id="differentiators-heading" variant="section" className="mb-3 font-sans text-[#333333]">
             Lo que nos hace únicos

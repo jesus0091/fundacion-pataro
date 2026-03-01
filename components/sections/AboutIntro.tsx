@@ -6,7 +6,7 @@ interface AboutIntroProps {
 
 export default function AboutIntro({ title, content, image }: AboutIntroProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12">
       <div>
         <h2 className="text-heading-2 mb-6">{title}</h2>
         <div className="space-y-4">

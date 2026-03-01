@@ -51,7 +51,7 @@ const PRINCIPLES = [
 export default function AboutPrinciplesSection() {
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-white" aria-labelledby="principles-heading">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto px-10 sm:px-6">
         <header className="text-center mb-10 lg:mb-12">
           <p className="text-primary font-semibold text-sm sm:text-base tracking-wide mb-2">
             Nuestros Principios

@@ -19,7 +19,7 @@ function BenefitCard({
 }: BenefitItem) {
     return (
         <article
-            className={`flex flex-col gap-3 items-center justify-start h-full lg:py-14 text-center px-8 py-6 sm:p-6 bg-white border-black/10 border-b sm:border-none ${isLast ? "border-b-0" : "border-b"}`}
+            className={`flex flex-col gap-3 items-center justify-start h-full lg:py-14 text-center md:px-8 py-6 sm:p-6 bg-white border-black/10 border-b sm:border-none ${isLast ? "border-b-0" : "border-b"}`}
         >
             <div
                 className="flex w-14 h-14 min-w-14 aspect-square justify-center items-center rounded-xl bg-gradient-icon text-primary"
@@ -43,8 +43,8 @@ const DEFAULT_BENEFITS: BenefitItem[] = [
         title: "Horarios de Atención",
         description: (
             <div className="flex flex-col gap-0.5 text-[#333333] text-sm sm:text-base leading-relaxed">
-                <span>Lunes a Viernes: 9:00 - 17:00 hs</span>
-                <span>Sábados y Domingos: Cerrado</span>
+                <span>Lunes a Viernes: </span> <span>9:00 - 17:00 hs</span>
+                <span>Sábados y Domingos:</span> <span>Cerrado</span>
             </div>
         ),
     },

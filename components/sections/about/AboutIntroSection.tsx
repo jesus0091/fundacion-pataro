@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function AboutIntroSection() {
     return (
         <section
-            className="py-16 sm:py-20 relative lg:py-28"
+            className="pt-28 pb-12 relative lg:pt-28 lg:pb-28"
             aria-labelledby="about-heading"
         >
             <div className="absolute inset-0 z-[-1]">
@@ -19,7 +19,7 @@ export default function AboutIntroSection() {
                     aria-hidden
                 />
             </div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center z-10">
+            <div className="max-w-7xl mx-auto px-10 sm:px-6 flex flex-col items-center text-center z-10">
                 <header className="max-w-2xl flex flex-col gap-3 items-center text-center">
                     <Label variant="secondary">Sobre nosotros</Label>
                     <H1 id="about-heading">Quiénes Somos</H1>

@@ -20,7 +20,7 @@ export default function AboutOriginWhySection() {
             className="py-12 sm:py-16 lg:py-24 bg-white"
             aria-labelledby="origin-heading"
         >
-            <div className="max-w-2xl mx-auto px-8 flex flex-col gap-8">
+            <div className="max-w-2xl mx-auto px-10 sm:px-6 flex flex-col gap-8">
                 <div id="about-org-title" className="flex justify-center">
                     <FirmaLogo
                         color="black"

@@ -48,8 +48,8 @@ export default function AboutMissionVisionSection() {
             className=" bg-gradient-to-t from-[#CFE2FC] to-[#F0F6FE]"
             aria-labelledby="mission-vision-heading"
         >
-            <div className="max-w-7xl mx-auto flex flex-col md:grid grid-cols-3 md:gap-4 px-4 sm:px-6">
-                <div className="w-full pt-10 order-3 md:order-1 px-[20vw] md:px-0">
+            <div className="max-w-7xl mx-auto flex flex-col md:grid grid-cols-3 md:gap-4 px-10 sm:px-6">
+                <div className="w-full pt-10 order-3 md:order-1 px-[10vw] sm:px-[20vw] md:px-0">
                     <Image
                         src="/images/mission_vision.png"
                         alt="Profesional de la salud - Fundación Patricio Pataro"
