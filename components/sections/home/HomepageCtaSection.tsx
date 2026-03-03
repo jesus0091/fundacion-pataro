@@ -1,12 +1,13 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
+import { FirmaLogo } from "@/components/ui/FirmaLogo";
+import { P } from "@/components/ui/Text";
+import Image from "next/image";
+
 const DEFAULT_BG_IMAGE = "/images/banner_1_.webp";
 
 interface HomepageCtaSectionProps {
     backgroundImageSrc?: string;
 }
-
-import { FirmaLogo } from "@/components/ui/FirmaLogo";
-import { P } from "@/components/ui/Text";
-import Image from "next/image";
 
 export default function HomepageCtaSection({
     backgroundImageSrc = DEFAULT_BG_IMAGE,
@@ -19,7 +20,7 @@ export default function HomepageCtaSection({
             <h2 id="homepage-cta-heading" className="sr-only">
                 Nuestra creencia
             </h2>
-            <div className="max-w-7xl mx-auto px-10 sm:px-6">
+            <AnimatedSection className="max-w-7xl mx-auto px-10 sm:px-6">
                 <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden min-h-[240px] sm:min-h-[280px] lg:min-h-[320px] flex items-center">
                     <div className="absolute inset-0">
                         <div className="relative size-full">
@@ -50,7 +51,7 @@ export default function HomepageCtaSection({
                         </blockquote>
                     </div>
                 </div>
-            </div>
+            </AnimatedSection>
         </section>
     );
 }

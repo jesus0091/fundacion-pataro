@@ -1,5 +1,5 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H2, Label, P } from "@/components/ui/Text";
-
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ export default function PurposeSection({
             className="py-12 sm:py-16 lg:py-40 bg-gradient-to-b from-[#F0F6FE] to-white"
             aria-labelledby="purpose-heading"
         >
-            <div className="max-w-7xl px-10 sm:px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16 self-stretch mx-auto">
+            <AnimatedSection className="max-w-7xl px-10 sm:px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16 self-stretch mx-auto">
                 <div className="relative rounded-2xl lg:rounded-3xl bg-white flex-shrink-0 overflow-hidden h-[260px] sm:h-[320px] lg:h-[500px] order-2 lg:order-1">
                     <Image
                         src={imageSrc}
@@ -68,7 +68,7 @@ export default function PurposeSection({
                         </svg>
                     </Button>
                 </div>
-            </div>
+            </AnimatedSection>
         </section>
     );
 }

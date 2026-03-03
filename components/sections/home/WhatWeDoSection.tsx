@@ -1,5 +1,6 @@
 "use client";
 
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H2, Label, P } from "@/components/ui/Text";
 import {
   IconBuildingHospital,
@@ -12,7 +13,6 @@ import {
 } from "@tabler/icons-react";
 import WhatWeDoCard, { WhatWeDoCardProps } from "./WhatWeDoCard";
 import { useCallback, useEffect, useState } from "react";
-
 import useEmblaCarousel from "embla-carousel-react";
 
 const GAP_PX = 24;
@@ -94,7 +94,7 @@ export default function WhatWeDoSection() {
 
   return (
     <section className="py-12 sm:py-16 lg:pb-24 lg:pt-60 bg-[#F0F6FE] overflow-visible" aria-labelledby="what-we-do-heading">
-      <div className="max-w-7xl mx-auto px-10 sm:px-6 overflow-visible">
+      <AnimatedSection className="max-w-7xl mx-auto px-10 sm:px-6 overflow-visible">
         <header className="mb-8 sm:mb-10 max-w-xs sm:max-w-xl flex flex-col gap-3">
           <Label variant="primaryTight">Qué Hacemos</Label>
           <H2 id="what-we-do-heading" variant="section">
@@ -104,7 +104,7 @@ export default function WhatWeDoSection() {
             Abordamos los desafíos del sistema de salud desde una mirada integral, combinando formación e investigación para generar soluciones.
           </P>
         </header>
-      </div>
+      </AnimatedSection>
 
       <div
         className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden"
@@ -130,26 +130,28 @@ export default function WhatWeDoSection() {
         className="max-w-7xl mx-auto px-10 sm:px-6"
         aria-label="Navegación del carrusel de programas"
       >
-        <div className="flex items-center justify-center sm:justify-start gap-2 mt-6">
-          <button
-            type="button"
-            onClick={scrollPrev}
-            disabled={!canScrollLeft}
-            aria-label="Ver programas anteriores"
-            className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
-          >
-            <IconChevronLeft className="w-5 h-5" stroke={2} aria-hidden />
-          </button>
-          <button
-            type="button"
-            onClick={scrollNext}
-            disabled={!canScrollRight}
-            aria-label="Ver más programas"
-            className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
-          >
-            <IconChevronRight className="w-5 h-5" stroke={2} aria-hidden />
-          </button>
-        </div>
+        <AnimatedSection>
+          <div className="flex items-center justify-center sm:justify-start gap-2 mt-6">
+            <button
+              type="button"
+              onClick={scrollPrev}
+              disabled={!canScrollLeft}
+              aria-label="Ver programas anteriores"
+              className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
+            >
+              <IconChevronLeft className="w-5 h-5" stroke={2} aria-hidden />
+            </button>
+            <button
+              type="button"
+              onClick={scrollNext}
+              disabled={!canScrollRight}
+              aria-label="Ver más programas"
+              className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
+            >
+              <IconChevronRight className="w-5 h-5" stroke={2} aria-hidden />
+            </button>
+          </div>
+        </AnimatedSection>
       </nav>
     </section>
   );

@@ -1,3 +1,4 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H2, H3, Label, P } from "@/components/ui/Text";
 import Image from "next/image";
 import AuroraBackground from "@/components/ui/AuroraBackground";
@@ -37,7 +38,7 @@ export default function DifferentialApproachSection({
             aria-labelledby="differential-approach-heading"
         >
             <AuroraBackground />
-            <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-10 sm:px-6">
+            <AnimatedSection className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-10 sm:px-6">
                 <header className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
                     <Label variant="secondary">
                         Nuestro enfoque diferencial
@@ -103,7 +104,7 @@ export default function DifferentialApproachSection({
                         </Button>
                     </div>
                 </div>
-            </div>
+            </AnimatedSection>
         </section>
     );
 }
