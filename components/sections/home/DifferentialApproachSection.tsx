@@ -1,5 +1,5 @@
 import { H2, H3, Label, P } from "@/components/ui/Text";
-
+import Image from "next/image";
 import AuroraBackground from "@/components/ui/AuroraBackground";
 import { Button } from "@/components/ui/Button";
 
@@ -60,10 +60,12 @@ export default function DifferentialApproachSection({
                             <div className="relative aspect-[16/9] sm:aspect-[4/6] min-h-[160px] sm:min-h-[280px]">
                                 {card.imageSrc ? (
                                     <>
-                                        <img
+                                        <Image
                                             src={card.imageSrc}
                                             alt={`${card.title} - Fundación Patricio Pataro`}
-                                            className="absolute inset-0 w-full h-full object-cover"
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                                             loading="lazy"
                                         />
                                         <div

@@ -1,5 +1,5 @@
 import { H3, P } from "@/components/ui/Text";
-
+import Image from "next/image";
 import Link from "next/link";
 
 export interface WhatWeDoCardProps {
@@ -25,10 +25,12 @@ export default function WhatWeDoCard({
       <div className="relative aspect-[16/6] rounded-2xl overflow-hidden w-full bg-neutral-background">
         {imageSrc ? (
           <>
-            <img
+            <Image
               src={imageSrc}
               alt={`${title} - Fundación Patricio Pataro`}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 360px, 500px"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-black/40" aria-hidden />
