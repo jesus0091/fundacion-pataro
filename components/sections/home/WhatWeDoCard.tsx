@@ -24,16 +24,19 @@ export default function WhatWeDoCard({
     >
       <div className="relative aspect-[16/6] rounded-2xl overflow-hidden w-full bg-neutral-background">
         {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover"
-            loading="lazy"
-          />
+          <>
+            <img
+              src={imageSrc}
+              alt={`${title} - Fundación Patricio Pataro`}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-black/40" aria-hidden />
+          </>
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-secondary/15 via-neutral-background to-primary/15" />
         )}
-        <div className="absolute bottom-4 left-4 w-14 h-14 rounded-2xl bg-primary/25 backdrop-blur-sm border border-white/60 flex items-center justify-center text-secondary shadow-sm">
+        <div className="absolute bottom-4 left-4 w-14 h-14 rounded-2xl bg-gradient-icon flex items-center justify-center text-secondary shadow-sm">
           {icon}
         </div>
       </div>

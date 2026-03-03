@@ -82,15 +82,16 @@ export default function Benefits({ benefits = DEFAULT_BENEFITS }: BenefitsProps)
             <h2 id="benefits-heading" className="sr-only">
                 Información de contacto: ubicación, email y horarios
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl overflow-hidden -mt-24 sm:-mt-32 lg:-mt-40 z-10 mx-auto rounded-2xl md:rounded-[20px] md:overflow-hidden justify-center items-center flex-1 min-h-0 md:min-h-60 w-full gap-4 md:gap-0 bg-white md:shadow-[0_4px_20px_0_rgba(0,67,223,0.15)]">
+            <ul className="grid grid-cols-1 md:grid-cols-3 max-w-7xl overflow-hidden -mt-24 sm:-mt-32 lg:-mt-40 z-10 mx-auto rounded-2xl md:rounded-[20px] md:overflow-hidden justify-center items-center flex-1 min-h-0 md:min-h-60 w-full gap-4 md:gap-0 bg-white md:shadow-[0_4px_20px_0_rgba(0,67,223,0.15)] list-none">
                 {benefits.map((benefit, index) => (
-                    <BenefitCard
-                        key={index}
-                        {...benefit}
-                        isLast={index === benefits.length - 1}
-                    />
+                    <li key={index}>
+                        <BenefitCard
+                            {...benefit}
+                            isLast={index === benefits.length - 1}
+                        />
+                    </li>
                 ))}
-            </div>
+            </ul>
         </section>
     );
 }

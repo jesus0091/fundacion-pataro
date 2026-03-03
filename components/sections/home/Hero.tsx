@@ -12,6 +12,7 @@ const HIGHLIGHTS = [
 export default function Hero() {
     return (
         <section
+            role="banner"
             className="relative overflow-hidden min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] pb-24 pt-20 sm:pb-32 sm:pt-24 lg:pb-40 lg:pt-32 flex items-center"
             aria-labelledby="hero-heading"
         >

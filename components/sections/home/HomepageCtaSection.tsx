@@ -30,17 +30,19 @@ export default function HomepageCtaSection({
                         <div className="absolute inset-0 bg-black opacity-30" />
                     </div>
                     <div className="relative z-10 p-6 sm:p-8 lg:p-12 flex flex-col gap-4 max-w-xl">
-                        <div className="inline-flex">
+                        <div className="inline-flex" aria-hidden>
                             <FirmaLogo
                                 color="white"
                                 className="w-[90%] sm:w-auto max-w-xs drop-shadow-sm object-contain"
                             />
                         </div>
-                        <P variant="body" className="text-white">
-                            Creemos que una mejor salud se construye cuando el
-                            conocimiento médico, la innovación y el compromiso
-                            humano trabajan juntos.
-                        </P>
+                        <blockquote className="m-0">
+                            <P variant="body" className="text-white">
+                                Creemos que una mejor salud se construye cuando el
+                                conocimiento médico, la innovación y el compromiso
+                                humano trabajan juntos.
+                            </P>
+                        </blockquote>
                     </div>
                 </div>
             </div>

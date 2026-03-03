@@ -98,7 +98,7 @@ export default function ContactPage() {
             className="py-12 sm:py-16 lg:py-24 bg-gradient-to-t from-[#ffffff] via-[#F0F6FE] to-[#E8F5E9] min-h-[60vh]"
             aria-labelledby="contact-heading"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="max-w-7xl mx-auto px-10 sm:px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start py-24">
                     <div className="flex flex-col gap-8">
                         <header className="flex flex-col gap-3">

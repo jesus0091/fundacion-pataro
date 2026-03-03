@@ -41,14 +41,14 @@ export default function PurposeSection({
                 </div>
 
                 <div className="flex flex-col items-start gap-4 sm:gap-6 flex-1 order-1 lg:order-2">
-                    <div className="flex flex-col gap-3">
+                    <header className="flex flex-col gap-3">
                         <Label variant="primaryTight">{subtitle}</Label>
                         <H2 id="purpose-heading">{title}</H2>
                         <div>
                             <P variant="body">{paragraph1}</P>
                             <P variant="body">{paragraph2}</P>
                         </div>
-                    </div>
+                    </header>
                     <Button href={ctaHref} variant="primary">
                         {ctaText}
                         <svg

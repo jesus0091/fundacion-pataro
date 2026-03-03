@@ -62,7 +62,7 @@ export default function DifferentialApproachSection({
                                     <>
                                         <img
                                             src={card.imageSrc}
-                                            alt=""
+                                            alt={`${card.title} - Fundación Patricio Pataro`}
                                             className="absolute inset-0 w-full h-full object-cover"
                                             loading="lazy"
                                         />

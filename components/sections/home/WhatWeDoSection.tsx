@@ -23,6 +23,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Formamos y acompañamos a médicos residentes y profesionales de la salud, facilitando becas, programas y desarrollo continuo.",
     href: "/services",
+    imageSrc: "/images/service-1.png",
     icon: <IconSchool className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -30,6 +31,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Impulsamos el intercambio científico mediante congresos, simposios y ateneos, y apoyamos proyectos de investigación.",
     href: "/services",
+    imageSrc: "/images/service-2.png",
     icon: <IconMicroscope className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -37,6 +39,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Desarrollamos y administramos centros médicos y quirúrgicos, brindando atención directa de calidad.",
     href: "/services",
+    imageSrc: "/images/service-3.png",
     icon: <IconBuildingHospital className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -44,6 +47,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Invertimos en equipamiento médico de última generación y en la modernización de instalaciones.",
     href: "/services",
+    imageSrc: "/images/service-4.png",
     icon: <IconSettings className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -51,6 +55,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Desarrollamos campañas benéficas, acciones de salud preventiva y programas de concientización.",
     href: "/services",
+    imageSrc: "/images/service-5.png",
     icon: <IconHeart className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
 ];
@@ -101,23 +106,30 @@ export default function WhatWeDoSection() {
         </header>
       </div>
 
-      <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
+      <div
+        className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden"
+        role="region"
+        aria-label="Programas y servicios de la fundación"
+      >
         <div
           ref={emblaRef}
           className="overflow-hidden pb-4 pl-[max(1rem,calc((100vw-80rem)/2+1rem))] pr-[max(1rem,calc((100vw-80rem)/2+1rem))]"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          <div className="flex touch-pan-y" style={{ gap: GAP_PX }}>
+          <ul className="flex touch-pan-y list-none" style={{ gap: GAP_PX }}>
             {PROGRAMS.map((program, index) => (
-              <div key={index} className="flex-[0_0_auto] min-w-0">
+              <li key={index} className="flex-[0_0_auto] min-w-0">
                 <WhatWeDoCard {...program} />
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-10 sm:px-6">
+      <nav
+        className="max-w-7xl mx-auto px-10 sm:px-6"
+        aria-label="Navegación del carrusel de programas"
+      >
         <div className="flex items-center justify-center sm:justify-start gap-2 mt-6">
           <button
             type="button"
@@ -138,7 +150,7 @@ export default function WhatWeDoSection() {
             <IconChevronRight className="w-5 h-5" stroke={2} aria-hidden />
           </button>
         </div>
-      </div>
+      </nav>
     </section>
   );
 }
