@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { FirmaLogo } from "@/components/ui/FirmaLogo";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const SCROLL_THRESHOLD = 20;
 
@@ -18,6 +19,12 @@ const NAV_LINKS = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Blanco solo en páginas individuales de servicio sin scroll
+  const isServiceDetail = /^\/services\/.+/.test(pathname);
+  const isTransparent = !isScrolled;
+  const useWhite = isServiceDetail && isTransparent;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,9 +49,9 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-[background-color,border-color,box-shadow] duration-300 ${
-        isScrolled
-          ? "bg-neutral-surface border-b border-neutral-border shadow-sm"
-          : "bg-transparent border-b border-white/10"
+        isTransparent
+          ? "bg-transparent border-b border-white/10"
+          : "bg-neutral-surface border-b border-neutral-border shadow-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -55,7 +62,7 @@ export default function Header() {
             aria-label="Fundación Pataro - Inicio"
           >
             <FirmaLogo
-              color={isScrolled ? "black" : "white"}
+              color={useWhite ? "white" : "black"}
               className="h-5 w-auto sm:h-6 transition-[filter] duration-300"
             />
           </Link>
@@ -68,9 +75,9 @@ export default function Header() {
                   <Link
                     href={href}
                     className={`relative text-sm xl:text-base font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                      isScrolled
-                        ? "text-neutral-text hover:text-primary after:bg-primary"
-                        : "text-white/90 hover:text-white after:bg-white"
+                      useWhite
+                        ? "text-white/90 hover:text-white after:bg-white"
+                        : "text-neutral-text hover:text-primary after:bg-primary"
                     }`}
                   >
                     {label}
@@ -85,9 +92,9 @@ export default function Header() {
             type="button"
             onClick={() => setIsMenuOpen(true)}
             className={`lg:hidden flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
-              isScrolled
-                ? "text-neutral-text hover:bg-neutral-100"
-                : "text-white hover:bg-white/10"
+              useWhite
+                ? "text-white hover:bg-white/10"
+                : "text-neutral-text hover:bg-neutral-100"
             }`}
             aria-label="Abrir menú"
             aria-expanded={isMenuOpen}
