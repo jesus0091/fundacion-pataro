@@ -46,8 +46,11 @@ const STATS = [
 ];
 
 function formatNumber(n: number): string {
-  if (n >= 1000) return n.toLocaleString("es-AR");
-  return String(Math.round(n));
+  const rounded = Math.round(n);
+  if (rounded >= 1000) {
+    return rounded.toLocaleString("es-AR", { maximumFractionDigits: 0 });
+  }
+  return String(rounded);
 }
 
 function StatCard({
@@ -91,23 +94,39 @@ function StatCard({
     return () => st.kill();
   }, [value]);
 
+  const finalFormatted = formatNumber(value);
+
   return (
     <article
       ref={cardRef}
       className="flex flex-col items-center text-center p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-[#F0F6FE] to-[#E8F5E9]"
       data-animate
     >
-      <div className="flex items-end gap-0.5 mb-2">
+      <div className="flex items-end justify-center gap-0.5 mb-2">
         {prefix && (
           <span className="font-serif text-3xl sm:text-4xl font-bold text-primary mb-1">
             {prefix}
           </span>
         )}
-        <span
-          ref={numRef}
-          className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary tabular-nums"
-        >
-          0
+        {/*
+          Wrapper relativo con ghost invisible:
+          el ghost siempre ocupa el espacio del número final,
+          el número animado se superpone en absoluto.
+          Así la card nunca cambia de tamaño durante el conteo.
+        */}
+        <span className="relative inline-flex items-center justify-center">
+          <span
+            aria-hidden
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tabular-nums invisible select-none"
+          >
+            {finalFormatted}
+          </span>
+          <span
+            ref={numRef}
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary tabular-nums absolute inset-0 flex items-center justify-center"
+          >
+            0
+          </span>
         </span>
         {suffix && (
           <span className="font-serif text-3xl sm:text-4xl font-bold text-primary mb-1">

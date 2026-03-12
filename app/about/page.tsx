@@ -1,5 +1,4 @@
 import AlianzasSection from "@/components/sections/about/AlianzasSection";
-import AboutCtaSection from "@/components/sections/about/AboutCtaSection";
 import AboutDifferentiatorsSection from "@/components/sections/about/AboutDifferentiatorsSection";
 import AboutIntroSection from "@/components/sections/about/AboutIntroSection";
 import AboutMissionVisionSection from "@/components/sections/about/AboutMissionVisionSection";
@@ -21,7 +20,6 @@ export default function AboutPage() {
       <AboutDifferentiatorsSection />
       <AboutPrinciplesSection />
       <AlianzasSection />
-      <AboutCtaSection />
     </>
   );
 }

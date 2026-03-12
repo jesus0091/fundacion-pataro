@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { H1, H3, H4, Label, P } from "@/components/ui/Text";
 import { IconClock, IconMail, IconMapPin } from "@tabler/icons-react";
 
@@ -8,6 +8,12 @@ import { Button } from "@/components/ui/Button";
 import ContactReasonSelect from "@/components/contact/ContactReasonSelect";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 const INTRO =
     "Tu mensaje es el primer paso para generar un cambio. Escribinos y nos pondremos en contacto a la brevedad.";
@@ -42,6 +48,54 @@ const DISCLAIMER =
     "Para consultas sobre programas de becas, alianzas estratégicas o eventos académicos, por favor seleccioná el motivo correspondiente en el formulario. Te responderemos dentro de las 48 horas hábiles.";
 
 export default function ContactPage() {
+    const leftRef = useRef<HTMLDivElement>(null);
+    const rightRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const left = leftRef.current;
+        const right = rightRef.current;
+
+        if (left) {
+            const items = left.querySelectorAll<HTMLElement>("[data-animate]");
+            gsap.set(items, { opacity: 0, y: 40 });
+            ScrollTrigger.create({
+                trigger: left,
+                start: "top 85%",
+                once: true,
+                onEnter: () =>
+                    gsap.to(items, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power3.out",
+                        stagger: 0.1,
+                    }),
+            });
+        }
+
+        if (right) {
+            gsap.set(right, { opacity: 0, y: 50, scale: 0.98 });
+            ScrollTrigger.create({
+                trigger: right,
+                start: "top 88%",
+                once: true,
+                onEnter: () =>
+                    gsap.to(right, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.9,
+                        ease: "power3.out",
+                        delay: 0.15,
+                    }),
+            });
+        }
+
+        return () => ScrollTrigger.getAll().forEach((st) => st.kill());
+    }, []);
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -100,8 +154,8 @@ export default function ContactPage() {
         >
             <div className="max-w-7xl mx-auto px-10 sm:px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start py-24">
-                    <div className="flex flex-col gap-8">
-                        <header className="flex flex-col gap-3">
+                    <div ref={leftRef} className="flex flex-col gap-8">
+                        <header className="flex flex-col gap-3" data-animate>
                             <Label variant="primaryTight">Hablemos</Label>
                             <H1
                                 id="contact-heading"
@@ -113,7 +167,7 @@ export default function ContactPage() {
                         </header>
                         <ul className="flex flex-col gap-6">
                             {INFO.map((item, i) => (
-                                <li key={i} className="flex gap-3">
+                                <li key={i} className="flex gap-3" data-animate>
                                     {item.icon && (
                                         <item.icon
                                             className="w-5 h-5 text-primary shrink-0 mt-2"
@@ -152,7 +206,7 @@ export default function ContactPage() {
                                 </li>
                             ))}
                         </ul>
-                        <div className="rounded-xl overflow-hidden border border-neutral-border aspect-[4/3] min-h-[200px] h-[250px] bg-neutral-background">
+                        <div className="rounded-xl overflow-hidden border border-neutral-border aspect-[4/3] min-h-[200px] h-[250px] bg-neutral-background" data-animate>
                             <iframe
                                 title="Ubicación - Billinghurst 19, CABA"
                                 src={MAP_EMBED_URL}
@@ -166,7 +220,7 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-2xl p-6 sm:p-8">
+                    <div ref={rightRef} className="bg-white rounded-2xl p-6 sm:p-8">
                         <div className="mb-6">
                             <P variant="body" className="mt-2">
                                 Completá el formulario y nos comunicaremos a la

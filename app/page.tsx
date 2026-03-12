@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import PurposeSection from "@/components/sections/home/PurposeSection";
 import WhatWeDoSection from "@/components/sections/home/WhatWeDoSection";
 import WhoWeAccompanySection from "@/components/sections/home/WhoWeAccompanySection";
+import SplashScreen from "@/components/ui/SplashScreen";
 
 export const metadata: Metadata = {
   title: "Inicio | Fundación Pataro – Innovación y cuidado para una vida más saludable",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <SplashScreen />
       <Hero />
       <Benefits />
       <WhatWeDoSection />

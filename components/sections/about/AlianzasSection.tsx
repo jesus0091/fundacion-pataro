@@ -1,5 +1,6 @@
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import { H2, P } from "@/components/ui/Text";
+"use client";
+
+import { H2, Label, P } from "@/components/ui/Text";
 import {
   IconBuildingHospital,
   IconBuildingSkyscraper,
@@ -8,86 +9,143 @@ import {
   IconStethoscope,
   IconWorld,
 } from "@tabler/icons-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const ALIANZAS = [
   {
-    icon: IconSchool,
+    Icon: IconSchool,
     tipo: "Instituciones académicas",
     descripcion:
-      "Universidades y facultades de medicina con las que desarrollamos programas de formación, becas y actividades de extensión.",
+      "Universidades y facultades de medicina con las que desarrollamos programas de formación y becas.",
   },
   {
-    icon: IconBuildingHospital,
+    Icon: IconBuildingHospital,
     tipo: "Hospitales y centros de salud",
     descripcion:
-      "Instituciones del sector público y privado donde implementamos programas de gestión asistencial y modernización de infraestructura.",
+      "Instituciones del sector público y privado donde implementamos gestión asistencial y modernización.",
   },
   {
-    icon: IconMicroscope,
+    Icon: IconMicroscope,
     tipo: "Centros de investigación",
     descripcion:
-      "Laboratorios e institutos científicos con los que co-desarrollamos proyectos de investigación aplicada y difusión del conocimiento.",
+      "Laboratorios e institutos con los que co-desarrollamos proyectos de investigación aplicada.",
   },
   {
-    icon: IconStethoscope,
+    Icon: IconStethoscope,
     tipo: "Colegios y asociaciones médicas",
     descripcion:
-      "Organismos de representación profesional con los que articulamos programas de capacitación y eventos académicos de alto nivel.",
+      "Organismos de representación profesional con los que articulamos capacitaciones y eventos académicos.",
   },
   {
-    icon: IconBuildingSkyscraper,
+    Icon: IconBuildingSkyscraper,
     tipo: "Empresas y sector privado",
     descripcion:
-      "Organizaciones que colaboran con recursos, infraestructura o voluntariado para amplificar el alcance de nuestras acciones comunitarias.",
+      "Organizaciones que colaboran con recursos e infraestructura para amplificar nuestro alcance.",
   },
   {
-    icon: IconWorld,
+    Icon: IconWorld,
     tipo: "Organismos internacionales",
     descripcion:
-      "Entidades de referencia global en salud y educación médica con las que intercambiamos conocimiento y buenas prácticas.",
+      "Entidades globales en salud y educación médica con las que intercambiamos conocimiento.",
   },
 ];
 
 export default function AlianzasSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const header = section.querySelector<HTMLElement>("[data-header]");
+    const items = section.querySelectorAll<HTMLElement>("[data-item]");
+
+    if (header) {
+      gsap.set(header, { opacity: 0, x: -60 });
+      ScrollTrigger.create({
+        trigger: header,
+        start: "top 88%",
+        once: true,
+        onEnter: () =>
+          gsap.to(header, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out" }),
+      });
+    }
+
+    items.forEach((item, i) => {
+      gsap.set(item, { opacity: 0, x: 60, scale: 0.96 });
+      ScrollTrigger.create({
+        trigger: item,
+        start: "top 90%",
+        once: true,
+        onEnter: () =>
+          gsap.to(item, {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.7,
+            ease: "power3.out",
+            delay: (i % 3) * 0.1,
+          }),
+      });
+    });
+
+    return () => ScrollTrigger.getAll().forEach((st) => st.kill());
+  }, []);
+
   return (
     <section
-      className="py-12 sm:py-16 lg:py-24 bg-[#F0F6FE]"
+      ref={sectionRef}
+      className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-[#EAF2FF] via-[#F0F6FE] to-white"
       aria-labelledby="alianzas-heading"
     >
       <div className="max-w-7xl mx-auto px-10 sm:px-6">
-        <AnimatedSection className="text-center mb-10 lg:mb-14 flex flex-col items-center gap-3">
-          <p className="text-primary font-semibold text-sm sm:text-base tracking-wide">
-            Trabajo colaborativo
-          </p>
-          <H2
-            id="alianzas-heading"
-            variant="section"
-            className="font-sans text-[#333333]"
-          >
-            Trabajamos en red
-          </H2>
-          <P variant="body" className="text-center max-w-2xl">
-            La salud no se transforma en soledad. Construimos alianzas estratégicas con instituciones académicas, hospitales, centros de investigación y organizaciones del sector privado para multiplicar el impacto de cada acción.
-          </P>
-        </AnimatedSection>
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start">
 
-        <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          {ALIANZAS.map((alianza, i) => (
-            <article
-              key={i}
-              className="bg-white rounded-2xl p-6 lg:p-8 flex flex-col gap-4"
-              data-animate
+          {/* Columna izquierda: header sticky */}
+          <div data-header className="lg:sticky lg:top-28 flex flex-col gap-5">
+            <Label variant="primaryTight">Trabajo colaborativo</Label>
+            <H2
+              id="alianzas-heading"
+              variant="section"
+              className="font-sans text-[#1F2933]"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-icon flex items-center justify-center flex-shrink-0">
-                <alianza.icon className="w-6 h-6 text-primary" stroke={1.5} aria-hidden />
-              </div>
-              <h3 className="font-sans text-base sm:text-lg font-bold text-[#1F2933]">
-                {alianza.tipo}
-              </h3>
-              <P variant="small">{alianza.descripcion}</P>
-            </article>
-          ))}
-        </AnimatedSection>
+              Trabajamos en red
+            </H2>
+            <P variant="body" className="text-[#555]">
+              La salud no se transforma en soledad. Construimos alianzas estratégicas con instituciones académicas, hospitales, centros de investigación y organizaciones del sector privado para multiplicar el impacto de cada acción.
+            </P>
+          </div>
+
+          {/* Columna derecha: lista compact */}
+          <div className="flex flex-col gap-4">
+            {ALIANZAS.map((alianza, i) => (
+              <article
+                key={i}
+                data-item
+                className="group flex items-start gap-4 bg-white rounded-2xl p-6 border border-[#E8EEFE] hover:border-primary/30 hover:shadow-md transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-icon flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <alianza.Icon className="w-5 h-5 text-primary" stroke={1.5} aria-hidden />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-sans text-sm sm:text-base font-bold text-[#1F2933]">
+                    {alianza.tipo}
+                  </h3>
+                  <P variant="small" className="text-[#666]">
+                    {alianza.descripcion}
+                  </P>
+                </div>
+              </article>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   );

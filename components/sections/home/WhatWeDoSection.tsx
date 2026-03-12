@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { Button } from "@/components/ui/Button";
 import { H2, Label, P } from "@/components/ui/Text";
 import {
   IconBuildingHospital,
@@ -12,8 +13,14 @@ import {
   IconSettings,
 } from "@tabler/icons-react";
 import WhatWeDoCard, { WhatWeDoCardProps } from "./WhatWeDoCard";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const GAP_PX = 24;
 
@@ -61,6 +68,8 @@ const PROGRAMS: WhatWeDoCardProps[] = [
 ];
 
 export default function WhatWeDoSection() {
+  const cardsRef = useRef<HTMLUListElement>(null);
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     startIndex: 0,
@@ -92,18 +101,57 @@ export default function WhatWeDoSection() {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
+  useEffect(() => {
+    const list = cardsRef.current;
+    if (!list) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const cards = list.querySelectorAll<HTMLElement>("li");
+    if (!cards.length) return;
+
+    gsap.set(cards, { opacity: 0, y: 48, scale: 0.95 });
+
+    const st = ScrollTrigger.create({
+      trigger: list,
+      start: "top 88%",
+      once: true,
+      onEnter: () => {
+        gsap.to(cards, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.75,
+          ease: "power3.out",
+          stagger: 0.1,
+        });
+      },
+    });
+
+    return () => st.kill();
+  }, []);
+
   return (
     <section className="py-12 sm:py-16 lg:pb-24 lg:pt-60 bg-[#F0F6FE] overflow-visible" aria-labelledby="what-we-do-heading">
       <AnimatedSection className="max-w-7xl mx-auto px-10 sm:px-6 overflow-visible">
-        <header className="mb-8 sm:mb-10 max-w-xs sm:max-w-xl flex flex-col gap-3">
-          <Label variant="primaryTight">Qué Hacemos</Label>
-          <H2 id="what-we-do-heading" variant="section">
-            Impacto real en el sistema de salud.
-          </H2>
-          <P variant="body">
-            Abordamos los desafíos del sistema de salud desde una mirada integral, combinando formación e investigación para generar soluciones.
-          </P>
-        </header>
+        <div className="mb-8 sm:mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <header className="max-w-xs sm:max-w-xl flex flex-col gap-3">
+            <Label variant="primaryTight">Qué Hacemos</Label>
+            <H2 id="what-we-do-heading" variant="section">
+              Impacto real en el sistema de salud.
+            </H2>
+            <P variant="body">
+              Abordamos los desafíos del sistema de salud desde una mirada integral, combinando formación e investigación para generar soluciones.
+            </P>
+          </header>
+          <div className="flex-shrink-0">
+            <Button href="/services" variant="secondary">
+              Ver todos los programas
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
+                <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Button>
+          </div>
+        </div>
       </AnimatedSection>
 
       <div
@@ -116,7 +164,7 @@ export default function WhatWeDoSection() {
           className="overflow-hidden pb-4 pl-[max(1rem,calc((100vw-80rem)/2+1rem))] pr-[max(1rem,calc((100vw-80rem)/2+1rem))]"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          <ul className="flex touch-pan-y list-none" style={{ gap: GAP_PX }}>
+          <ul ref={cardsRef} className="flex touch-pan-y list-none" style={{ gap: GAP_PX }}>
             {PROGRAMS.map((program, index) => (
               <li key={index} className="flex-[0_0_auto] min-w-0">
                 <WhatWeDoCard {...program} />

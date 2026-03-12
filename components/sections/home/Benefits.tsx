@@ -1,35 +1,32 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { H3, H4, P } from "@/components/ui/Text";
 import { IconClock, IconMail, IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
 export interface BenefitItem {
     icon: ReactNode;
+    label: string;
     title: string;
     description: ReactNode;
-    isLast?: boolean;
 }
 
-function BenefitCard({
-    icon,
-    title,
-    description,
-    isLast = false,
-}: BenefitItem) {
+function BenefitCard({ icon, label, title, description }: BenefitItem) {
     return (
-        <article
-            className={`flex flex-col gap-3 items-center justify-start h-full lg:py-14 text-center md:px-8 py-6 sm:p-6 bg-white border-black/10 border-b sm:border-none ${isLast ? "border-b-0" : "border-b"}`}
-        >
+        <article className="group flex items-start gap-5 px-8 py-8 lg:py-10 h-full">
             <div
-                className="flex w-14 h-14 min-w-14 aspect-square justify-center items-center rounded-xl bg-gradient-icon text-primary"
+                className="flex w-12 h-12 min-w-12 aspect-square justify-center items-center rounded-xl bg-gradient-icon text-primary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110"
                 aria-hidden
             >
                 {icon}
             </div>
-            <div className="flex flex-col gap-2">
-                <H4>{title}</H4>
-                <div className="[&_a]:text-primary [&_a]:hover:underline px-10">
+            <div className="flex flex-col gap-1">
+                <span className="text-xs font-semibold text-primary/70">
+                    {label}
+                </span>
+                <h3 className="font-sans text-sm font-bold text-[#1F2933]">
+                    {title}
+                </h3>
+                <div className="[&_a]:text-primary [&_a]:font-medium [&_a]:hover:underline mt-0.5 text-[#555] text-sm leading-relaxed">
                     {description}
                 </div>
             </div>
@@ -39,34 +36,37 @@ function BenefitCard({
 
 const DEFAULT_BENEFITS: BenefitItem[] = [
     {
-        icon: <IconClock className="w-7 h-7" stroke={1.5} aria-hidden />,
+        icon: <IconClock className="w-6 h-6" stroke={1.5} aria-hidden />,
+        label: "Oficina",
         title: "Horarios de Atención",
         description: (
-            <div className="flex flex-col gap-0.5 text-[#333333] text-sm sm:text-base leading-relaxed">
-                <span>Lunes a Viernes: </span> <span>9:00 - 17:00 hs</span>
-                <span>Sábados y Domingos:</span> <span>Cerrado</span>
+            <div className="flex flex-col gap-0.5">
+                <span>Lun – Vie: <strong className="text-[#1F2933] font-semibold">9:00 – 17:00 hs</strong></span>
+                <span className="text-[#999]">Sáb y Dom: cerrado</span>
             </div>
         ),
     },
     {
-        icon: <IconMapPin className="w-7 h-7" stroke={1.5} aria-hidden />,
-        title: "Ubicación",
+        icon: <IconMapPin className="w-6 h-6" stroke={1.5} aria-hidden />,
+        label: "Dirección",
+        title: "Sede Central",
         description: (
-            <P variant="small">
-                Billinghurst 19, Ciudad Autónoma de Buenos Aires. Argentina
-            </P>
+            <span>
+                Billinghurst 19<br />
+                Ciudad Autónoma de Buenos Aires
+            </span>
         ),
     },
     {
-        icon: <IconMail className="w-7 h-7" stroke={1.5} aria-hidden />,
-        title: "Email",
+        icon: <IconMail className="w-6 h-6" stroke={1.5} aria-hidden />,
+        label: "Contacto",
+        title: "Escribinos",
         description: (
-            <P variant="small">
-                <Link href="mailto:info@fpp.org.ar">info@fpp.org.ar</Link>
-            </P>
+            <Link href="mailto:info@fpp.org.ar">
+                info@fpp.org.ar
+            </Link>
         ),
     },
-   
 ];
 
 interface BenefitsProps {
@@ -76,20 +76,25 @@ interface BenefitsProps {
 export default function Benefits({ benefits = DEFAULT_BENEFITS }: BenefitsProps) {
     return (
         <section
-            className="flex flex-col items-center relative bg-[#F0F6FE] px-10 sm:px-6 py-8 sm:py-0"
+            className="relative bg-[#F0F6FE] px-10 sm:px-6 pb-0"
             aria-labelledby="benefits-heading"
         >
             <h2 id="benefits-heading" className="sr-only">
                 Información de contacto: ubicación, email y horarios
             </h2>
-            <AnimatedSection stagger>
-                <ul className="grid grid-cols-1 md:grid-cols-3 max-w-7xl overflow-hidden -mt-24 sm:-mt-32 lg:-mt-40 z-10 mx-auto rounded-2xl md:rounded-[20px] md:overflow-hidden justify-center items-center flex-1 min-h-0 md:min-h-60 w-full gap-4 md:gap-0 bg-white md:shadow-[0_4px_20px_0_rgba(0,67,223,0.15)] list-none">
+            <AnimatedSection stagger className="max-w-7xl mx-auto">
+                <ul className="
+                    grid grid-cols-1 md:grid-cols-3
+                    -mt-24 sm:-mt-32 lg:-mt-40 z-10
+                    rounded-2xl overflow-hidden
+                    bg-white
+                    shadow-[0_8px_40px_0_rgba(0,67,223,0.12)]
+                    divide-y md:divide-y-0 md:divide-x divide-[#EEF2FB]
+                    list-none
+                ">
                     {benefits.map((benefit, index) => (
-                        <li key={index}>
-                            <BenefitCard
-                                {...benefit}
-                                isLast={index === benefits.length - 1}
-                            />
+                        <li key={index} className="min-h-0">
+                            <BenefitCard {...benefit} />
                         </li>
                     ))}
                 </ul>

@@ -1,84 +1,163 @@
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import { H2, H3, P } from "@/components/ui/Text";
+"use client";
+
+import { H2, Label, P } from "@/components/ui/Text";
+import {
+  IconAward,
+  IconBulb,
+  IconHeartHandshake,
+  IconShieldCheck,
+} from "@tabler/icons-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const PRINCIPLES = [
   {
+    number: "01",
     title: "Excelencia Académica",
     description:
       "Promovemos la formación continua de profesionales de la salud a través de programas de capacitación de clase mundial y alianzas con instituciones líderes.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="w-8 h-8 text-primary">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-        <path d="M8 7h8M8 11h8M8 15h4" />
-      </svg>
-    ),
+    Icon: IconAward,
   },
   {
+    number: "02",
     title: "Integridad y Salud Integral",
     description:
       "Actuamos con transparencia y ética en cada decisión, priorizando el bienestar integral de pacientes y profesionales por encima de cualquier interés.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="w-8 h-8 text-emerald-600">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      </svg>
-    ),
+    Icon: IconShieldCheck,
   },
   {
+    number: "03",
     title: "Innovación Colaborativa",
     description:
       "Impulsamos la adopción de tecnología médica de vanguardia y fomentamos la colaboración entre instituciones, profesionales y comunidades.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="w-8 h-8 text-primary">
-        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12 12 0 0 1 22 2c0 2.72-.78 7.5-6 11a22 22 0 0 1-3.97 2z" />
-        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-      </svg>
-    ),
+    Icon: IconBulb,
   },
   {
+    number: "04",
     title: "Vocación de Servicio",
     description:
       "Nuestro compromiso es con la salud pública y la atención de calidad accesible, operando siempre sin fines de lucro y con profundo sentido social.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="w-8 h-8 text-red-500">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      </svg>
-    ),
+    Icon: IconHeartHandshake,
   },
 ];
 
 export default function AboutPrinciplesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const heading = section.querySelector<HTMLElement>("[data-heading]");
+    const cards = section.querySelectorAll<HTMLElement>("[data-card]");
+
+    if (heading) {
+      gsap.set(heading, { opacity: 0, y: 40 });
+      ScrollTrigger.create({
+        trigger: heading,
+        start: "top 88%",
+        once: true,
+        onEnter: () =>
+          gsap.to(heading, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }),
+      });
+    }
+
+    cards.forEach((card, i) => {
+      // Par: entra desde la izquierda. Impar: desde la derecha
+      const xFrom = i % 2 === 0 ? -50 : 50;
+      gsap.set(card, { opacity: 0, y: 40, scale: 0.96 });
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top 88%",
+        once: true,
+        onEnter: () =>
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.85,
+            ease: "power3.out",
+            delay: (i % 2) * 0.12,
+          }),
+      });
+      // El número watermark tiene su propia animación
+      const numEl = card.querySelector<HTMLElement>("[data-number]");
+      if (numEl) {
+        gsap.set(numEl, { opacity: 0, x: xFrom * 0.5 });
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 88%",
+          once: true,
+          onEnter: () =>
+            gsap.to(numEl, {
+              opacity: 1,
+              x: 0,
+              duration: 1.2,
+              ease: "power2.out",
+              delay: (i % 2) * 0.12 + 0.1,
+            }),
+        });
+      }
+    });
+
+    return () => ScrollTrigger.getAll().forEach((st) => st.kill());
+  }, []);
+
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-white" aria-labelledby="principles-heading">
+    <section
+      ref={sectionRef}
+      className="py-16 sm:py-20 lg:py-28 bg-white"
+      aria-labelledby="principles-heading"
+    >
       <div className="max-w-5xl mx-auto px-10 sm:px-6">
-        <AnimatedSection className="text-center mb-10 lg:mb-12">
-          <p className="text-primary font-semibold text-sm sm:text-base tracking-wide mb-2">
-            Nuestros Principios
-          </p>
-          <H2 id="principles-heading" variant="section" className="font-sans text-[#333333]">
+
+        <div data-heading className="flex flex-col items-center text-center gap-3 mb-14 lg:mb-20">
+          <Label variant="secondary">Nuestros principios</Label>
+          <H2
+            id="principles-heading"
+            variant="section"
+            className="font-sans text-[#1F2933]"
+          >
             Valores que nos guían
           </H2>
-        </AnimatedSection>
-        <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-6">
-          {PRINCIPLES.map((item, i) => (
-            <div
-              key={i}
-              className="flex flex-col gap-4 p-6 lg:p-8 rounded-2xl bg-[#F0F6FE] text-left"
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+          {PRINCIPLES.map((item) => (
+            <article
+              key={item.number}
+              data-card
+              className="relative overflow-hidden rounded-2xl bg-[#F8FAFF] p-8 lg:p-10 flex flex-col gap-5"
             >
-              <div className="flex-shrink-0" aria-hidden>
-                {item.icon}
+              {/* Número watermark */}
+              <span
+                data-number
+                className="absolute -top-3 -right-2 font-serif text-[96px] lg:text-[120px] font-bold text-[#E4ECFB] leading-none select-none pointer-events-none"
+                aria-hidden
+              >
+                {item.number}
+              </span>
+
+              {/* Ícono */}
+              <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center flex-shrink-0 relative z-10">
+                <item.Icon className="w-6 h-6 text-primary" stroke={1.5} aria-hidden />
               </div>
-              <H3 className="font-sans text-lg sm:text-xl font-bold text-[#333333]">
-                {item.title}
-              </H3>
-              <P variant="body">
-                {item.description}
-              </P>
-            </div>
+
+              {/* Texto */}
+              <div className="flex flex-col gap-2 relative z-10">
+                <h3 className="font-sans text-lg sm:text-xl font-bold text-[#1F2933]">
+                  {item.title}
+                </h3>
+                <P variant="body">{item.description}</P>
+              </div>
+            </article>
           ))}
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

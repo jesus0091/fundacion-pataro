@@ -1,9 +1,18 @@
+"use client";
+
 import { H3, P } from "@/components/ui/Text";
 import {
     IconHeartHandshake,
     IconMicroscope,
     IconSchool,
 } from "@tabler/icons-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 const PILLARS = [
     {
@@ -27,16 +36,41 @@ const PILLARS = [
 ];
 
 export default function ServicesPillarsSection() {
+    const ref = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const section = ref.current;
+        if (!section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const cards = section.querySelectorAll<HTMLElement>("article");
+        gsap.set(cards, { opacity: 0, y: 48, scale: 0.95 });
+
+        const st = ScrollTrigger.create({
+            trigger: section,
+            start: "top 88%",
+            once: true,
+            onEnter: () =>
+                gsap.to(cards, {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    stagger: 0.13,
+                }),
+        });
+
+        return () => st.kill();
+    }, []);
+
     return (
         <section
+            ref={ref}
             className="py-12 sm:py-16 lg:py-24 bg-white"
             aria-labelledby="pillars-heading"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <h2
-                    id="pillars-heading"
-                    className="sr-only"
-                >
+                <h2 id="pillars-heading" className="sr-only">
                     Formación, Innovación y Compromiso
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
