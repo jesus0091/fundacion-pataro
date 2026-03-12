@@ -36,20 +36,18 @@ export default function Footer({
                       <Button href="/services" variant="primary">
                         Ver Programas de Formación
                       </Button>
-                      <Button href="/contact" variant="tertiary">
-                        Donar
-                      </Button>
                     </div>
                 </header>
             </div>
             <div className="bg-black rounded-3xl">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-8 pt-14">
-                    {/* Firma y redes sociales */}
-                    <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-white/15">
+                <div className="max-w-7xl mx-auto px-6 sm:px-10 pb-8 pt-14">
+
+                    {/* Fila superior: logo + redes */}
+                    <div className="flex items-center justify-between gap-6 pb-8 border-b border-white/10">
                         <FirmaLogo
                             color="white"
-                            className="w-[70%] h-auto object-contain"
-                            width={280}
+                            className="h-auto w-full object-contain"
+                            width={220}
                             height={28}
                         />
                         <div className="flex gap-3">
@@ -57,69 +55,80 @@ export default function Footer({
                                 href="https://www.instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/30 bg-white/5 text-white transition hover:bg-white/10"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-white/70 transition hover:bg-white/10 hover:text-white"
                                 aria-label="Instagram"
                             >
-                                <IconBrandInstagram className="h-5 w-5" stroke={1.5} aria-hidden />
+                                <IconBrandInstagram className="h-4 w-4" stroke={1.5} aria-hidden />
                             </a>
                             <a
                                 href="https://www.linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/30 bg-white/5 text-white transition hover:bg-white/10"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-white/70 transition hover:bg-white/10 hover:text-white"
                                 aria-label="LinkedIn"
                             >
-                                <IconBrandLinkedin className="h-5 w-5" stroke={1.5} aria-hidden />
+                                <IconBrandLinkedin className="h-4 w-4" stroke={1.5} aria-hidden />
                             </a>
                         </div>
                     </div>
 
-                    {/* Cuatro columnas */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-16 py-10 border-b border-white/10">
+
+                        {/* Col 1: Descripción */}
                         <div>
-                            <h4 className="font-serif text-xl font-semibold text-white mb-4">
-                                Fundación Pataro
-                            </h4>
-                            <p className="text-neutral-200 text-base leading-relaxed">
-                                Impulsamos la excelencia médica a través de la educación continua, la investigación científica y la innovación tecnológica aplicada.
+                            <p className="text-neutral-400 text-sm leading-relaxed max-w-xs">
+                                Impulsamos la excelencia médica a través de la educación continua, la investigación científica y la innovación tecnológica aplicada al sistema de salud.
                             </p>
                         </div>
+
+                        {/* Col 2: Navegación */}
                         <div>
-                            <h4 className="font-serif text-xl font-semibold text-white mb-4">
+                            <h4 className="text-sm font-semibold text-white mb-5">
                                 Navegación
                             </h4>
-                            <ul className="flex flex-col gap-2">
-                                <li><Link href="/" className="text-neutral-300 hover:text-white transition-colors">Inicio</Link></li>
-                                <li><Link href="/about" className="text-neutral-300 hover:text-white transition-colors">Quiénes Somos</Link></li>
-                                <li><Link href="/services" className="text-neutral-300 hover:text-white transition-colors">Qué Hacemos</Link></li>
-                                <li><Link href="/contact" className="text-neutral-300 hover:text-white transition-colors">Contacto</Link></li>
+                            <ul className="flex flex-col gap-3">
+                                <li><Link href="/" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Inicio</Link></li>
+                                <li><Link href="/about" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Quiénes Somos</Link></li>
+                                <li><Link href="/services" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Programas</Link></li>
+                                <li><Link href="/contact" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Contacto</Link></li>
                             </ul>
                         </div>
+
+                        {/* Col 3: Programas */}
                         <div>
-                            <h4 className="font-serif text-xl font-semibold text-white mb-4">
+                            <h4 className="text-sm font-semibold text-white mb-5">
                                 Programas
                             </h4>
-                            <ul className="flex flex-col gap-2">
-                                <li><Link href="/services#becas" className="text-neutral-300 hover:text-white transition-colors">Becas</Link></li>
-                                <li><Link href="/services#investigacion" className="text-neutral-300 hover:text-white transition-colors">Investigación</Link></li>
-                                <li><Link href="/services#eventos" className="text-neutral-300 hover:text-white transition-colors">Eventos</Link></li>
-                                <li><Link href="/services#centros" className="text-neutral-300 hover:text-white transition-colors">Centros Médicos</Link></li>
+                            <ul className="flex flex-col gap-3">
+                                <li><Link href="/services/capacitacion-y-becas" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Capacitación y Becas</Link></li>
+                                <li><Link href="/services/investigacion-y-eventos-academicos" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Investigación y Eventos</Link></li>
+                                <li><Link href="/services/gestion-asistencial" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Gestión Asistencial</Link></li>
+                                <li><Link href="/services/infraestructura-medica" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Infraestructura Médica</Link></li>
+                                <li><Link href="/services/impacto-social-y-prevencion" className="relative inline-block text-sm text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">Impacto Social</Link></li>
                             </ul>
                         </div>
+
+                        {/* Col 4: Contacto */}
                         <div>
-                            <h4 className="font-serif text-xl font-semibold text-white mb-4">
+                            <h4 className="text-sm font-semibold text-white mb-5">
                                 Contacto
                             </h4>
-                            <p className="text-neutral-200 text-base leading-relaxed">
-                                Billinghurst 19, CABA. Argentina<br />
-                                <a href="mailto:info@fpp.org.ar" className="text-neutral-300 hover:text-white transition-colors">info@fpp.org.ar</a>
-                            </p>
+                            <address className="not-italic flex flex-col gap-3 text-sm text-neutral-400 leading-relaxed">
+                                <span>Billinghurst 19, CABA<br />Argentina</span>
+                                <a href="mailto:info@fpp.org.ar" className="relative inline-block text-neutral-300 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100">
+                                    info@fpp.org.ar
+                                </a>
+                            </address>
                         </div>
+
                     </div>
 
-                    <div className="border-t border-white/15 mt-10 pt-8 text-center">
-                        <p className="text-neutral-400 text-sm">
-                            © {currentYear} Fundación Pataro. Todos los derechos reservados.
+                    <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <p className="text-neutral-500 text-xs">
+                            © {currentYear} Fundación Patricio Pataro. Todos los derechos reservados.
+                        </p>
+                        <p className="text-neutral-600 text-xs">
+                            CUIT 30-71753023-4
                         </p>
                     </div>
                 </div>

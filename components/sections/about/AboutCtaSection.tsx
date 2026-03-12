@@ -12,9 +12,6 @@ export default function AboutCtaSection() {
           <Button href="/services" variant="tertiary">
             Ver Programas de Formación
           </Button>
-          <Button href="/contact" variant="primary">
-            Donar
-          </Button>
         </div>
       </div>
     </section>

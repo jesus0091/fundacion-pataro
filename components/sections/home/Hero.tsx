@@ -76,9 +76,6 @@ export default function Hero() {
                                     />
                                 </svg>
                             </Button>
-                            <Button href="/contact" variant="tertiary">
-                                Donar
-                            </Button>
                         </div>
                     </div>
                     <div className=" flex flex-1 w-full  order-last lg:order-none">
