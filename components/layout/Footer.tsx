@@ -34,7 +34,7 @@ export default function Footer({
                     <P variant="body">{ctaDescription}</P>
                     <div className="flex flex-wrap justify-center gap-3">
                       <Button href="/services" variant="primary">
-                        Ver Programas de Formación
+                        Conocer nuestros programas
                       </Button>
                     </div>
                 </header>

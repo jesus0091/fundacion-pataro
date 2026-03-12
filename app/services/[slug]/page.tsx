@@ -1,6 +1,6 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
-import { H1, H2, P } from "@/components/ui/Text";
+import { H1, H2, H3, P } from "@/components/ui/Text";
 import { getServiceBySlug, SERVICES } from "@/lib/services";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -14,6 +14,9 @@ import {
   IconMicroscope,
   IconSchool,
   IconSettings,
+  IconTargetArrow,
+  IconUsers,
+  IconTrendingUp,
 } from "@tabler/icons-react";
 
 interface PageProps {
@@ -52,6 +55,7 @@ export default async function ServicePage({ params }: PageProps) {
 
   return (
     <>
+      {/* Hero */}
       <section
         className="relative pt-28 pb-0 lg:pt-32 overflow-hidden"
         aria-labelledby="service-heading"
@@ -86,24 +90,17 @@ export default async function ServicePage({ params }: PageProps) {
               <Icon className="w-5 h-5" stroke={1.5} aria-hidden />
               {service.title}
             </span>
-            <H1
-              id="service-heading"
-              data-animate
-              className="text-white"
-            >
+            <H1 id="service-heading" data-animate className="text-white">
               {service.tagline}
             </H1>
-            <P
-              variant="body"
-              data-animate
-              className="text-white/85"
-            >
+            <P variant="body" data-animate className="text-white/85">
               {service.shortDescription}
             </P>
           </AnimatedSection>
         </div>
       </section>
 
+      {/* Descripción + Beneficios */}
       <section
         className="py-12 sm:py-16 lg:py-24 bg-white"
         aria-labelledby="service-detail-heading"
@@ -126,9 +123,32 @@ export default async function ServicePage({ params }: PageProps) {
                 </P>
               ))}
             </AnimatedSection>
+
+            {/* A quién va dirigido */}
+            <AnimatedSection className="mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <IconUsers className="w-5 h-5 text-primary" stroke={1.5} aria-hidden />
+                </div>
+                <h3 className="font-sans text-base sm:text-lg font-bold text-[#1F2933]">
+                  ¿A quién está dirigido?
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {service.audience.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#F0F6FE] text-primary text-sm font-medium"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </AnimatedSection>
           </div>
 
-          <aside className="lg:col-span-5" aria-label="Beneficios clave">
+          {/* Sidebar */}
+          <aside className="lg:col-span-5 flex flex-col gap-6" aria-label="Beneficios clave">
             <AnimatedSection delay={0.1}>
               <div className="bg-gradient-to-br from-[#F0F6FE] to-[#E8F5E9] rounded-2xl p-8 lg:p-10">
                 <h3 className="font-sans text-lg font-bold text-[#1F2933] mb-6">
@@ -151,27 +171,131 @@ export default async function ServicePage({ params }: PageProps) {
                 </ul>
                 <div className="mt-8">
                   <Button href="/contact" variant="primary">
-                    Quiero saber más
+                    Quiero participar
                   </Button>
                 </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Resultados */}
+            <AnimatedSection delay={0.2}>
+              <div className="rounded-2xl border border-[#E8EEFE] p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <IconTrendingUp className="w-5 h-5 text-primary" stroke={1.5} aria-hidden />
+                  </div>
+                  <h3 className="font-sans text-base font-bold text-[#1F2933]">
+                    Resultados e impacto
+                  </h3>
+                </div>
+                <ul className="flex flex-col gap-3">
+                  {service.results.map((result) => (
+                    <li
+                      key={result}
+                      className="flex items-start gap-2 text-sm text-[#333333]"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-2" aria-hidden />
+                      {result}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </AnimatedSection>
           </aside>
         </div>
       </section>
 
+      {/* Sub-programas */}
+      <section
+        className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFF]"
+        aria-labelledby="subprograms-heading"
+      >
+        <div className="max-w-7xl mx-auto px-10 sm:px-6">
+          <AnimatedSection className="mb-10 lg:mb-14">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <IconTargetArrow className="w-5 h-5 text-primary" stroke={1.5} aria-hidden />
+              </div>
+              <p className="text-primary font-semibold text-sm tracking-wide">
+                {service.title}
+              </p>
+            </div>
+            <H2 id="subprograms-heading" variant="section" className="font-sans text-[#333333]">
+              Actividades y sub-programas
+            </H2>
+          </AnimatedSection>
+          <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+            {service.subprograms.map((sub, i) => (
+              <article
+                key={i}
+                className="bg-white rounded-2xl p-6 lg:p-8 border border-[#E8EEFE] flex flex-col gap-3"
+                data-animate
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-icon flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-5 h-5 text-primary" stroke={1.5} aria-hidden />
+                </div>
+                <H3 className="font-sans text-base sm:text-lg font-bold text-[#1F2933]">
+                  {sub.title}
+                </H3>
+                <P variant="small">{sub.description}</P>
+              </article>
+            ))}
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Cómo participar */}
+      <section
+        className="py-12 sm:py-16 lg:py-24 bg-white"
+        aria-labelledby="how-to-heading"
+      >
+        <div className="max-w-5xl mx-auto px-10 sm:px-6">
+          <AnimatedSection className="text-center mb-10 lg:mb-14">
+            <H2 id="how-to-heading" variant="section" className="font-sans text-[#333333]">
+              ¿Cómo participar?
+            </H2>
+            <P variant="body" className="text-center mt-3 max-w-xl mx-auto">
+              El proceso es simple. En pocos pasos podés acceder a este programa.
+            </P>
+          </AnimatedSection>
+          <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {service.howToParticipate.map((item, i) => (
+              <div key={i} className="flex flex-col gap-3" data-animate>
+                <div className="flex items-center gap-3">
+                  <span className="w-9 h-9 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+                    {i + 1}
+                  </span>
+                  <div className="h-px flex-1 bg-[#E8EEFE] hidden sm:block" aria-hidden />
+                </div>
+                <h3 className="font-sans text-base font-bold text-[#1F2933]">
+                  {item.step}
+                </h3>
+                <P variant="small">{item.description}</P>
+              </div>
+            ))}
+          </AnimatedSection>
+          <AnimatedSection className="mt-12 text-center">
+            <Button href="/contact" variant="primary">
+              Contactanos para comenzar
+            </Button>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Otros programas */}
       <section
         className="py-12 sm:py-16 lg:py-20 bg-[#F0F6FE]"
         aria-labelledby="other-services-heading"
       >
         <div className="max-w-7xl mx-auto px-10 sm:px-6">
           <AnimatedSection className="mb-8 lg:mb-10">
-            <h2
+            <H2
               id="other-services-heading"
-              className="font-sans text-xl sm:text-2xl font-bold text-[#1F2933]"
+              variant="section"
+              className="font-sans text-[#1F2933]"
             >
               Otros programas
-            </h2>
+            </H2>
           </AnimatedSection>
           <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {otherServices.map((s) => {
