@@ -2,6 +2,7 @@ import "./globals.css";
 
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import PageTransitionOverlay from "@/components/ui/PageTransitionOverlay";
 import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 import type { Metadata } from "next";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
           <Header />
           <main id="main-content" className="min-h-screen" role="main">{children}</main>
           <Footer />
+          <PageTransitionOverlay />
         </SmoothScrollProvider>
       </body>
     </html>
