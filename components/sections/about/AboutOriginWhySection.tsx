@@ -1,5 +1,5 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H5, P } from "@/components/ui/Text";
-
 import { FirmaLogo } from "@/components/ui/FirmaLogo";
 import Image from "next/image";
 
@@ -21,57 +21,42 @@ export default function AboutOriginWhySection() {
             aria-labelledby="origin-heading"
         >
             <div className="max-w-2xl mx-auto px-10 sm:px-6 flex flex-col gap-8">
-                <div id="about-org-title" className="flex justify-center">
+                <AnimatedSection className="flex justify-center">
                     <FirmaLogo
                         color="black"
                         className="h-auto w-full object-contain"
                         width={280}
                         height={48}
                     />
-                </div>
+                </AnimatedSection>
                 <div className="max-w-3xl flex flex-col gap-3">
-                    <H5
-                        id="origin-heading"
-                        className="font-sans text-[#333333]"
-                    >
-                        El Origen
-                    </H5>
-                    <div className="flex flex-col gap-4">
+                    <AnimatedSection>
+                        <H5 id="origin-heading" className="font-sans text-[#333333]">
+                            El Origen
+                        </H5>
+                    </AnimatedSection>
+                    <AnimatedSection className="flex flex-col gap-4">
                         {ORIGIN_PARAGRAPHS.map((text, i) => (
-                            <P
-                                key={i}
-                                variant="body"
-                                className="text-justify"
-                            >
-                                {text}
-                            </P>
+                            <P key={i} variant="body" className="text-justify">{text}</P>
                         ))}
-                    </div>
-                    {/* Cita: fondo #E8F5FD, borde izquierdo azul/teal fino, texto azul itálico (Figma) */}
-                    <blockquote className="mt-4 py-4 pl-6 pr-5 bg-[#E8F5FD] border-l-[3px] border-[#2196F3] text-[#1976D2] text-base italic font-sans rounded-r-lg">
-                        &ldquo;{QUOTE}&rdquo;
-                    </blockquote>
-
-                    {/* Por Qué Existimos */}
-                    <H5
-                        id="why-heading"
-                        className="mt-14 font-sans text-[#333333]"
-                    >
-                        Por Qué Existimos
-                    </H5>
-                    <div className="flex flex-col gap-4">
+                    </AnimatedSection>
+                    <AnimatedSection delay={0.1}>
+                        <blockquote className="mt-4 py-4 pl-6 pr-5 bg-[#E8F5FD] border-l-[3px] border-[#2196F3] text-[#1976D2] text-base italic font-sans rounded-r-lg">
+                            &ldquo;{QUOTE}&rdquo;
+                        </blockquote>
+                    </AnimatedSection>
+                    <AnimatedSection>
+                        <H5 id="why-heading" className="mt-14 font-sans text-[#333333]">
+                            Por Qué Existimos
+                        </H5>
+                    </AnimatedSection>
+                    <AnimatedSection className="flex flex-col gap-4">
                         {WHY_PARAGRAPHS.map((text, i) => (
-                            <P
-                                key={i}
-                                variant="body"
-                                className="text-justify"
-                            >
-                                {text}
-                            </P>
+                            <P key={i} variant="body" className="text-justify">{text}</P>
                         ))}
-                    </div>
+                    </AnimatedSection>
                 </div>
-                <div className="mt-4 relative w-full rounded-xl overflow-hidden">
+                <AnimatedSection className="mt-4 relative w-full rounded-xl overflow-hidden">
                     <Image
                         src="/images/origin_png_1_.webp"
                         alt="Fundación Patricio Pataro - Nuestro equipo y vocación"
@@ -79,7 +64,7 @@ export default function AboutOriginWhySection() {
                         className="object-cover !static"
                         sizes="(max-width: 1024px) 100vw, 1280px"
                     />
-                </div>
+                </AnimatedSection>
             </div>
         </section>
     );

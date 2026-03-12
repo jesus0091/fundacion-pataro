@@ -1,3 +1,4 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H2, P } from "@/components/ui/Text";
 import { IconBuildingCommunity, IconUsersGroup, IconWorld } from "@tabler/icons-react";
 
@@ -29,15 +30,15 @@ export default function AboutDifferentiatorsSection() {
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-white" aria-labelledby="differentiators-heading">
       <div className="max-w-5xl mx-auto px-10 sm:px-6">
-        <header className="text-center mb-10 lg:mb-12">
+        <AnimatedSection className="text-center mb-10 lg:mb-12">
           <H2 id="differentiators-heading" variant="section" className="mb-3 font-sans text-[#333333]">
             Lo que nos hace únicos
           </H2>
           <P variant="body" className="text-center max-w-2xl mx-auto">
             {SUBTITLE}
           </P>
-        </header>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        </AnimatedSection>
+        <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {ITEMS.map((item, i) => (
             <div
               key={i}
@@ -54,7 +55,7 @@ export default function AboutDifferentiatorsSection() {
               </P>
             </div>
           ))}
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

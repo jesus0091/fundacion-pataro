@@ -1,47 +1,77 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 
-const defaultVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const reducedVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
+gsap.registerPlugin(ScrollTrigger);
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  amount?: number;
+  stagger?: boolean;
 }
 
 export default function AnimatedSection({
   children,
   className,
   delay = 0,
-  amount = 0.15,
+  stagger = false,
 }: AnimatedSectionProps) {
-  const reduceMotion = useReducedMotion();
-  const variants = reduceMotion ? reducedVariants : defaultVariants;
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    if (stagger) {
+      const targets = el.querySelectorAll<HTMLElement>(
+        "li, article, [data-animate]"
+      );
+      if (!targets.length) return;
+      gsap.set(targets, { opacity: 0, y: 24 });
+
+      const st = ScrollTrigger.create({
+        trigger: el,
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          gsap.to(targets, {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            stagger: 0.1,
+            delay,
+          });
+        },
+      });
+      return () => st.kill();
+    }
+
+    gsap.set(el, { opacity: 0, y: 30 });
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: "top 88%",
+      once: true,
+      onEnter: () => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.75,
+          ease: "power2.out",
+          delay,
+        });
+      },
+    });
+    return () => st.kill();
+  }, [delay, stagger]);
 
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount }}
-      variants={variants}
-      transition={{
-        duration: reduceMotion ? 0.2 : 0.4,
-        ease: "easeOut",
-        delay: reduceMotion ? 0 : delay,
-      }}
-      className={className}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

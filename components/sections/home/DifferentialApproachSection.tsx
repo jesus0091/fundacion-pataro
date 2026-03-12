@@ -38,11 +38,11 @@ export default function DifferentialApproachSection({
             aria-labelledby="differential-approach-heading"
         >
             <AuroraBackground />
-            <AnimatedSection className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-10 sm:px-6">
-                <header className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
-                    <Label variant="secondary">
-                        Nuestro enfoque diferencial
-                    </Label>
+            <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-10 sm:px-6">
+                <AnimatedSection className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
+                    <span className="inline-block">
+                        <Label variant="secondary">Nuestro enfoque diferencial</Label>
+                    </span>
                     <H2 id="differential-approach-heading" variant="section">
                         Una visión integral para transformar la salud.
                     </H2>
@@ -51,8 +51,12 @@ export default function DifferentialApproachSection({
                         la salud requiere más que acciones aisladas. Por eso
                         combinamos:
                     </P>
-                </header>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 lg:mb-12 max-w-3xl mx-auto w-full">
+                </AnimatedSection>
+
+                <AnimatedSection
+                    stagger
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 lg:mb-12 max-w-3xl mx-auto w-full"
+                >
                     {cards.map((card, index) => (
                         <article
                             key={index}
@@ -90,21 +94,21 @@ export default function DifferentialApproachSection({
                             </div>
                         </article>
                     ))}
-                </div>
-                <div className="flex flex-col items-center gap-6">
+                </AnimatedSection>
+
+                <AnimatedSection className="flex flex-col items-center gap-6">
                     <P variant="body" className="text-center max-w-2xl mx-auto">
                         Nuestro enfoque integra acción inmediata y visión
                         estratégica, generando impacto hoy y construyendo
                         soluciones para el futuro.
                     </P>
-
                     <div className="flex justify-center">
                         <Button href={ctaHref} variant="primary">
                             {ctaText}
                         </Button>
                     </div>
-                </div>
-            </AnimatedSection>
+                </AnimatedSection>
+            </div>
         </section>
     );
 }

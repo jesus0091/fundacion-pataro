@@ -22,7 +22,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     title: "Capacitación y Becas",
     description:
       "Formamos y acompañamos a médicos residentes y profesionales de la salud, facilitando becas, programas y desarrollo continuo.",
-    href: "/services",
+    href: "/services/capacitacion-y-becas",
     imageSrc: "/images/service-1.png",
     icon: <IconSchool className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
@@ -30,7 +30,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     title: "Investigación y Eventos Académicos",
     description:
       "Impulsamos el intercambio científico mediante congresos, simposios y ateneos, y apoyamos proyectos de investigación.",
-    href: "/services",
+    href: "/services/investigacion-y-eventos-academicos",
     imageSrc: "/images/service-2.png",
     icon: <IconMicroscope className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
@@ -38,7 +38,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     title: "Gestión Asistencial",
     description:
       "Desarrollamos y administramos centros médicos y quirúrgicos, brindando atención directa de calidad.",
-    href: "/services",
+    href: "/services/gestion-asistencial",
     imageSrc: "/images/service-3.png",
     icon: <IconBuildingHospital className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
@@ -46,7 +46,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     title: "Infraestructura Médica",
     description:
       "Invertimos en equipamiento médico de última generación y en la modernización de instalaciones.",
-    href: "/services",
+    href: "/services/infraestructura-medica",
     imageSrc: "/images/service-4.png",
     icon: <IconSettings className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
@@ -54,7 +54,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     title: "Impacto Social y Prevención",
     description:
       "Desarrollamos campañas benéficas, acciones de salud preventiva y programas de concientización.",
-    href: "/services",
+    href: "/services/impacto-social-y-prevencion",
     imageSrc: "/images/service-5.png",
     icon: <IconHeart className="w-6 h-6" stroke={1.5} aria-hidden />,
   },

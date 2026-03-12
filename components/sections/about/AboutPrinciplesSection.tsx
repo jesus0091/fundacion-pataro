@@ -1,3 +1,4 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H2, H3, P } from "@/components/ui/Text";
 
 const PRINCIPLES = [
@@ -52,15 +53,15 @@ export default function AboutPrinciplesSection() {
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-white" aria-labelledby="principles-heading">
       <div className="max-w-5xl mx-auto px-10 sm:px-6">
-        <header className="text-center mb-10 lg:mb-12">
+        <AnimatedSection className="text-center mb-10 lg:mb-12">
           <p className="text-primary font-semibold text-sm sm:text-base tracking-wide mb-2">
             Nuestros Principios
           </p>
           <H2 id="principles-heading" variant="section" className="font-sans text-[#333333]">
             Valores que nos guían
           </H2>
-        </header>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-6">
+        </AnimatedSection>
+        <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-6">
           {PRINCIPLES.map((item, i) => (
             <div
               key={i}
@@ -77,7 +78,7 @@ export default function AboutPrinciplesSection() {
               </P>
             </div>
           ))}
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

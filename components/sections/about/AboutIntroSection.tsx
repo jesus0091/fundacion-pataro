@@ -1,5 +1,5 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H1, Label, P } from "@/components/ui/Text";
-
 import Image from "next/image";
 
 export default function AboutIntroSection() {
@@ -20,15 +20,15 @@ export default function AboutIntroSection() {
                 />
             </div>
             <div className="max-w-7xl mx-auto px-10 sm:px-6 flex flex-col items-center text-center z-10">
-                <header className="max-w-2xl flex flex-col gap-3 items-center text-center">
-                    <Label variant="secondary">Sobre nosotros</Label>
-                    <H1 id="about-heading">Quiénes Somos</H1>
-                    <P variant="body" className="text-center">
+                <AnimatedSection stagger className="max-w-2xl flex flex-col gap-3 items-center text-center">
+                    <span data-animate><Label variant="secondary">Sobre nosotros</Label></span>
+                    <H1 id="about-heading" data-animate>Quiénes Somos</H1>
+                    <P variant="body" className="text-center" data-animate>
                         Transformamos conocimiento en acción a través de cinco
                         pilares fundamentales que fortalecen el sistema de
                         salud.
                     </P>
-                </header>
+                </AnimatedSection>
             </div>
         </section>
     );

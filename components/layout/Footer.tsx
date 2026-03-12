@@ -48,7 +48,7 @@ export default function Footer({
                     <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-white/15">
                         <FirmaLogo
                             color="white"
-                            className="w-[50%] h-auto object-contain"
+                            className="w-[70%] h-auto object-contain"
                             width={280}
                             height={28}
                         />

@@ -1,5 +1,5 @@
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { H2, H3, P } from "@/components/ui/Text";
-
 import Image from "next/image";
 
 const MISSION =
@@ -49,7 +49,7 @@ export default function AboutMissionVisionSection() {
             aria-labelledby="mission-vision-heading"
         >
             <div className="max-w-7xl mx-auto flex flex-col md:grid grid-cols-3 md:gap-4 px-10 sm:px-6">
-                <div className="w-full pt-10 order-3 md:order-1 px-[10vw] sm:px-[20vw] md:px-0">
+                <AnimatedSection className="w-full pt-10 order-3 md:order-1 px-[10vw] sm:px-[20vw] md:px-0">
                     <Image
                         src="/images/mission_vision.png"
                         alt="Profesional de la salud - Fundación Patricio Pataro"
@@ -57,8 +57,8 @@ export default function AboutMissionVisionSection() {
                         className="object-cover !static"
                         sizes="(max-width: 1024px) 100vw, 45vw"
                     />
-                </div>
-                <div className="flex flex-col gap-4 py-8 md:py-36 order-1 md:order-2">
+                </AnimatedSection>
+                <AnimatedSection delay={0.1} className="flex flex-col gap-4 py-8 md:py-36 order-1 md:order-2">
                     <div className="w-12 lg:w-16 h-12 lg:h-16 rounded-xl bg-gradient-icon flex items-center justify-center flex-shrink-0">
                         <MissionIcon />
                     </div>
@@ -68,8 +68,8 @@ export default function AboutMissionVisionSection() {
                     <P variant="body" className="font-sans">
                         {MISSION}
                     </P>
-                </div>
-                <div className="flex flex-col gap-4 py-8 justify-start md:py-36 order-2 md:order-3">
+                </AnimatedSection>
+                <AnimatedSection delay={0.2} className="flex flex-col gap-4 py-8 justify-start md:py-36 order-2 md:order-3">
                     <div className="w-12 lg:w-16 h-12 lg:h-16 aspect-square rounded-xl bg-gradient-icon flex items-center justify-center flex-shrink-0">
                         <VisionIcon />
                     </div>
@@ -79,7 +79,7 @@ export default function AboutMissionVisionSection() {
                     <P variant="body" className="font-sans">
                         {VISION}
                     </P>
-                </div>
+                </AnimatedSection>
             </div>
         </section>
     );
