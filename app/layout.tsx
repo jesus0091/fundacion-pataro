@@ -2,6 +2,7 @@ import "./globals.css";
 
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -32,9 +33,11 @@ export default function RootLayout({
         >
           Saltar al contenido principal
         </a>
-        <Header />
-        <main id="main-content" className="min-h-screen" role="main">{children}</main>
-        <Footer />
+        <SmoothScrollProvider>
+          <Header />
+          <main id="main-content" className="min-h-screen" role="main">{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

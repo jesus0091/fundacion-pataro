@@ -4,7 +4,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -31,19 +33,21 @@ export default function AnimatedSection({
         "li, article, [data-animate]"
       );
       if (!targets.length) return;
-      gsap.set(targets, { opacity: 0, y: 24 });
+
+      gsap.set(targets, { opacity: 0, y: 48, scale: 0.95 });
 
       const st = ScrollTrigger.create({
         trigger: el,
-        start: "top 85%",
+        start: "top 88%",
         once: true,
         onEnter: () => {
           gsap.to(targets, {
             opacity: 1,
             y: 0,
-            duration: 0.55,
-            ease: "power2.out",
-            stagger: 0.1,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.12,
             delay,
           });
         },
@@ -51,7 +55,8 @@ export default function AnimatedSection({
       return () => st.kill();
     }
 
-    gsap.set(el, { opacity: 0, y: 30 });
+    gsap.set(el, { opacity: 0, y: 64, scale: 0.97 });
+
     const st = ScrollTrigger.create({
       trigger: el,
       start: "top 88%",
@@ -60,8 +65,9 @@ export default function AnimatedSection({
         gsap.to(el, {
           opacity: 1,
           y: 0,
-          duration: 0.75,
-          ease: "power2.out",
+          scale: 1,
+          duration: 1.0,
+          ease: "power3.out",
           delay,
         });
       },
