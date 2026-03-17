@@ -19,6 +19,17 @@
     border-radius: 4px;
   }
 
+  /* Selección de texto en brand color */
+  ::selection {
+    background-color: theme("colors.primary.DEFAULT");
+    color: #ffffff;
+  }
+
+  /* Suaviza el render de imágenes */
+  img {
+    image-rendering: auto;
+  }
+
   html,
   body {
     scrollbar-width: none;

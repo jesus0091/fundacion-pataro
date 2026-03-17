@@ -70,20 +70,24 @@ export default function Header() {
           {/* Desktop: links */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <ul className="flex items-center gap-6 xl:gap-8">
-              {NAV_LINKS.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={`relative text-sm xl:text-base font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                      useWhite
-                        ? "text-white/90 hover:text-white after:bg-white"
-                        : "text-neutral-text hover:text-primary after:bg-primary"
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              {NAV_LINKS.map(({ href, label }) => {
+                const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`relative text-sm xl:text-base font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                        useWhite
+                          ? `text-white/90 hover:text-white after:bg-white ${isActive ? "after:scale-x-100" : "after:scale-x-0"}`
+                          : `hover:text-primary after:bg-primary ${isActive ? "text-primary after:scale-x-100" : "text-neutral-text after:scale-x-0"}`
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

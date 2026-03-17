@@ -20,7 +20,7 @@ export default function WhatWeDoCard({
   return (
     <article
       data-carousel-card
-      className="flex-shrink-0 w-[min(100vw-2rem,360px)] min-w-[280px] sm:min-w-[500px] snap-center rounded-2xl bg-[] transition-all duration-300"
+      className="flex-shrink-0 w-[min(100vw-2rem,360px)] min-w-[280px] sm:min-w-[500px] snap-center rounded-2xl bg-white transition-all duration-300"
     >
       <div className="relative aspect-[16/6] rounded-2xl overflow-hidden w-full bg-neutral-background">
         {imageSrc ? (
@@ -48,11 +48,18 @@ export default function WhatWeDoCard({
         {href && (
           <Link
             href={href}
-            className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm hover:text-primary-dark transition-colors"
+            className="group/link inline-flex items-center gap-1.5 text-primary font-semibold text-sm hover:text-primary-dark transition-colors"
             aria-label={`Ver más sobre ${title}`}
           >
             Ver más
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden
+              className="transition-transform duration-200 group-hover/link:translate-x-0.5"
+            >
               <path
                 d="M6 3l5 5-5 5"
                 stroke="currentColor"

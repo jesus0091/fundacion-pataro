@@ -3,11 +3,11 @@ import { ReactNode } from "react";
 
 const BUTTON_VARIANTS = {
   primary:
-    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base bg-primary text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-colors hover:bg-primary-dark",
+    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base bg-primary text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-all duration-200 ease-out hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-px active:translate-y-0 active:scale-[0.98] active:shadow-md",
   secondary:
-    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base border-2 border-primary text-primary px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-colors hover:bg-primary-50",
+    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base border-2 border-primary text-primary px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-all duration-200 ease-out hover:bg-primary-50 hover:border-primary-dark hover:shadow-sm active:scale-[0.98]",
   tertiary:
-    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base bg-white text-neutral-text px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-colors hover:bg-neutral-100",
+    "inline-flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-base bg-white text-neutral-text px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition-all duration-200 ease-out hover:bg-neutral-100 hover:shadow-sm active:scale-[0.98]",
 } as const;
 
 export interface ButtonProps {

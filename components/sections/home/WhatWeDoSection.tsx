@@ -194,7 +194,7 @@ export default function WhatWeDoSection() {
               onClick={scrollPrev}
               disabled={!canScrollLeft}
               aria-label="Ver programas anteriores"
-              className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
+              className="w-11 h-11 rounded-full bg-white border border-primary/20 text-primary shadow-sm flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-primary hover:text-white hover:border-primary hover:shadow-md transition-all duration-200 active:scale-95"
             >
               <IconChevronLeft className="w-5 h-5" stroke={2} aria-hidden />
             </button>
@@ -203,7 +203,7 @@ export default function WhatWeDoSection() {
               onClick={scrollNext}
               disabled={!canScrollRight}
               aria-label="Ver más programas"
-              className="w-11 h-11 rounded-full bg-primary/20 text-secondary flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/30 transition-colors"
+              className="w-11 h-11 rounded-full bg-white border border-primary/20 text-primary shadow-sm flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-primary hover:text-white hover:border-primary hover:shadow-md transition-all duration-200 active:scale-95"
             >
               <IconChevronRight className="w-5 h-5" stroke={2} aria-hidden />
             </button>

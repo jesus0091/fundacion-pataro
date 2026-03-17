@@ -96,7 +96,7 @@ const LABEL_VARIANTS = {
     secondary:
         "flex flex-col items-center gap-2 font-semibold text-sm sm:text-lg capitalize text-primary ",
     primaryTight:
-        "flex items-center gap-2 inline-block font-semibold text-sm sm:text-lg capitalize text-primary",
+        "inline-flex items-center gap-2 font-semibold text-sm sm:text-lg capitalize text-primary",
 } as const;
 
 export interface LabelProps {

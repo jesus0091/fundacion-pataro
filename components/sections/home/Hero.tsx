@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/Button";
 import { H1, Label, P } from "@/components/ui/Text";
-import { SPLASH_KEY } from "@/components/ui/SplashScreen";
 import gsap from "gsap";
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef } from "react";
@@ -66,20 +65,11 @@ export default function Hero() {
       }
     };
 
-    const alreadyShown = sessionStorage.getItem(SPLASH_KEY);
-
-    if (!alreadyShown) {
-      // Primera visita: animar cuando el splash dispara el evento
-      const onSplashDone = () => {
-        runAnimation();
-        window.removeEventListener("splash:done", onSplashDone);
-      };
-      window.addEventListener("splash:done", onSplashDone);
-      return () => window.removeEventListener("splash:done", onSplashDone);
-    } else {
-      // Visita de retorno: animar directamente
-      runAnimation();
-    }
+    // Siempre espera splash:done.
+    // En visitas de retorno el SplashScreen lo dispara via rAF (~16ms), imperceptible.
+    // Esto elimina la race condition donde Hero animaba bajo el overlay del splash.
+    window.addEventListener("splash:done", runAnimation, { once: true });
+    return () => window.removeEventListener("splash:done", runAnimation);
   }, []);
 
   return (

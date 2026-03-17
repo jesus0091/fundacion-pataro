@@ -95,7 +95,10 @@ export default function AlianzasSection() {
       });
     });
 
-    return () => ScrollTrigger.getAll().forEach((st) => st.kill());
+    const allTriggers = ScrollTrigger.getAll().filter(
+      (st) => section.contains(st.trigger as Node)
+    );
+    return () => allTriggers.forEach((st) => st.kill());
   }, []);
 
   return (

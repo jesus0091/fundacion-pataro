@@ -99,7 +99,7 @@ function StatCard({
   return (
     <article
       ref={cardRef}
-      className="flex flex-col items-center text-center p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-[#F0F6FE] to-[#E8F5E9]"
+      className="flex flex-col items-center text-center p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-[#EEF5FF] to-[#E5EFFE] border border-[#D8E8FF]/60"
       data-animate
       aria-label={`${prefix}${finalFormatted} ${label}`}
     >
