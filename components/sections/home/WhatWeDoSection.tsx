@@ -8,6 +8,7 @@ import {
   IconChevronLeft,
   IconChevronRight,
   IconHeart,
+  IconHeartbeat,
   IconMicroscope,
   IconSchool,
   IconSettings,
@@ -64,6 +65,14 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     href: "/services/impacto-social-y-prevencion",
     imageSrc: "/images/service-5.png",
     icon: <IconHeart className="w-6 h-6" stroke={1.5} aria-hidden />,
+  },
+  {
+    title: "RCP, DEA y Primeros Auxilios",
+    description:
+      "Capacitamos a empresas e instituciones en RCP y DEA, cumpliendo la Ley 27.159 con certificación AHA e ILCOR 2025.",
+    href: "/services/rcp-dea-empresas",
+    imageSrc: "/images/service-6.webp",
+    icon: <IconHeartbeat className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
 ];
 

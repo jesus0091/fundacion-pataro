@@ -43,7 +43,7 @@ interface WhoWeAccompanySectionProps {
 export default function WhoWeAccompanySection({
   subtitle = "A quiénes acompañamos",
   title = "Trabajamos junto a quienes hacen posible una mejor salud.",
-  intro = "En la Fundación Patricio Pataro entendemos que mejorar la salud requiere más que acciones aisladas. Por eso combinamos:",
+  intro = "Cada actor del sistema de salud tiene un rol clave. Por eso diseñamos programas específicos para acompañar a profesionales, instituciones y comunidades desde sus propias necesidades.",
   items = DEFAULT_ITEMS,
   imageSrc = "/images/img-company.webp",
   imageAlt = "A quiénes acompañamos - Fundación Pataro",

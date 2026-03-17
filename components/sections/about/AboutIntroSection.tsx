@@ -24,9 +24,8 @@ export default function AboutIntroSection() {
                     <span data-animate><Label variant="secondary">Sobre nosotros</Label></span>
                     <H1 id="about-heading" data-animate>Quiénes Somos</H1>
                     <P variant="body" className="text-center" data-animate>
-                        Transformamos conocimiento en acción a través de cinco
-                        pilares fundamentales que fortalecen el sistema de
-                        salud.
+                        Transformamos conocimiento en acción a través de seis
+                        áreas de trabajo que fortalecen el sistema de salud.
                     </P>
                 </AnimatedSection>
             </div>

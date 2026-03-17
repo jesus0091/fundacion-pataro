@@ -19,7 +19,7 @@ export default function PurposeSection({
     title = "Transformamos conocimiento en salud integral de calidad",
     paragraph1 = "Actuamos como un puente entre el conocimiento médico, la innovación tecnológica y la atención humana, generando impacto real y sostenible en el sistema de salud.",
     paragraph2 = "Creemos que una mejor salud comienza con profesionales formados, investigación aplicada y un compromiso genuino con las personas.",
-    ctaText = "Ver Programas de Formación",
+    ctaText = "Ver todos los programas",
     ctaHref = "/services",
     imageSrc = "/images/img-our-purpose.webp",
     imageAlt = "Nuestro propósito - Fundación Pataro",

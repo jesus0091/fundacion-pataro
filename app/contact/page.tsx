@@ -56,11 +56,12 @@ export default function ContactPage() {
 
         const left = leftRef.current;
         const right = rightRef.current;
+        const triggers: ReturnType<typeof ScrollTrigger.create>[] = [];
 
         if (left) {
             const items = left.querySelectorAll<HTMLElement>("[data-animate]");
             gsap.set(items, { opacity: 0, y: 40 });
-            ScrollTrigger.create({
+            triggers.push(ScrollTrigger.create({
                 trigger: left,
                 start: "top 85%",
                 once: true,
@@ -72,12 +73,12 @@ export default function ContactPage() {
                         ease: "power3.out",
                         stagger: 0.1,
                     }),
-            });
+            }));
         }
 
         if (right) {
             gsap.set(right, { opacity: 0, y: 50, scale: 0.98 });
-            ScrollTrigger.create({
+            triggers.push(ScrollTrigger.create({
                 trigger: right,
                 start: "top 88%",
                 once: true,
@@ -90,10 +91,10 @@ export default function ContactPage() {
                         ease: "power3.out",
                         delay: 0.15,
                     }),
-            });
+            }));
         }
 
-        return () => ScrollTrigger.getAll().forEach((st) => st.kill());
+        return () => triggers.forEach((st) => st.kill());
     }, []);
 
     const [formData, setFormData] = useState({
@@ -149,7 +150,7 @@ export default function ContactPage() {
 
     return (
         <section
-            className="py-12 sm:py-16 lg:py-24 bg-gradient-to-t from-[#ffffff] via-[#F0F6FE] to-[#E8F5E9] min-h-[60vh]"
+            className="py-12 sm:py-16 lg:py-24 bg-gradient-to-t from-[#ffffff] via-[#F0F6FE] to-[#EAF2FF] min-h-[60vh]"
             aria-labelledby="contact-heading"
         >
             <div className="max-w-7xl mx-auto px-10 sm:px-6">
@@ -296,7 +297,7 @@ export default function ContactPage() {
                                 </svg>
                             </Button>
                         </form>
-                        <p className="mt-6 text-sm text-primary leading-relaxed">
+                        <p className="mt-6 text-sm text-[#666] leading-relaxed">
                             {DISCLAIMER}
                         </p>
                     </div>

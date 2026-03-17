@@ -132,7 +132,7 @@ export default function Hero() {
             </div>
             <div ref={ctaRef} className="flex flex-wrap items-center gap-2 sm:gap-4">
               <Button href="/services" variant="primary">
-                Programas de Becas
+                Ver nuestros programas
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
                   <path
                     d="M6 3l5 5-5 5"

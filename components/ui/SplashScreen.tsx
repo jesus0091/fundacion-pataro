@@ -33,7 +33,8 @@ export default function SplashScreen() {
     }
 
     _splashRan = true;
-    sessionStorage.setItem(SPLASH_KEY, "1");
+    // sessionStorage se setea dentro del .call(), ANTES de que Hero's useEffect lo lea
+    // si se setea aquí, Hero cree que es "visita de retorno" y anima sin esperar el evento
 
     // Estado inicial — logo e línea ocultos
     gsap.set([logo, line], { opacity: 0 });
@@ -51,8 +52,9 @@ export default function SplashScreen() {
       .to({}, { duration: 0.5 })
       // Logo + línea desaparecen
       .to([logo, line], { opacity: 0, y: -10, duration: 0.3, ease: "power2.in" })
-      // Despachar evento para que el Hero empiece a animar
+      // Marcar como visto y despachar evento para que el Hero empiece a animar
       .call(() => {
+        sessionStorage.setItem(SPLASH_KEY, "1");
         window.dispatchEvent(new CustomEvent("splash:done", { detail: { skipped: false } }));
       })
       // Overlay sube

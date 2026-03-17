@@ -1,6 +1,7 @@
 export interface SubProgram {
   title: string;
   description: string;
+  relatedSlug?: string;
 }
 
 export interface HowToParticipateStep {
@@ -64,7 +65,8 @@ export const SERVICES: ServiceItem[] = [
       {
         title: "Cursos de RCP y DEA",
         description:
-          "Formación certificada en reanimación cardiopulmonar y uso del desfibrilador externo automático para personal médico y no médico.",
+          "Formación certificada en reanimación cardiopulmonar y uso del desfibrilador externo automático para profesionales de la salud. Para empresas e instituciones, contamos con un programa presencial dedicado con certificación AHA.",
+        relatedSlug: "rcp-dea-empresas",
       },
       {
         title: "Programa de Especialización",
@@ -404,6 +406,83 @@ export const SERVICES: ServiceItem[] = [
         step: "Seguimiento y recursos",
         description:
           "Después de la actividad, te enviamos materiales educativos digitales para que los participantes puedan repasar y profundizar lo aprendido.",
+      },
+    ],
+  },
+  {
+    slug: "rcp-dea-empresas",
+    title: "RCP, DEA y Primeros Auxilios",
+    tagline: "Preparamos a tu equipo para salvar vidas",
+    shortDescription:
+      "Capacitamos a empresas e instituciones en Primeros Auxilios, RCP y uso del DEA, cumpliendo con la Ley 27.159 y los protocolos internacionales AHA e ILCOR 2025.",
+    fullDescription: [
+      "En Argentina muere una persona cada 7 minutos por causa cardiovascular. Actuar con rapidez y conocimiento en los primeros 4 minutos puede marcar la diferencia entre la vida y la muerte. Nuestro programa de capacitación pone ese conocimiento en manos de tu organización.",
+      "La Ley Nacional 27.159 exige personal capacitado en RCP y DEA en espacios de alta circulación y en lugares de actividades deportivas. Más allá del cumplimiento legal, capacitar a tu equipo es una decisión concreta de proteger a las personas y reducir la responsabilidad civil ante una emergencia real.",
+      "Nuestro programa está diseñado para ser de fácil comprensión, permitiendo que cualquier persona —sin conocimientos médicos previos— aprenda a reconocer una emergencia, activar el sistema de auxilio y aplicar maniobras de RCP y DEA hasta la llegada de los servicios de emergencia. 3 horas teórico-prácticas con certificación institucional avalada por la American Heart Association (AHA) e ILCOR 2025.",
+    ],
+    image: "/images/service-6.webp",
+    benefits: [
+      "Cumplimiento de la Ley 27.159 y normativa sanitaria vigente",
+      "Certificación institucional con validez anual (AHA / ILCOR 2025)",
+      "Simuladores de RCP y DEA de entrenamiento incluidos",
+      "Material didáctico y asesoramiento técnico incluidos",
+      "Posibilidad de integrar el programa a acciones de RSE",
+    ],
+    audience: [
+      "Empresas y organizaciones privadas",
+      "Instituciones educativas",
+      "Clubes deportivos y gimnasios",
+      "Espacios públicos de alta circulación",
+      "Organismos públicos y municipales",
+    ],
+    results: [
+      "Personal preparado para actuar ante un paro cardiorrespiratorio",
+      "Cumplimiento legal y reducción de riesgo civil ante emergencias",
+      "Mejora del clima organizacional y compromiso del equipo",
+      "Comunidad laboral más segura y consciente de la salud",
+    ],
+    subprograms: [
+      {
+        title: "Primeros Auxilios Generales",
+        description:
+          "Módulos de urgencias y emergencias, bioseguridad, escena segura, pérdida de conocimiento, convulsiones, quemaduras, control de hemorragias, ACV, infarto y atragantamiento con maniobra de Heimlich.",
+      },
+      {
+        title: "RCP en Adultos, Niños y Lactantes",
+        description:
+          "Formación práctica en reanimación cardiopulmonar según los protocolos más actualizados de la AHA e ILCOR 2025, con simuladores certificados incluidos en la jornada.",
+      },
+      {
+        title: "Uso Correcto del DEA",
+        description:
+          "Instrucción teórico-práctica sobre el desfibrilador externo automático (DEA) en situaciones de muerte súbita, con equipos de entrenamiento proporcionados por la fundación.",
+      },
+      {
+        title: "Certificación Institucional",
+        description:
+          "Al finalizar, cada participante recibe una Certificación de Entrenamiento en RCP y DEA con validez anual, conforme a los lineamientos de la American Heart Association (AHA) e ILCOR 2025.",
+      },
+    ],
+    howToParticipate: [
+      {
+        step: "Solicitá información",
+        description:
+          "Completá el formulario de contacto indicando el tipo de organización, la cantidad estimada de participantes y tu disponibilidad horaria.",
+      },
+      {
+        step: "Propuesta a medida",
+        description:
+          "Nuestro equipo te contactará para adaptar el programa a las necesidades de tu empresa y coordinar fecha, lugar y logística.",
+      },
+      {
+        step: "Capacitación presencial",
+        description:
+          "Un instructor certificado se presenta con todos los materiales: simuladores de RCP, DEA de entrenamiento y material didáctico.",
+      },
+      {
+        step: "Certificación del equipo",
+        description:
+          "Al finalizar la jornada de 3 horas, todos los participantes reciben su certificado institucional con validez anual.",
       },
     ],
   },

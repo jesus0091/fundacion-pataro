@@ -41,7 +41,7 @@ export default function ServicesPage() {
               Programas y Servicios
             </H1>
             <P variant="body" className="text-center" data-animate>
-              Trabajamos en cinco áreas estratégicas para transformar el sistema
+              Trabajamos en seis áreas estratégicas para transformar el sistema
               de salud a través de la formación, la investigación, la gestión y
               el compromiso social.
             </P>

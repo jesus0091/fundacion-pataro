@@ -29,7 +29,7 @@ interface DifferentialApproachSectionProps {
 
 export default function DifferentialApproachSection({
     cards = DEFAULT_CARDS,
-    ctaText = "Ver Programas de Formación",
+    ctaText = "Ver todos los programas",
     ctaHref = "/services",
 }: DifferentialApproachSectionProps) {
     return (
@@ -47,9 +47,9 @@ export default function DifferentialApproachSection({
                         Una visión integral para transformar la salud.
                     </H2>
                     <P variant="body">
-                        En la Fundación Patricio Pataro entendemos que mejorar
-                        la salud requiere más que acciones aisladas. Por eso
-                        combinamos:
+                        Combinamos formación, investigación y gestión asistencial
+                        en un modelo integrado que genera impacto real en todos
+                        los niveles del sistema de salud.
                     </P>
                 </AnimatedSection>
 

@@ -1,5 +1,5 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { H5, P } from "@/components/ui/Text";
+import { H3, P } from "@/components/ui/Text";
 import { FirmaLogo } from "@/components/ui/FirmaLogo";
 import Image from "next/image";
 
@@ -31,9 +31,9 @@ export default function AboutOriginWhySection() {
                 </AnimatedSection>
                 <div className="max-w-3xl flex flex-col gap-3">
                     <AnimatedSection>
-                        <H5 id="origin-heading" className="font-sans text-[#333333]">
+                        <H3 id="origin-heading" className="font-sans text-[#333333]">
                             El Origen
-                        </H5>
+                        </H3>
                     </AnimatedSection>
                     <AnimatedSection className="flex flex-col gap-4">
                         {ORIGIN_PARAGRAPHS.map((text, i) => (
@@ -46,9 +46,9 @@ export default function AboutOriginWhySection() {
                         </blockquote>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <H5 id="why-heading" className="mt-14 font-sans text-[#333333]">
+                        <H3 id="why-heading" className="mt-14 font-sans text-[#333333]">
                             Por Qué Existimos
-                        </H5>
+                        </H3>
                     </AnimatedSection>
                     <AnimatedSection className="flex flex-col gap-4">
                         {WHY_PARAGRAPHS.map((text, i) => (

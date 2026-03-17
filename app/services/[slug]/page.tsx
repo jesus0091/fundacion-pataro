@@ -14,6 +14,7 @@ import {
   IconMicroscope,
   IconSchool,
   IconSettings,
+  IconHeartbeat,
   IconTargetArrow,
   IconUsers,
   IconTrendingUp,
@@ -29,6 +30,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   "gestion-asistencial": IconBuildingHospital,
   "infraestructura-medica": IconSettings,
   "impacto-social-y-prevencion": IconHeart,
+  "rcp-dea-empresas": IconHeartbeat,
 };
 
 export async function generateStaticParams() {
@@ -150,7 +152,7 @@ export default async function ServicePage({ params }: PageProps) {
           {/* Sidebar */}
           <aside className="lg:col-span-5 flex flex-col gap-6" aria-label="Beneficios clave">
             <AnimatedSection delay={0.1}>
-              <div className="bg-gradient-to-br from-[#F0F6FE] to-[#E8F5E9] rounded-2xl p-8 lg:p-10">
+              <div className="bg-gradient-to-br from-[#F0F6FE] to-[#E8EFFE] rounded-2xl p-8 lg:p-10">
                 <h3 className="font-sans text-lg font-bold text-[#1F2933] mb-6">
                   Beneficios clave
                 </h3>
@@ -238,6 +240,17 @@ export default async function ServicePage({ params }: PageProps) {
                   {sub.title}
                 </H3>
                 <P variant="small">{sub.description}</P>
+                {sub.relatedSlug && (
+                  <Link
+                    href={`/services/${sub.relatedSlug}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline mt-1"
+                  >
+                    Ver programa completo
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden>
+                      <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
+                )}
               </article>
             ))}
           </AnimatedSection>
@@ -298,7 +311,7 @@ export default async function ServicePage({ params }: PageProps) {
             </H2>
           </AnimatedSection>
           <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {otherServices.map((s) => {
+            {otherServices.slice(0, 4).map((s) => {
               const OtherIcon = ICON_MAP[s.slug] ?? IconHeart;
               return (
                 <Link
