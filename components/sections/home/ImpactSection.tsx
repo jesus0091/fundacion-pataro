@@ -101,6 +101,7 @@ function StatCard({
       ref={cardRef}
       className="flex flex-col items-center text-center p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-[#F0F6FE] to-[#E8F5E9]"
       data-animate
+      aria-label={`${prefix}${finalFormatted} ${label}`}
     >
       <div className="flex items-end justify-center gap-0.5 mb-2">
         {prefix && (

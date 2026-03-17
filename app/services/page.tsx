@@ -9,9 +9,15 @@ import Link from "next/link";
 import ServicesPillarsSection from "@/components/sections/services/ServicesPillarsSection";
 
 export const metadata: Metadata = {
-  title: "Programas y Servicios | Fundación Patricio Pataro",
+  title: "Programas y Servicios",
   description:
-    "Conocé todos los programas y servicios de la Fundación Patricio Pataro: capacitación, becas, investigación, gestión asistencial, infraestructura y prevención.",
+    "Explorá los 6 programas de Fundación Patricio Pataro: becas y capacitación médica, investigación científica, gestión asistencial, infraestructura médica, impacto social y cursos de RCP y DEA en Argentina.",
+  openGraph: {
+    title: "Programas y Servicios | Fundación Patricio Pataro",
+    description:
+      "Becas médicas, capacitación, investigación, gestión asistencial y cursos de RCP/DEA. Conocé los 6 programas de Fundación Patricio Pataro.",
+    url: "/services",
+  },
 };
 
 export default function ServicesPage() {

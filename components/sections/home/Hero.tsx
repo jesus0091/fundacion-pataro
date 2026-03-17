@@ -148,7 +148,7 @@ export default function Hero() {
           <div ref={imageRef} className="flex flex-1 w-full order-last lg:order-none">
             <Image
               src="/images/img-hero.png"
-              alt="Fundación Pataro - Innovación y cuidado para una vida más saludable"
+              alt="Profesional médico representando la misión de Fundación Patricio Pataro"
               fill
               className="object-contain drop-shadow-md !static w-full"
               sizes="(max-width: 1024px) 100vw, 512px"

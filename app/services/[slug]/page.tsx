@@ -42,8 +42,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = getServiceBySlug(slug);
   if (!service) return {};
   return {
-    title: `${service.title} | Fundación Patricio Pataro`,
+    title: service.title,
     description: service.shortDescription,
+    openGraph: {
+      title: `${service.title} | Fundación Patricio Pataro`,
+      description: service.shortDescription,
+      url: `/services/${slug}`,
+      images: [
+        {
+          url: service.image,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} – Fundación Patricio Pataro`,
+        },
+      ],
+    },
+    twitter: {
+      title: `${service.title} | Fundación Patricio Pataro`,
+      description: service.shortDescription,
+      images: [service.image],
+    },
   };
 }
 
@@ -55,8 +73,22 @@ export default async function ServicePage({ params }: PageProps) {
   const Icon = ICON_MAP[service.slug] ?? IconHeart;
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Programas y Servicios", item: "/services" },
+      { "@type": "ListItem", position: 3, name: service.title, item: `/services/${service.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section
         className="relative pt-28 pb-0 lg:pt-32 overflow-hidden"

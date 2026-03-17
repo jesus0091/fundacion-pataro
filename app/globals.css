@@ -12,6 +12,13 @@
     @apply border-neutral-light;
   }
 
+  /* Focus visible global — accesibilidad teclado */
+  :focus-visible {
+    outline: 2px solid theme("colors.primary.DEFAULT");
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
   html,
   body {
     scrollbar-width: none;

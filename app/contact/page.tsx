@@ -231,6 +231,8 @@ export default function ContactPage() {
                         <form
                             onSubmit={handleSubmit}
                             className="flex flex-col gap-6"
+                            aria-label="Formulario de contacto"
+                            noValidate
                         >
                             <Input
                                 id="name"

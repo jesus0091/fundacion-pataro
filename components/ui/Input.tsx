@@ -6,6 +6,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export default function Input({ label, error, className = "", ...props }: InputProps) {
+  const errorId = props.id ? `${props.id}-error` : undefined;
+
   return (
     <div className="w-full">
       {label && (
@@ -17,9 +19,15 @@ export default function Input({ label, error, className = "", ...props }: InputP
         className={`w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
           error ? "border-red-500" : ""
         } ${className}`}
+        aria-invalid={error ? "true" : undefined}
+        aria-describedby={error && errorId ? errorId : undefined}
         {...props}
       />
-      {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+      {error && (
+        <p id={errorId} className="mt-1 text-sm text-red-500" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

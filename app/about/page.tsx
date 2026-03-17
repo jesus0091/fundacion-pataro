@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AlianzasSection from "@/components/sections/about/AlianzasSection";
 import AboutDifferentiatorsSection from "@/components/sections/about/AboutDifferentiatorsSection";
 import AboutIntroSection from "@/components/sections/about/AboutIntroSection";
@@ -5,10 +6,16 @@ import AboutMissionVisionSection from "@/components/sections/about/AboutMissionV
 import AboutOriginWhySection from "@/components/sections/about/AboutOriginWhySection";
 import AboutPrinciplesSection from "@/components/sections/about/AboutPrinciplesSection";
 
-export const metadata = {
-  title: "Quiénes Somos | Fundación Patricio Pataro",
+export const metadata: Metadata = {
+  title: "Quiénes Somos",
   description:
-    "Transformamos conocimiento en acción a través de cinco pilares fundamentales que fortalecen el sistema de salud. Conocé nuestro origen, misión y principios.",
+    "Conocé la historia, misión y visión de Fundación Patricio Pataro. Una organización sin fines de lucro dedicada a la formación médica, la investigación científica y la gestión asistencial de excelencia en Argentina.",
+  openGraph: {
+    title: "Quiénes Somos | Fundación Patricio Pataro",
+    description:
+      "Historia, misión y visión de Fundación Patricio Pataro: formación médica, investigación y gestión asistencial sin fines de lucro en Argentina.",
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {

@@ -10,14 +10,20 @@ import WhoWeAccompanySection from "@/components/sections/home/WhoWeAccompanySect
 import SplashScreen from "@/components/ui/SplashScreen";
 
 export const metadata: Metadata = {
-  title: "Inicio | Fundación Pataro – Innovación y cuidado para una vida más saludable",
+  title: "Inicio | Fundación Patricio Pataro – Salud, Formación e Innovación Médica",
   description:
-    "Impulsamos la excelencia médica mediante educación, investigación e innovación. Formación, becas, investigación y centros médicos para fortalecer el sistema de salud.",
+    "Fundación Patricio Pataro impulsa la excelencia médica en Argentina con becas para médicos, capacitación continua, investigación científica y gestión de centros asistenciales sin fines de lucro.",
   openGraph: {
-    title: "Fundación Pataro – Innovación y cuidado para una vida más saludable",
+    title: "Fundación Patricio Pataro – Innovación y cuidado para una vida más saludable",
     description:
-      "Impulsamos la excelencia médica mediante educación, investigación e innovación. Fortalecemos el sistema de salud.",
+      "Becas, capacitación, investigación médica y gestión asistencial sin fines de lucro. Fortalecemos el sistema de salud en Argentina.",
     type: "website",
+    url: "/",
+  },
+  twitter: {
+    title: "Fundación Patricio Pataro – Salud, Formación e Innovación Médica",
+    description:
+      "Becas, capacitación, investigación médica y gestión asistencial sin fines de lucro en Argentina.",
   },
 };
 

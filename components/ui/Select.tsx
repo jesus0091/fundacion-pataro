@@ -12,6 +12,8 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export default function Select({ label, error, options, className = "", ...props }: SelectProps) {
+  const errorId = props.id ? `${props.id}-error` : undefined;
+
   return (
     <div className="w-full">
       {label && (
@@ -23,6 +25,8 @@ export default function Select({ label, error, options, className = "", ...props
         className={`w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white ${
           error ? "border-red-500" : ""
         } ${className}`}
+        aria-invalid={error ? "true" : undefined}
+        aria-describedby={error && errorId ? errorId : undefined}
         {...props}
       >
         {options.map((opt) => (
@@ -31,7 +35,11 @@ export default function Select({ label, error, options, className = "", ...props
           </option>
         ))}
       </select>
-      {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+      {error && (
+        <p id={errorId} className="mt-1 text-sm text-red-500" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
