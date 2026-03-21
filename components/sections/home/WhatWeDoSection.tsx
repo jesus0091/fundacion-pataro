@@ -1,7 +1,5 @@
 "use client";
 
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import { Button } from "@/components/ui/Button";
 import { H2, Label, P } from "@/components/ui/Text";
 import {
   IconBuildingHospital,
@@ -15,9 +13,12 @@ import {
 } from "@tabler/icons-react";
 import WhatWeDoCard, { WhatWeDoCardProps } from "./WhatWeDoCard";
 import { useCallback, useEffect, useRef, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import gsap from "gsap";
+
+import AnimatedSection from "@/components/ui/AnimatedSection";
+import { Button } from "@/components/ui/Button";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import useEmblaCarousel from "embla-carousel-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -140,8 +141,8 @@ export default function WhatWeDoSection() {
   }, []);
 
   return (
-    <section className="py-12 sm:py-16 lg:pb-24 lg:pt-60 bg-[#F0F6FE] overflow-visible" aria-labelledby="what-we-do-heading">
-      <AnimatedSection className="max-w-7xl mx-auto px-10 sm:px-6 overflow-visible">
+    <section className="py-12 sm:py-16 lg:py-24 bg-[#F0F6FE] overflow-visible" aria-labelledby="what-we-do-heading">
+      <AnimatedSection className="max-w-7xl mx-auto px-8 sm:px-6 overflow-visible">
         <div className="mb-8 sm:mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <header className="max-w-xs sm:max-w-xl flex flex-col gap-3">
             <Label variant="primaryTight">Qué Hacemos</Label>
@@ -184,7 +185,7 @@ export default function WhatWeDoSection() {
       </div>
 
       <nav
-        className="max-w-7xl mx-auto px-10 sm:px-6"
+        className="max-w-7xl mx-auto px-8 sm:px-6"
         aria-label="Navegación del carrusel de programas"
       >
         <AnimatedSection>

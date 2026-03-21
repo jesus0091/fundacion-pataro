@@ -107,7 +107,7 @@ export default function AlianzasSection() {
       className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-[#EAF2FF] via-[#F0F6FE] to-white"
       aria-labelledby="alianzas-heading"
     >
-      <div className="max-w-7xl mx-auto px-10 sm:px-6">
+      <div className="max-w-7xl mx-auto px-8 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start">
 
           {/* Columna izquierda: header sticky */}

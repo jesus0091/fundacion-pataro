@@ -13,8 +13,9 @@ const NAV_LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/about", label: "Quiénes Somos" },
   { href: "/services", label: "Programas" },
-  { href: "/contact", label: "Contacto" },
 ];
+
+const CTA_LINK = { href: "/contact", label: "Contacto" };
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -89,6 +90,17 @@ export default function Header() {
                 );
               })}
             </ul>
+            <Link
+              href={CTA_LINK.href}
+              aria-current={pathname === CTA_LINK.href ? "page" : undefined}
+              className={`text-sm xl:text-base font-semibold px-5 py-2 rounded-full transition-colors duration-200 ${
+                useWhite
+                  ? "bg-white text-primary hover:bg-white/90"
+                  : "bg-primary text-white hover:bg-primary/90"
+              }`}
+            >
+              {CTA_LINK.label}
+            </Link>
           </div>
 
           {/* Mobile: hamburger */}
@@ -149,6 +161,15 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+            <li className="px-4 sm:px-6 pt-2 mt-auto pb-4">
+              <Link
+                href={CTA_LINK.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full text-center px-5 py-3 rounded-full bg-primary text-white text-base font-semibold hover:bg-primary/90 transition-colors"
+              >
+                {CTA_LINK.label}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

@@ -151,7 +151,7 @@ export default function ImpactSection() {
       className="py-12 sm:py-16 lg:py-24 bg-white"
       aria-labelledby="impact-heading"
     >
-      <div className="max-w-7xl mx-auto px-10 sm:px-6">
+      <div className="max-w-7xl mx-auto px-8 sm:px-6">
         <AnimatedSection
           stagger
           className="flex flex-col items-center text-center mb-12 lg:mb-16 gap-3"

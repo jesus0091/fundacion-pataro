@@ -113,7 +113,7 @@ export default function AboutDifferentiatorsSection() {
       className="py-16 sm:py-20 lg:py-28 bg-[#F8FAFF]"
       aria-labelledby="differentiators-heading"
     >
-      <div className="max-w-5xl mx-auto px-10 sm:px-6">
+      <div className="max-w-5xl mx-auto px-8 sm:px-6">
 
         {/* Header */}
         <div data-heading className="flex flex-col items-center text-center gap-3 mb-16 lg:mb-24">

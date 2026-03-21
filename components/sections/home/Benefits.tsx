@@ -1,5 +1,6 @@
-import AnimatedSection from "@/components/ui/AnimatedSection";
 import { IconClock, IconMail, IconMapPin } from "@tabler/icons-react";
+
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -76,19 +77,19 @@ interface BenefitsProps {
 export default function Benefits({ benefits = DEFAULT_BENEFITS }: BenefitsProps) {
     return (
         <section
-            className="relative bg-[#F0F6FE] px-10 sm:px-6 pb-0"
+            className="relative bg-[#F0F6FE] px-8 lg:h-10 flex items-center justify-center sm:px-6 pb-12 sm:pb-16"
             aria-labelledby="benefits-heading"
         >
             <h2 id="benefits-heading" className="sr-only">
                 Información de contacto: ubicación, email y horarios
             </h2>
-            <AnimatedSection stagger className="max-w-7xl mx-auto">
+            <AnimatedSection stagger className="max-w-7xl w-full mx-auto">
                 <ul className="
                     grid grid-cols-1 md:grid-cols-3
-                    -mt-24 sm:-mt-32 lg:-mt-40 z-10
+                    mt-[-32px] sm:mt-[-44px] lg:mt-[-52px] z-10
                     rounded-2xl overflow-hidden
                     bg-white
-                    shadow-[0_8px_40px_0_rgba(0,67,223,0.12)]
+                    shadow-[0_8px_40px_0_rgba(0,67,223,0.15)]
                     divide-y md:divide-y-0 md:divide-x divide-[#EEF2FB]
                     list-none
                 ">

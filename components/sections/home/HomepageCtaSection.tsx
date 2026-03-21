@@ -20,7 +20,7 @@ export default function HomepageCtaSection({
             <h2 id="homepage-cta-heading" className="sr-only">
                 Nuestra creencia
             </h2>
-            <AnimatedSection className="max-w-7xl mx-auto px-10 sm:px-6">
+            <AnimatedSection className="max-w-7xl mx-auto px-8 sm:px-6">
                 <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden min-h-[240px] sm:min-h-[280px] lg:min-h-[320px] flex items-center">
                     <div className="absolute inset-0">
                         <div className="relative size-full">

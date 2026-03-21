@@ -107,7 +107,7 @@ export default async function ServicePage({ params }: PageProps) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/70" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-10 sm:px-6 pb-16 lg:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-6 pb-16 lg:pb-24">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium mb-10 transition-colors"
@@ -139,7 +139,7 @@ export default async function ServicePage({ params }: PageProps) {
         className="py-12 sm:py-16 lg:py-24 bg-white"
         aria-labelledby="service-detail-heading"
       >
-        <div className="max-w-7xl mx-auto px-10 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-7 flex flex-col gap-6">
             <AnimatedSection>
               <H2
@@ -244,7 +244,7 @@ export default async function ServicePage({ params }: PageProps) {
         className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFF]"
         aria-labelledby="subprograms-heading"
       >
-        <div className="max-w-7xl mx-auto px-10 sm:px-6">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6">
           <AnimatedSection className="mb-10 lg:mb-14">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -294,7 +294,7 @@ export default async function ServicePage({ params }: PageProps) {
         className="py-12 sm:py-16 lg:py-24 bg-white"
         aria-labelledby="how-to-heading"
       >
-        <div className="max-w-5xl mx-auto px-10 sm:px-6">
+        <div className="max-w-5xl mx-auto px-8 sm:px-6">
           <AnimatedSection className="text-center mb-10 lg:mb-14">
             <H2 id="how-to-heading" variant="section" className="font-sans text-[#333333]">
               ¿Cómo participar?
@@ -332,7 +332,7 @@ export default async function ServicePage({ params }: PageProps) {
         className="py-12 sm:py-16 lg:py-20 bg-[#F0F6FE]"
         aria-labelledby="other-services-heading"
       >
-        <div className="max-w-7xl mx-auto px-10 sm:px-6">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6">
           <AnimatedSection className="mb-8 lg:mb-10">
             <H2
               id="other-services-heading"

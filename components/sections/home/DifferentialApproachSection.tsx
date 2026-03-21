@@ -38,7 +38,7 @@ export default function DifferentialApproachSection({
             aria-labelledby="differential-approach-heading"
         >
             <AuroraBackground />
-            <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-10 sm:px-6">
+            <div className="relative z-0 max-w-7xl mx-auto flex flex-col items-center px-8 sm:px-6">
                 <AnimatedSection className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-xl flex flex-col items-center gap-3">
                     <span className="inline-block">
                         <Label variant="secondary">Nuestro enfoque diferencial</Label>

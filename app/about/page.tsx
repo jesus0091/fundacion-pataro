@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
-import AlianzasSection from "@/components/sections/about/AlianzasSection";
 import AboutDifferentiatorsSection from "@/components/sections/about/AboutDifferentiatorsSection";
 import AboutIntroSection from "@/components/sections/about/AboutIntroSection";
 import AboutMissionVisionSection from "@/components/sections/about/AboutMissionVisionSection";
 import AboutOriginWhySection from "@/components/sections/about/AboutOriginWhySection";
 import AboutPrinciplesSection from "@/components/sections/about/AboutPrinciplesSection";
+import AlianzasSection from "@/components/sections/about/AlianzasSection";
+import BrandingCarousel from "@/components/ui/BrandingCarousel";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Quiénes Somos",
@@ -23,6 +24,7 @@ export default function AboutPage() {
     <>
       <AboutIntroSection />
       <AboutOriginWhySection />
+      <BrandingCarousel />
       <AboutMissionVisionSection />
       <AboutDifferentiatorsSection />
       <AboutPrinciplesSection />

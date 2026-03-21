@@ -19,7 +19,7 @@ export default function AboutIntroSection() {
                     aria-hidden
                 />
             </div>
-            <div className="max-w-7xl mx-auto px-10 sm:px-6 flex flex-col items-center text-center z-10">
+            <div className="max-w-7xl mx-auto px-8 sm:px-6 flex flex-col items-center text-center z-10">
                 <AnimatedSection stagger className="max-w-2xl flex flex-col gap-3 items-center text-center">
                     <span data-animate><Label variant="secondary">Sobre nosotros</Label></span>
                     <H1 id="about-heading" data-animate>Quiénes Somos</H1>

@@ -40,7 +40,17 @@ export default function SplashScreen() {
     gsap.set(logo, { y: 20, scale: 0.95 });
     gsap.set(line, { scaleX: 0, transformOrigin: "left center" });
 
-    const tl = gsap.timeline();
+    // Fallback de seguridad: si GSAP falla o el tab estaba en background,
+    // ocultar el overlay y disparar el evento tras 4 segundos
+    const forceHide = () => {
+      gsap.set(overlay, { yPercent: -100, display: "none" });
+      window.dispatchEvent(new CustomEvent("splash:done", { detail: { skipped: true } }));
+    };
+    const fallbackTimeout = setTimeout(forceHide, 4000);
+
+    const tl = gsap.timeline({
+      onComplete: () => clearTimeout(fallbackTimeout),
+    });
 
     tl
       // Logo aparece
@@ -61,7 +71,10 @@ export default function SplashScreen() {
       .set(overlay, { display: "none" });
 
     return () => {
+      clearTimeout(fallbackTimeout);
       tl.kill();
+      // Garantizar que el overlay quede oculto si la animación fue interrumpida
+      gsap.set(overlay, { yPercent: -100 });
     };
   }, []);
 

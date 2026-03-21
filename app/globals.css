@@ -104,6 +104,12 @@
 
 }
 
+/* Marquee keyframe (usado por BrandingCarousel) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+
 /* Aurora glow keyframes (usado por AuroraBackground) */
 @keyframes aurora-float1 {
   0%   { transform: translate(-20%, -20%) scale(1); }

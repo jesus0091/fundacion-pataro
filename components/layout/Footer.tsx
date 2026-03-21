@@ -40,7 +40,7 @@ export default function Footer({
                 </header>
             </div>
             <div className="bg-black rounded-3xl">
-                <div className="max-w-7xl mx-auto px-6 sm:px-10 pb-8 pt-14">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 pb-8 pt-14">
 
                     {/* Fila superior: logo + redes */}
                     <div className="flex items-center justify-between gap-6 pb-8 border-b border-white/10">

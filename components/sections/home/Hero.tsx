@@ -75,7 +75,7 @@ export default function Hero() {
   return (
     <section
       role="banner"
-      className="relative overflow-hidden min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] pb-24 pt-20 sm:pb-32 sm:pt-24 lg:pb-40 lg:pt-32 flex items-center"
+      className="relative overflow-hidden min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] pb-40 pt-20 sm:pb-52 sm:pt-24 lg:pb-60 lg:pt-32 flex items-center"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0 z-0">
@@ -89,7 +89,7 @@ export default function Hero() {
           aria-hidden
         />
       </div>
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-10 sm:px-6 py-6 sm:py-16 lg:py-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-6 py-6 sm:py-16 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="max-w-xl flex flex-col gap-4 sm:gap-6 text-white">
             <header className="flex flex-col gap-3">

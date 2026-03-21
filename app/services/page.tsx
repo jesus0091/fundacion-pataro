@@ -38,7 +38,7 @@ export default function ServicesPage() {
             aria-hidden
           />
         </div>
-        <div className="max-w-7xl mx-auto px-10 sm:px-6 flex flex-col items-center text-center z-10">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6 flex flex-col items-center text-center z-10">
           <AnimatedSection stagger className="max-w-2xl flex flex-col gap-3 items-center text-center">
             <span data-animate>
               <Label variant="secondary">Lo que hacemos</Label>
@@ -61,7 +61,7 @@ export default function ServicesPage() {
         className="py-12 sm:py-16 lg:py-24 bg-white"
         aria-labelledby="services-list-heading"
       >
-        <div className="max-w-7xl mx-auto px-10 sm:px-6">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6">
           <h2 id="services-list-heading" className="sr-only">
             Lista de programas
           </h2>

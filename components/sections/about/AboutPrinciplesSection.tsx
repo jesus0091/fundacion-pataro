@@ -117,7 +117,7 @@ export default function AboutPrinciplesSection() {
       className="py-16 sm:py-20 lg:py-28 bg-white"
       aria-labelledby="principles-heading"
     >
-      <div className="max-w-5xl mx-auto px-10 sm:px-6">
+      <div className="max-w-5xl mx-auto px-8 sm:px-6">
 
         <div data-heading className="flex flex-col items-center text-center gap-3 mb-14 lg:mb-20">
           <Label variant="secondary">Nuestros principios</Label>
