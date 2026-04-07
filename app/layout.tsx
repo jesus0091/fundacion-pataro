@@ -22,7 +22,7 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fpp.org.ar";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fundacionpatriciopataro.com";
 const OG_IMAGE = "/images/og-image.jpg";
 
 export const metadata: Metadata = {

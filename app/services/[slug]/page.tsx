@@ -81,7 +81,7 @@ export default async function ServicePage({ params }: PageProps) {
   const Icon = ICON_MAP[service.slug] ?? IconHeart;
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug);
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fpp.org.ar";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fundacionpatriciopataro.com";
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
