@@ -45,7 +45,6 @@ export default function ContactFormSection() {
       setErrors(newErrors);
       return;
     }
-    console.log("Formulario enviado:", formData);
     alert("Mensaje enviado correctamente. Te responderemos dentro de las 48 horas hábiles.");
     setFormData({ name: "", email: "", reason: "", message: "" });
     setErrors({});

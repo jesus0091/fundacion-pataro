@@ -13,7 +13,7 @@ import WhoWeAccompanySection from "@/components/sections/home/WhoWeAccompanySect
 export const metadata: Metadata = {
   title: "Inicio | Fundación Patricio Pataro – Salud, Formación e Innovación Médica",
   description:
-    "Fundación Patricio Pataro impulsa la excelencia médica en Argentina con becas para médicos, capacitación continua, investigación científica y gestión de centros asistenciales sin fines de lucro.",
+    "Fundación Patricio Pataro impulsa la excelencia médica en Argentina mediante becas, capacitación continua, investigación científica y gestión asistencial.",
   openGraph: {
     title: "Fundación Patricio Pataro – Innovación y cuidado para una vida más saludable",
     description:
@@ -22,9 +22,11 @@ export const metadata: Metadata = {
     url: "/",
   },
   twitter: {
+    card: "summary_large_image",
     title: "Fundación Patricio Pataro – Salud, Formación e Innovación Médica",
     description:
       "Becas, capacitación, investigación médica y gestión asistencial sin fines de lucro en Argentina.",
+    images: ["/images/og-image.webp"],
   },
 };
 

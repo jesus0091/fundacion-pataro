@@ -115,7 +115,6 @@ export default function AboutDifferentiatorsSection() {
     >
       <div className="max-w-5xl mx-auto px-8 sm:px-6">
 
-        {/* Header */}
         <div data-heading className="flex flex-col items-center text-center gap-3 mb-16 lg:mb-24">
           <Label variant="secondary">Nuestros diferenciales</Label>
           <H2
@@ -127,11 +126,9 @@ export default function AboutDifferentiatorsSection() {
           </H2>
         </div>
 
-        {/* Strips */}
         <div className="flex flex-col">
           {ITEMS.map((item, i) => (
             <div key={item.number}>
-              {/* Línea superior */}
               <div
                 data-line
                 className="h-px bg-[#DDE8F8] w-full"
@@ -141,14 +138,12 @@ export default function AboutDifferentiatorsSection() {
                 data-strip
                 className="group grid grid-cols-[auto_1fr] sm:grid-cols-[120px_1fr] lg:grid-cols-[160px_1fr] items-center gap-8 lg:gap-16 py-10 lg:py-14"
               >
-                {/* Número grande en primary */}
                 <div data-num className="flex-shrink-0">
                   <span className="font-serif text-6xl sm:text-7xl lg:text-8xl font-bold text-primary leading-none tabular-nums">
                     {item.number}
                   </span>
                 </div>
 
-                {/* Contenido */}
                 <div data-content className="flex items-start gap-5 lg:gap-8">
                   <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-white shadow-sm flex items-center justify-center flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110">
                     <item.Icon className="w-6 h-6 lg:w-7 lg:h-7 text-primary" stroke={1.5} aria-hidden />
@@ -164,7 +159,6 @@ export default function AboutDifferentiatorsSection() {
                 </div>
               </div>
 
-              {/* Línea inferior solo en el último */}
               {i === ITEMS.length - 1 && (
                 <div data-line className="h-px bg-[#DDE8F8] w-full" />
               )}

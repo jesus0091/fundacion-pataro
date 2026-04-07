@@ -1,0 +1,22 @@
+{
+  "name": "Fundación Patricio Pataro",
+  "short_name": "FPP",
+  "description": "Fundación sin fines de lucro dedicada a formación médica, investigación y gestión asistencial en Argentina.",
+  "start_url": "/",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0B5ED7",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

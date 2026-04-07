@@ -68,7 +68,6 @@ export default function AboutPrinciplesSection() {
     }
 
     cards.forEach((card, i) => {
-      // Par: entra desde la izquierda. Impar: desde la derecha
       const xFrom = i % 2 === 0 ? -50 : 50;
       gsap.set(card, { opacity: 0, y: 40, scale: 0.96 });
       ScrollTrigger.create({
@@ -85,7 +84,6 @@ export default function AboutPrinciplesSection() {
             delay: (i % 2) * 0.12,
           }),
       });
-      // El número watermark tiene su propia animación
       const numEl = card.querySelector<HTMLElement>("[data-number]");
       if (numEl) {
         gsap.set(numEl, { opacity: 0, x: xFrom * 0.5 });
@@ -137,7 +135,6 @@ export default function AboutPrinciplesSection() {
               data-card
               className="relative overflow-hidden rounded-2xl bg-[#F8FAFF] p-8 lg:p-10 flex flex-col gap-5"
             >
-              {/* Número watermark */}
               <span
                 data-number
                 className="absolute -top-3 -right-2 font-serif text-[96px] lg:text-[120px] font-bold text-[#E4ECFB] leading-none select-none pointer-events-none"
@@ -146,12 +143,10 @@ export default function AboutPrinciplesSection() {
                 {item.number}
               </span>
 
-              {/* Ícono */}
               <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center flex-shrink-0 relative z-10">
                 <item.Icon className="w-6 h-6 text-primary" stroke={1.5} aria-hidden />
               </div>
 
-              {/* Texto */}
               <div className="flex flex-col gap-2 relative z-10">
                 <h3 className="font-sans text-lg sm:text-xl font-bold text-[#1F2933]">
                   {item.title}

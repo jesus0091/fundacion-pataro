@@ -58,9 +58,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ],
     },
     twitter: {
+      card: "summary_large_image",
       title: `${service.title} | Fundación Patricio Pataro`,
       description: service.shortDescription,
-      images: [service.image],
+      images: [
+        {
+          url: service.image,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} – Fundación Patricio Pataro`,
+        },
+      ],
     },
   };
 }
@@ -73,23 +81,41 @@ export default async function ServicePage({ params }: PageProps) {
   const Icon = ICON_MAP[service.slug] ?? IconHeart;
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug);
 
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fpp.org.ar";
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "/" },
-      { "@type": "ListItem", position: 2, name: "Programas y Servicios", item: "/services" },
-      { "@type": "ListItem", position: 3, name: service.title, item: `/services/${service.slug}` },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Programas y Servicios", item: `${SITE_URL}/services` },
+      { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
     ],
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.shortDescription,
+    image: `${SITE_URL}${service.image}`,
+    url: `${SITE_URL}/services/${service.slug}`,
+    areaServed: { "@type": "Country", name: "Argentina" },
+    availableLanguage: "es",
+    serviceType: service.title,
+    provider: {
+      "@type": "NGO",
+      name: "Fundación Patricio Pataro",
+      url: SITE_URL,
+    },
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, serviceSchema]) }}
       />
-      {/* Hero */}
       <section
         className="relative pt-28 pb-0 lg:pt-32 overflow-hidden"
         aria-labelledby="service-heading"
@@ -134,7 +160,6 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Descripción + Beneficios */}
       <section
         className="py-12 sm:py-16 lg:py-24 bg-white"
         aria-labelledby="service-detail-heading"
@@ -158,7 +183,6 @@ export default async function ServicePage({ params }: PageProps) {
               ))}
             </AnimatedSection>
 
-            {/* A quién va dirigido */}
             <AnimatedSection className="mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -181,7 +205,6 @@ export default async function ServicePage({ params }: PageProps) {
             </AnimatedSection>
           </div>
 
-          {/* Sidebar */}
           <aside className="lg:col-span-5 flex flex-col gap-6" aria-label="Beneficios clave">
             <AnimatedSection delay={0.1}>
               <div className="bg-gradient-to-br from-[#F0F6FE] to-[#E8EFFE] rounded-2xl p-8 lg:p-10">
@@ -211,7 +234,6 @@ export default async function ServicePage({ params }: PageProps) {
               </div>
             </AnimatedSection>
 
-            {/* Resultados */}
             <AnimatedSection delay={0.2}>
               <div className="rounded-2xl border border-[#E8EEFE] p-8">
                 <div className="flex items-center gap-3 mb-4">
@@ -239,7 +261,6 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Sub-programas */}
       <section
         className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFF]"
         aria-labelledby="subprograms-heading"
@@ -289,7 +310,6 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Cómo participar */}
       <section
         className="py-12 sm:py-16 lg:py-24 bg-white"
         aria-labelledby="how-to-heading"
@@ -327,7 +347,6 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Otros programas */}
       <section
         className="py-12 sm:py-16 lg:py-20 bg-[#F0F6FE]"
         aria-labelledby="other-services-heading"

@@ -35,7 +35,7 @@ export const SERVICES: ServiceItem[] = [
       "Trabajamos en estrecha colaboración con instituciones académicas de referencia nacional e internacional para ofrecer becas de residencia, programas de especialización y cursos de actualización que se adaptan a las necesidades reales del sistema de salud argentino.",
       "Además de la formación formal, apostamos al aprendizaje práctico y la mentoría como herramientas clave. Cada profesional que transita nuestros programas cuenta con el acompañamiento de especialistas con trayectoria, que transmiten no solo conocimiento técnico sino también criterio clínico y vocación de servicio.",
     ],
-    image: "/images/service-1.png",
+    image: "/images/service-1.webp",
     benefits: [
       "Becas completas y parciales para residentes y especialistas",
       "Acceso a programas de formación continua acreditados",
@@ -113,7 +113,7 @@ export const SERVICES: ServiceItem[] = [
       "Apoyamos proyectos de investigación aplicada en áreas estratégicas como cardiología, oncología, infectología y medicina de urgencias, con especial énfasis en estudios que tengan potencial de impacto directo en la calidad de atención al paciente en el contexto local.",
       "Nuestros eventos académicos —congresos, simposios y ateneos— son espacios de encuentro entre la evidencia científica y la realidad clínica, donde investigadores, especialistas y médicos de guardia comparten hallazgos, debaten protocolos y construyen redes de colaboración que perduran más allá del evento.",
     ],
-    image: "/images/service-2.png",
+    image: "/images/service-2.webp",
     benefits: [
       "Financiamiento de proyectos de investigación aplicada",
       "Organización de congresos y simposios con disertantes internacionales",
@@ -190,7 +190,7 @@ export const SERVICES: ServiceItem[] = [
       "Desarrollamos y administramos centros médicos y quirúrgicos con vocación de servicio público, integrando estándares internacionales de calidad asistencial con un enfoque profundamente humanista. Cada proceso, cada protocolo y cada decisión administrativa están orientados al bienestar del paciente.",
       "Trabajamos con criterios de mejora continua y auditamos permanentemente nuestros procesos para asegurar que la atención brindada en nuestros centros esté siempre a la altura de lo que cada paciente merece, sin importar su cobertura médica ni su situación socioeconómica.",
     ],
-    image: "/images/service-3.png",
+    image: "/images/service-3.webp",
     benefits: [
       "Atención médica de calidad sin importar la situación económica",
       "Administración con estándares internacionales de calidad",
@@ -266,7 +266,7 @@ export const SERVICES: ServiceItem[] = [
       "Nuestra área de Infraestructura Médica trabaja para cerrar esa brecha: financiamos la adquisición de equipos de diagnóstico por imágenes, modernizamos laboratorios clínicos e instalamos tecnología quirúrgica de última generación en instituciones que, por sus propios medios, no podrían acceder a ella.",
       "Cada inversión en infraestructura es una decisión estratégica que multiplica su impacto: un equipo de resonancia magnética instalado en un hospital del interior beneficia no solo a los pacientes actuales, sino a generaciones de personas que accederán a diagnósticos más precisos y tratamientos más efectivos.",
     ],
-    image: "/images/service-4.png",
+    image: "/images/service-4.webp",
     benefits: [
       "Equipamiento de diagnóstico por imágenes de alta resolución",
       "Modernización de quirófanos con tecnología de última generación",
@@ -343,7 +343,7 @@ export const SERVICES: ServiceItem[] = [
       "Nuestro programa de Impacto Social y Prevención lleva la salud directamente a las comunidades: organizamos jornadas de chequeo gratuito, formamos a personas comunes en reanimación cardiopulmonar (RCP) y uso de desfibriladores (DEA), y desarrollamos campañas de concientización sobre los principales factores de riesgo para la salud en Argentina.",
       "Trabajamos junto a escuelas, empresas, clubes y organizaciones sociales para construir comunidades más preparadas, más conscientes y más saludables. Porque la salud no empieza en el hospital: empieza en la educación, en la prevención y en la capacidad de actuar en el momento crítico.",
     ],
-    image: "/images/service-5.png",
+    image: "/images/service-5.webp",
     benefits: [
       "Cursos de RCP y DEA para personas sin formación médica",
       "Jornadas de chequeo preventivo gratuitas en la comunidad",

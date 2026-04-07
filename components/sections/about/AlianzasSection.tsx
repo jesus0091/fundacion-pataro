@@ -110,7 +110,6 @@ export default function AlianzasSection() {
       <div className="max-w-7xl mx-auto px-8 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start">
 
-          {/* Columna izquierda: header sticky */}
           <div data-header className="lg:sticky lg:top-28 flex flex-col gap-5">
             <Label variant="primaryTight">Trabajo colaborativo</Label>
             <H2
@@ -125,7 +124,6 @@ export default function AlianzasSection() {
             </P>
           </div>
 
-          {/* Columna derecha: lista compact */}
           <div className="flex flex-col gap-4">
             {ALIANZAS.map((alianza, i) => (
               <article

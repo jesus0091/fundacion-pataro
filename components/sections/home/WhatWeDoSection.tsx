@@ -32,7 +32,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Formamos y acompañamos a médicos residentes y profesionales de la salud, facilitando becas, programas y desarrollo continuo.",
     href: "/services/capacitacion-y-becas",
-    imageSrc: "/images/service-1.png",
+    imageSrc: "/images/service-1.webp",
     icon: <IconSchool className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -40,7 +40,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Impulsamos el intercambio científico mediante congresos, simposios y ateneos, y apoyamos proyectos de investigación.",
     href: "/services/investigacion-y-eventos-academicos",
-    imageSrc: "/images/service-2.png",
+    imageSrc: "/images/service-2.webp",
     icon: <IconMicroscope className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -48,7 +48,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Desarrollamos y administramos centros médicos y quirúrgicos, brindando atención directa de calidad.",
     href: "/services/gestion-asistencial",
-    imageSrc: "/images/service-3.png",
+    imageSrc: "/images/service-3.webp",
     icon: <IconBuildingHospital className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -56,7 +56,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Invertimos en equipamiento médico de última generación y en la modernización de instalaciones.",
     href: "/services/infraestructura-medica",
-    imageSrc: "/images/service-4.png",
+    imageSrc: "/images/service-4.webp",
     icon: <IconSettings className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {
@@ -64,7 +64,7 @@ const PROGRAMS: WhatWeDoCardProps[] = [
     description:
       "Desarrollamos campañas benéficas, acciones de salud preventiva y programas de concientización.",
     href: "/services/impacto-social-y-prevencion",
-    imageSrc: "/images/service-5.png",
+    imageSrc: "/images/service-5.webp",
     icon: <IconHeart className="w-6 h-6" stroke={1.5} aria-hidden />,
   },
   {

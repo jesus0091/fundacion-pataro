@@ -42,7 +42,6 @@ export default function Footer({
             <div className="bg-black rounded-3xl">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 pb-8 pt-14">
 
-                    {/* Fila superior: logo + redes */}
                     <div className="flex items-center justify-between gap-6 pb-8 border-b border-white/10">
                         <FirmaLogo
                             color="white"
@@ -55,7 +54,7 @@ export default function Footer({
                                 href="https://www.instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-white/70 transition hover:bg-white/10 hover:text-white"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-white/85 transition hover:bg-white/10 hover:text-white"
                                 aria-label="Instagram"
                             >
                                 <IconBrandInstagram className="h-4 w-4" stroke={1.5} aria-hidden />
@@ -64,7 +63,7 @@ export default function Footer({
                                 href="https://www.linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-white/70 transition hover:bg-white/10 hover:text-white"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-white/85 transition hover:bg-white/10 hover:text-white"
                                 aria-label="LinkedIn"
                             >
                                 <IconBrandLinkedin className="h-4 w-4" stroke={1.5} aria-hidden />
@@ -74,14 +73,12 @@ export default function Footer({
 
                     <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-16 py-10 border-b border-white/10">
 
-                        {/* Col 1: Descripción */}
                         <div>
                             <p className="text-neutral-400 text-sm leading-relaxed max-w-xs">
                                 Impulsamos la excelencia médica a través de la educación continua, la investigación científica y la innovación tecnológica aplicada al sistema de salud.
                             </p>
                         </div>
 
-                        {/* Col 2: Navegación */}
                         <div>
                             <h4 className="text-sm font-semibold text-white mb-5">
                                 Navegación
@@ -94,7 +91,6 @@ export default function Footer({
                             </ul>
                         </div>
 
-                        {/* Col 3: Programas */}
                         <div>
                             <h4 className="text-sm font-semibold text-white mb-5">
                                 Programas
@@ -109,7 +105,6 @@ export default function Footer({
                             </ul>
                         </div>
 
-                        {/* Col 4: Contacto */}
                         <div>
                             <h4 className="text-sm font-semibold text-white mb-5">
                                 Contacto
@@ -129,7 +124,7 @@ export default function Footer({
                             © {currentYear} Fundación Patricio Pataro. Todos los derechos reservados.
                         </p>
                         <p className="text-neutral-600 text-xs">
-                            CUIT 30-71753023-4
+                            CUIT 30-71904644-0
                         </p>
                     </div>
                 </div>

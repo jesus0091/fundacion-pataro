@@ -16,8 +16,6 @@ export default function Hero() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  // useLayoutEffect: se ejecuta de forma sincrónica antes del primer paint
-  // Oculta los elementos para evitar cualquier flash de contenido visible
   useLayoutEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -65,9 +63,6 @@ export default function Hero() {
       }
     };
 
-    // Siempre espera splash:done.
-    // En visitas de retorno el SplashScreen lo dispara via rAF (~16ms), imperceptible.
-    // Esto elimina la race condition donde Hero animaba bajo el overlay del splash.
     window.addEventListener("splash:done", runAnimation, { once: true });
     return () => window.removeEventListener("splash:done", runAnimation);
   }, []);
@@ -137,7 +132,7 @@ export default function Hero() {
           </div>
           <div ref={imageRef} className="flex flex-1 w-full order-last lg:order-none">
             <Image
-              src="/images/img-hero.png"
+              src="/images/img-hero.webp"
               alt="Profesional médico representando la misión de Fundación Patricio Pataro"
               fill
               className="object-contain drop-shadow-md !static w-full"

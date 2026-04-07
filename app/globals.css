@@ -3,29 +3,21 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --font-inter: "Inter", system-ui, sans-serif;
-    --font-source-serif: "Source Serif 4", Georgia, serif;
-  }
-
   * {
     @apply border-neutral-light;
   }
 
-  /* Focus visible global — accesibilidad teclado */
   :focus-visible {
     outline: 2px solid theme("colors.primary.DEFAULT");
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  /* Selección de texto en brand color */
   ::selection {
     background-color: theme("colors.primary.DEFAULT");
     color: #ffffff;
   }
 
-  /* Suaviza el render de imágenes */
   img {
     image-rendering: auto;
   }
@@ -104,13 +96,11 @@
 
 }
 
-/* Marquee keyframe (usado por BrandingCarousel) */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-25%); }
 }
 
-/* Aurora glow keyframes (usado por AuroraBackground) */
 @keyframes aurora-float1 {
   0%   { transform: translate(-20%, -20%) scale(1); }
   50%  { transform: translate(15%, 10%) scale(1.15); }

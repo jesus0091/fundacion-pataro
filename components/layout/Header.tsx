@@ -22,7 +22,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Blanco solo en páginas individuales de servicio sin scroll
   const isServiceDetail = /^\/services\/.+/.test(pathname);
   const isTransparent = !isScrolled;
   const useWhite = isServiceDetail && isTransparent;
@@ -68,7 +67,6 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop: links */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <ul className="flex items-center gap-6 xl:gap-8">
               {NAV_LINKS.map(({ href, label }) => {
@@ -103,7 +101,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile: hamburger */}
           <button
             type="button"
             onClick={() => setIsMenuOpen(true)}
@@ -120,7 +117,6 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Mobile menu overlay */}
       <div
         className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"

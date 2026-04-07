@@ -4,10 +4,26 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import PageTransitionOverlay from "@/components/ui/PageTransitionOverlay";
 import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, Source_Serif_4 } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-source-serif",
+  display: "swap",
+});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fpp.org.ar";
-const OG_IMAGE = "/images/bg-hero.webp";
+const OG_IMAGE = "/images/og-image.webp";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -29,6 +45,7 @@ export const metadata: Metadata = {
     "Fundación Patricio Pataro",
   ],
   authors: [{ name: "Fundación Patricio Pataro", url: SITE_URL }],
+  manifest: "/manifest.json",
   openGraph: {
     siteName: "Fundación Patricio Pataro",
     locale: "es_AR",
@@ -53,6 +70,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  colorScheme: "light",
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "NGO",
@@ -74,9 +99,10 @@ const organizationSchema = {
     contactType: "customer service",
     availableLanguage: "Spanish",
   },
+  taxID: "30-71904644-0",
   sameAs: [
-    "https://www.instagram.com",
-    "https://www.linkedin.com",
+    "https://www.instagram.com/fundacionpatriciopataro",
+    "https://www.linkedin.com/company/fundacionpatriciopataro",
   ],
 };
 
@@ -86,15 +112,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="scrollbar-hide">
+    <html lang="es" className={`${inter.variable} ${sourceSerif.variable} scrollbar-hide`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font -- Fuentes en root layout (App Router), aplican a toda la app */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

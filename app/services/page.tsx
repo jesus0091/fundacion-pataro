@@ -11,7 +11,7 @@ import ServicesPillarsSection from "@/components/sections/services/ServicesPilla
 export const metadata: Metadata = {
   title: "Programas y Servicios",
   description:
-    "Explorá los 6 programas de Fundación Patricio Pataro: becas y capacitación médica, investigación científica, gestión asistencial, infraestructura médica, impacto social y cursos de RCP y DEA en Argentina.",
+    "Explorá los 6 programas de Fundación Patricio Pataro: becas médicas, capacitación, investigación, gestión asistencial, infraestructura y RCP/DEA.",
   openGraph: {
     title: "Programas y Servicios | Fundación Patricio Pataro",
     description:

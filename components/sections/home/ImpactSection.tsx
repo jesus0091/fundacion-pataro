@@ -109,12 +109,6 @@ function StatCard({
             {prefix}
           </span>
         )}
-        {/*
-          Wrapper relativo con ghost invisible:
-          el ghost siempre ocupa el espacio del número final,
-          el número animado se superpone en absoluto.
-          Así la card nunca cambia de tamaño durante el conteo.
-        */}
         <span className="relative inline-flex items-center justify-center">
           <span
             aria-hidden

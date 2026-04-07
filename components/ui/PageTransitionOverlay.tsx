@@ -13,7 +13,6 @@ export default function PageTransitionOverlay() {
   const isNavigating = useRef(false);
   const isFirstRender = useRef(true);
 
-  // Al cambiar el pathname la nueva página ya está lista → animar overlay hacia arriba
   useEffect(() => {
     const overlay = overlayRef.current;
     const logo = logoRef.current;
@@ -21,12 +20,10 @@ export default function PageTransitionOverlay() {
 
     if (isFirstRender.current) {
       isFirstRender.current = false;
-      // Estado inicial: oculto debajo de la pantalla
       gsap.set(overlay, { yPercent: 100 });
       return;
     }
 
-    // Pequeño delay para asegurar que el nuevo contenido haya pintado
     const t = setTimeout(() => {
       gsap.timeline()
         .to(logo, { opacity: 0, y: -8, duration: 0.2, ease: "power2.in" }, 0)
@@ -35,7 +32,6 @@ export default function PageTransitionOverlay() {
           duration: 0.55,
           ease: "power3.inOut",
           onComplete: () => {
-            // Resetear para la próxima transición
             gsap.set(overlay, { yPercent: 100 });
             if (logo) gsap.set(logo, { opacity: 0, y: 8 });
             isNavigating.current = false;
@@ -46,7 +42,6 @@ export default function PageTransitionOverlay() {
     return () => clearTimeout(t);
   }, [pathname]);
 
-  // Interceptor global de clicks en links internos
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (isNavigating.current) return;
@@ -57,7 +52,6 @@ export default function PageTransitionOverlay() {
       const href = anchor.getAttribute("href");
       if (!href) return;
 
-      // Ignorar links externos, mailto, tel, anclas y misma página
       if (
         href.startsWith("http") ||
         href.startsWith("mailto") ||
@@ -66,7 +60,6 @@ export default function PageTransitionOverlay() {
         href === pathname
       ) return;
 
-      // Respetar Ctrl/Cmd/Shift+click (abrir en nueva pestaña, etc.)
       if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
       if (anchor.target === "_blank") return;
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { H1, H3, H4, Label, P } from "@/components/ui/Text";
+import { H1, H2, H3, Label, P } from "@/components/ui/Text";
 import { IconClock, IconMail, IconMapPin } from "@tabler/icons-react";
 
 import { Button } from "@/components/ui/Button";
@@ -124,7 +124,6 @@ export default function ContactPage() {
             setErrors(newErrors);
             return;
         }
-        console.log("Formulario enviado:", formData);
         alert(
             "Mensaje enviado correctamente. Te responderemos dentro de las 48 horas hábiles.",
         );
@@ -176,7 +175,7 @@ export default function ContactPage() {
                                         />
                                     )}
                                     <div>
-                                        <H4>{item.title}</H4>
+                                        <H3 className="text-base font-semibold">{item.title}</H3>
                                         {"href" in item && item.href ? (
                                             <a
                                                 href={item.href}
@@ -223,6 +222,7 @@ export default function ContactPage() {
 
                     <div ref={rightRef} className="bg-white rounded-2xl p-6 sm:p-8">
                         <div className="mb-6">
+                            <H2 className="text-xl sm:text-2xl">Envianos tu consulta</H2>
                             <P variant="body" className="mt-2">
                                 Completá el formulario y nos comunicaremos a la
                                 brevedad.
