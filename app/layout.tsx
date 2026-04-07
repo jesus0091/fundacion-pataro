@@ -23,7 +23,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fpp.org.ar";
-const OG_IMAGE = "/images/og-image.webp";
+const OG_IMAGE = "/images/og-image.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

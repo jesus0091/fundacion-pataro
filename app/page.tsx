@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Fundación Patricio Pataro – Salud, Formación e Innovación Médica",
     description:
       "Becas, capacitación, investigación médica y gestión asistencial sin fines de lucro en Argentina.",
-    images: ["/images/og-image.webp"],
+    images: ["/images/og-image.jpg"],
   },
 };
 
