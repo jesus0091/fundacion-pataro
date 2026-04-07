@@ -104,8 +104,10 @@ export default function ContactPage() {
         message: "",
     });
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const newErrors: Record<string, string> = {};
         if (!formData.name.trim()) newErrors.name = "El nombre es requerido";
@@ -124,11 +126,27 @@ export default function ContactPage() {
             setErrors(newErrors);
             return;
         }
-        alert(
-            "Mensaje enviado correctamente. Te responderemos dentro de las 48 horas hábiles.",
-        );
-        setFormData({ name: "", email: "", reason: "", message: "" });
-        setErrors({});
+
+        setIsSubmitting(true);
+        setSubmitStatus("idle");
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            if (!res.ok) throw new Error();
+
+            setSubmitStatus("success");
+            setFormData({ name: "", email: "", reason: "", message: "" });
+            setErrors({});
+        } catch {
+            setSubmitStatus("error");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (
@@ -280,8 +298,19 @@ export default function ContactPage() {
                                     podremos asistirte.
                                 </p>
                             </div>
-                            <Button type="submit">
-                                Enviar Mensaje
+                            {submitStatus === "success" && (
+                                <div className="rounded-xl bg-green-50 border border-green-200 p-4 text-sm text-green-800">
+                                    Mensaje enviado correctamente. Te responderemos dentro de las 48 horas hábiles.
+                                </div>
+                            )}
+                            {submitStatus === "error" && (
+                                <div className="rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-800">
+                                    Ocurrió un error al enviar el mensaje. Por favor intentá de nuevo.
+                                </div>
+                            )}
+                            <Button type="submit" disabled={isSubmitting}>
+                                {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                                {!isSubmitting && (
                                 <svg
                                     width="16"
                                     height="16"
@@ -297,6 +326,7 @@ export default function ContactPage() {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
+                                )}
                             </Button>
                         </form>
                         <p className="mt-6 text-sm text-[#666] leading-relaxed">
