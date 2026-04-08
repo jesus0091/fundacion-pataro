@@ -125,6 +125,9 @@ export default function ContactPage() {
         } else if (formData.message.trim().length < MIN_MESSAGE_LENGTH) {
             newErrors.message = `Mínimo ${MIN_MESSAGE_LENGTH} caracteres`;
         }
+        if (!turnstileToken) {
+            newErrors.turnstile = "Completá la verificación de seguridad";
+        }
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
@@ -132,11 +135,6 @@ export default function ContactPage() {
 
         setIsSubmitting(true);
         setSubmitStatus("idle");
-
-        if (!turnstileToken) {
-            setErrors((prev) => ({ ...prev, turnstile: "Completá la verificación de seguridad" }));
-            return;
-        }
 
         try {
             const res = await fetch("/api/contact", {
