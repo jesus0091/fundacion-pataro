@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { H1, H2, H3, Label, P } from "@/components/ui/Text";
 import { IconClock, IconMail, IconMapPin } from "@tabler/icons-react";
-import { Turnstile } from "@marsidev/react-turnstile";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 import { Button } from "@/components/ui/Button";
 import ContactReasonSelect from "@/components/contact/ContactReasonSelect";
@@ -108,7 +108,7 @@ export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
     const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-    const turnstileRef = useRef<{ reset: () => void }>(null);
+    const turnstileRef = useRef<TurnstileInstance>(null);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
