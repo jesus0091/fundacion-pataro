@@ -3,7 +3,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { H1, H2, H3, Label, P } from "@/components/ui/Text";
 import { IconClock, IconMail, IconMapPin } from "@tabler/icons-react";
-import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 import { Button } from "@/components/ui/Button";
 import ContactReasonSelect from "@/components/contact/ContactReasonSelect";
@@ -107,8 +106,6 @@ export default function ContactPage() {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-    const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-    const turnstileRef = useRef<TurnstileInstance>(null);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -125,9 +122,6 @@ export default function ContactPage() {
         } else if (formData.message.trim().length < MIN_MESSAGE_LENGTH) {
             newErrors.message = `Mínimo ${MIN_MESSAGE_LENGTH} caracteres`;
         }
-        if (!turnstileToken) {
-            newErrors.turnstile = "Completá la verificación de seguridad";
-        }
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
@@ -140,7 +134,7 @@ export default function ContactPage() {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...formData, turnstileToken }),
+                body: JSON.stringify(formData),
             });
 
             if (!res.ok) throw new Error();
@@ -148,8 +142,6 @@ export default function ContactPage() {
             setSubmitStatus("success");
             setFormData({ name: "", email: "", reason: "", message: "" });
             setErrors({});
-            setTurnstileToken(null);
-            turnstileRef.current?.reset();
         } catch {
             setSubmitStatus("error");
         } finally {
@@ -305,18 +297,6 @@ export default function ContactPage() {
                                     Cuanto más detallado sea tu mensaje, mejor
                                     podremos asistirte.
                                 </p>
-                            </div>
-                            <div>
-                                <Turnstile
-                                    ref={turnstileRef}
-                                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-                                    onSuccess={setTurnstileToken}
-                                    onExpire={() => setTurnstileToken(null)}
-                                    options={{ theme: "light", language: "es" }}
-                                />
-                                {errors.turnstile && (
-                                    <p className="mt-1 text-sm text-red-600">{errors.turnstile}</p>
-                                )}
                             </div>
                             {submitStatus === "success" && (
                                 <div className="rounded-xl bg-green-50 border border-green-200 p-4 text-sm text-green-800">

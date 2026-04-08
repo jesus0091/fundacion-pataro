@@ -13,31 +13,10 @@ const REASON_LABELS: Record<string, string> = {
   general: "Consulta general",
 };
 
-async function verifyTurnstile(token: string): Promise<boolean> {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-  if (!secret) return false;
-
-  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ secret, response: token }),
-  });
-
-  const data = await res.json();
-  return data.success === true;
-}
-
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, reason, message, turnstileToken } = body;
-
-    if (!turnstileToken || !(await verifyTurnstile(turnstileToken))) {
-      return NextResponse.json(
-        { error: "Verificación de seguridad fallida. Intentá de nuevo." },
-        { status: 403 },
-      );
-    }
+    const { name, email, reason, message } = body;
 
     if (!name?.trim() || !email?.trim() || !reason || !message?.trim()) {
       return NextResponse.json(
