@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-DNS-Prefetch-Control", value: "on" },
+          {
+            key: "Content-Security-Policy",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; frame-src https://challenges.cloudflare.com https://www.google.com; connect-src 'self' https://challenges.cloudflare.com",
+          },
         ],
       },
     ];
