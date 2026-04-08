@@ -95,11 +95,7 @@ export async function POST(req: Request) {
             </p>
           </div>
           <div style="border-top: 1px solid #e5e7eb; padding-top: 16px; margin-top: 24px;">
-            <p style="font-size: 13px; color: #999; margin: 0;">
-              Si tenés alguna consulta urgente, podés escribirnos directamente a
-              <a href="mailto:info@fpp.org.ar" style="color: #0B5ED7;">info@fpp.org.ar</a>
-            </p>
-            <p style="font-size: 12px; color: #bbb; margin: 12px 0 0;">
+            <p style="font-size: 12px; color: #bbb; margin: 0;">
               Este es un mensaje automático, por favor no respondas a este email.
             </p>
           </div>
